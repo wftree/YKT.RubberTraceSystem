@@ -9,6 +9,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "YKT.RubberTraceSystem.Datab
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YKT.RubberTraceSystem.Data", "YKT.RubberTraceSystem.Data\YKT.RubberTraceSystem.Data.csproj", "{F4697BD7-2D0E-4F4A-AC37-2363F2AB11AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YKT.RubberTraceSystem.Android", "YKT.RubberTraceSystem.Android\YKT.RubberTraceSystem.Android.csproj", "{3AC4CE01-D813-4BFB-9B0A-5871859AEDB5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,12 @@ Global
 		{F4697BD7-2D0E-4F4A-AC37-2363F2AB11AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4697BD7-2D0E-4F4A-AC37-2363F2AB11AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4697BD7-2D0E-4F4A-AC37-2363F2AB11AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AC4CE01-D813-4BFB-9B0A-5871859AEDB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AC4CE01-D813-4BFB-9B0A-5871859AEDB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AC4CE01-D813-4BFB-9B0A-5871859AEDB5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3AC4CE01-D813-4BFB-9B0A-5871859AEDB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AC4CE01-D813-4BFB-9B0A-5871859AEDB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AC4CE01-D813-4BFB-9B0A-5871859AEDB5}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
