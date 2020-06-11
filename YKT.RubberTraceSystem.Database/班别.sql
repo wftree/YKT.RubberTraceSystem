@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[班别]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT newid(), 
+    [班别] NCHAR(20) NOT NULL, 
+    [登记时间] DATETIME NOT NULL DEFAULT getdate(), 
+    [删除] BIT NOT NULL DEFAULT 0
+)

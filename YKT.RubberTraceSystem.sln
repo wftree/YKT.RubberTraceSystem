@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YKT.RubberTraceSystem.Windows", "YKT.RubberTraceSystem.Windows\YKT.RubberTraceSystem.Windows.csproj", "{D6F4B3F1-ACA0-4421-B770-82A2CF485CE7}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "YKT.RubberTraceSystem.Database", "YKT.RubberTraceSystem.Database\YKT.RubberTraceSystem.Database.sqlproj", "{FA3A5A68-1F78-4D5B-818C-28D3289051ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YKT.RubberTraceSystem.Data", "YKT.RubberTraceSystem.Data\YKT.RubberTraceSystem.Data.csproj", "{F4697BD7-2D0E-4F4A-AC37-2363F2AB11AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6F4B3F1-ACA0-4421-B770-82A2CF485CE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6F4B3F1-ACA0-4421-B770-82A2CF485CE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6F4B3F1-ACA0-4421-B770-82A2CF485CE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6F4B3F1-ACA0-4421-B770-82A2CF485CE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA3A5A68-1F78-4D5B-818C-28D3289051ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA3A5A68-1F78-4D5B-818C-28D3289051ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA3A5A68-1F78-4D5B-818C-28D3289051ED}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FA3A5A68-1F78-4D5B-818C-28D3289051ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA3A5A68-1F78-4D5B-818C-28D3289051ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA3A5A68-1F78-4D5B-818C-28D3289051ED}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F4697BD7-2D0E-4F4A-AC37-2363F2AB11AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4697BD7-2D0E-4F4A-AC37-2363F2AB11AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4697BD7-2D0E-4F4A-AC37-2363F2AB11AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4697BD7-2D0E-4F4A-AC37-2363F2AB11AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B5C336B8-080A-49EA-A94A-384627DF3A35}
+	EndGlobalSection
+EndGlobal

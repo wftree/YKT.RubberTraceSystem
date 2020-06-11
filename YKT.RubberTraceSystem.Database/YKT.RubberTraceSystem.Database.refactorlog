@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="dc246b2a-eff6-443f-9c71-01c377117a4f" ChangeDateTime="06/11/2020 10:24:36">
+    <Property Name="ElementName" Value="[dbo].[帘布入库].[胶料牌号]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[帘布入库]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="帘布代号" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c7844da1-1c65-455f-804c-e2d0e78b5cea" ChangeDateTime="06/11/2020 10:24:42">
+    <Property Name="ElementName" Value="[dbo].[帘布入库].[箱号]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[帘布入库]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="胶料" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="fe107c95-0535-4eb1-8061-d3a396446fa4" ChangeDateTime="06/11/2020 10:24:49">
+    <Property Name="ElementName" Value="[dbo].[帘布入库].[生产线号]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[帘布入库]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="帘布长度" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d054015a-f0ef-4722-b32f-3fef0f70e71a" ChangeDateTime="06/11/2020 10:25:17">
+    <Property Name="ElementName" Value="[dbo].[帘布入库].[批次号]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[帘布入库]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="有效日期" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8bf51fd6-0845-4cb3-875f-fad1d5ca5ba8" ChangeDateTime="06/11/2020 10:25:26">
+    <Property Name="ElementName" Value="[dbo].[帘布入库].[供应商产品代号]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[帘布入库]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="生产序号" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6b4d5270-5907-4592-a33e-4f775edb5ae5" ChangeDateTime="06/11/2020 10:27:12">
+    <Property Name="ElementName" Value="[dbo].[帘布流转].[胶料]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[帘布流转]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="产品编号" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0184be91-9545-479f-830b-990e8a4e43ef" ChangeDateTime="06/11/2020 10:27:17">
+    <Property Name="ElementName" Value="[dbo].[帘布流转].[帘布长度]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[帘布流转]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="宽度" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b5b53588-1abc-4ecc-ac69-4ab469c6ad14" ChangeDateTime="06/11/2020 10:27:32">
+    <Property Name="ElementName" Value="[dbo].[帘布流转].[生产序号]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[帘布流转]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="厚度" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e58c6d1e-5037-4087-8e11-5bc1ee19ed29" ChangeDateTime="06/11/2020 10:27:39">
+    <Property Name="ElementName" Value="[dbo].[帘布流转].[生产日期]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[帘布流转]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="作业员" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="78520953-896f-46c1-bee8-9c12b3f8097a" ChangeDateTime="06/11/2020 10:28:01">
+    <Property Name="ElementName" Value="[dbo].[帘布流转].[有效日期]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[帘布流转]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="帘布批号" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="aaa72a13-4c44-4220-af4a-890267511b28" ChangeDateTime="06/11/2020 10:31:22">
+    <Property Name="ElementName" Value="[dbo].[帘布流转].[重量]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[帘布流转]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="使用期限" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="96ec8651-ac3c-41a1-b813-4f0e946d26ce" ChangeDateTime="06/11/2020 10:44:39">
+    <Property Name="ElementName" Value="[dbo].[检验修边].[产品型号]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[检验修边]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="结果" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e3e850f4-37e7-47a3-a86f-1356077f3526" ChangeDateTime="06/11/2020 10:45:03">
+    <Property Name="ElementName" Value="[dbo].[检验修边].[生产机台]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[检验修边]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="处理方法" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1e64349e-be70-4a93-8a98-9dbb463ae350" ChangeDateTime="06/11/2020 10:45:21">
+    <Property Name="ElementName" Value="[dbo].[检验修边].[成型皮囊]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[检验修边]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="硫化皮囊" />
+  </Operation>
+</Operations>

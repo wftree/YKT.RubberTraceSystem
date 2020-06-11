@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[帘布流转]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT newid(), 
+    [帘布代号] NCHAR(200) NOT NULL, 
+    [产品编号] NCHAR(200) NOT NULL, 
+    [宽度] FLOAT NOT NULL, 
+    [厚度] FLOAT NOT NULL, 
+    [作业员] UNIQUEIDENTIFIER NOT NULL, 
+    [帘布批号] UNIQUEIDENTIFIER NOT NULL, 
+    [使用期限] DATETIME NOT NULL, 
+    [登记时间] DATETIME NOT NULL DEFAULT getdate(), 
+    [删除] BIT NOT NULL DEFAULT 0
+    CONSTRAINT [FK_帘布流转_员工] FOREIGN KEY (作业员) REFERENCES 员工(Id),
+    CONSTRAINT [FK_帘布流转_帘布入库] FOREIGN KEY (帘布批号) REFERENCES 帘布入库(Id)
+)
