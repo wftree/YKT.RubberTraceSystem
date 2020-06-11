@@ -37,7 +37,7 @@ namespace YKT.RubberTraceSystem.Windows
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnStaffPrintQR_Click(object sender, EventArgs e)
         {
 
         }
@@ -55,7 +55,7 @@ namespace YKT.RubberTraceSystem.Windows
             班别BindingSource.DataSource = classtype;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnStaffAdd_Click(object sender, EventArgs e)
         {
             using (TransactionScope scope = new TransactionScope())
             {
@@ -71,7 +71,7 @@ namespace YKT.RubberTraceSystem.Windows
             LoadData();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnStaffEdit_Click(object sender, EventArgs e)
         {
             using (TransactionScope scope = new TransactionScope())
             {

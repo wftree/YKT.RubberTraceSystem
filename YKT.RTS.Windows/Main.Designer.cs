@@ -42,7 +42,7 @@
             this.员工BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnStaffPrintQR = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
@@ -50,8 +50,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cbClassType = new System.Windows.Forms.ComboBox();
             this.cbDel = new System.Windows.Forms.CheckBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnStaffEdit = new System.Windows.Forms.Button();
+            this.btnStaffAdd = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -181,7 +181,7 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.pictureBox1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button1, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.btnStaffPrintQR, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 291);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -201,16 +201,16 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // btnStaffPrintQR
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(3, 297);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(288, 44);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "打印二维码";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnStaffPrintQR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnStaffPrintQR.Location = new System.Drawing.Point(3, 297);
+            this.btnStaffPrintQR.Name = "btnStaffPrintQR";
+            this.btnStaffPrintQR.Size = new System.Drawing.Size(288, 44);
+            this.btnStaffPrintQR.TabIndex = 1;
+            this.btnStaffPrintQR.Text = "打印二维码";
+            this.btnStaffPrintQR.UseVisualStyleBackColor = true;
+            this.btnStaffPrintQR.Click += new System.EventHandler(this.btnStaffPrintQR_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -223,8 +223,8 @@
             this.tableLayoutPanel3.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.cbClassType, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.cbDel, 1, 2);
-            this.tableLayoutPanel3.Controls.Add(this.button2, 0, 3);
-            this.tableLayoutPanel3.Controls.Add(this.button3, 1, 3);
+            this.tableLayoutPanel3.Controls.Add(this.btnStaffEdit, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.btnStaffAdd, 1, 3);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -301,27 +301,27 @@
             this.cbDel.Text = "删除标志位";
             this.cbDel.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnStaffEdit
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Location = new System.Drawing.Point(3, 108);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(141, 29);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "修改";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnStaffEdit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnStaffEdit.Location = new System.Drawing.Point(3, 108);
+            this.btnStaffEdit.Name = "btnStaffEdit";
+            this.btnStaffEdit.Size = new System.Drawing.Size(141, 29);
+            this.btnStaffEdit.TabIndex = 6;
+            this.btnStaffEdit.Text = "修改";
+            this.btnStaffEdit.UseVisualStyleBackColor = true;
+            this.btnStaffEdit.Click += new System.EventHandler(this.btnStaffEdit_Click);
             // 
-            // button3
+            // btnStaffAdd
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.Location = new System.Drawing.Point(150, 108);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(141, 29);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "新增";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnStaffAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnStaffAdd.Location = new System.Drawing.Point(150, 108);
+            this.btnStaffAdd.Name = "btnStaffAdd";
+            this.btnStaffAdd.Size = new System.Drawing.Size(141, 29);
+            this.btnStaffAdd.TabIndex = 7;
+            this.btnStaffAdd.Text = "新增";
+            this.btnStaffAdd.UseVisualStyleBackColor = true;
+            this.btnStaffAdd.Click += new System.EventHandler(this.btnStaffAdd_Click);
             // 
             // tabPage2
             // 
@@ -372,7 +372,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn 删除DataGridViewCheckBoxColumn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnStaffPrintQR;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbName;
@@ -380,8 +380,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbClassType;
         private System.Windows.Forms.CheckBox cbDel;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnStaffEdit;
+        private System.Windows.Forms.Button btnStaffAdd;
     }
 }
 
