@@ -76,14 +76,14 @@ namespace YKT.RubberTraceSystem.Android
         public bool OnNavigationItemSelected(IMenuItem item)
         {
             int id = item.ItemId;
-
+            DrawerLayout drawer;
             if (id == Resource.Id.nav_camera)
             {
-                // Handle the camera action
+                drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             }
             else if (id == Resource.Id.nav_gallery)
             {
-
+                
             }
             else if (id == Resource.Id.nav_slideshow)
             {
@@ -102,7 +102,7 @@ namespace YKT.RubberTraceSystem.Android
 
             }
 
-            DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+            drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             drawer.CloseDrawer(GravityCompat.Start);
             return true;
         }

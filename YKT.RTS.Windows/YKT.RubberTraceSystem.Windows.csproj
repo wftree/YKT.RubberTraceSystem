@@ -96,7 +96,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\YKT.RubberTraceSystem.Data\YKT.RubberTraceSystem.Data.csproj">
+    <ProjectReference Include="..\YKT.RTS.Data\YKT.RubberTraceSystem.Data.csproj">
       <Project>{f4697bd7-2d0e-4f4a-ac37-2363f2ab11ad}</Project>
       <Name>YKT.RubberTraceSystem.Data</Name>
     </ProjectReference>
