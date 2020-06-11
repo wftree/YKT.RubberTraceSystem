@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">YKT.RubberTraceSystem.Android</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">溢康通橡胶追踪系统</string>
+    <string name="navigation_drawer_open">打开导航</string>
+    <string name="navigation_drawer_close">关闭导航</string>
+    <string name="action_settings">设置</string>
 </resources>
