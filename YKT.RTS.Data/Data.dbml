@@ -27,8 +27,8 @@
       <Column Name="机台描述" Type="System.String" DbType="NChar(200)" CanBeNull="true" />
       <Column Name="登记时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="删除" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="机台_皮囊成型" Member="皮囊成型s" ThisKey="Id" OtherKey="生产机台" Type="皮囊成型" />
       <Association Name="机台_皮囊硫化" Member="皮囊硫化s" ThisKey="Id" OtherKey="生产机台" Type="皮囊硫化" />
+      <Association Name="机台_皮囊成型" Member="皮囊成型s" ThisKey="Id" OtherKey="生产机台" Type="皮囊成型" />
     </Type>
   </Table>
   <Table Name="dbo.检验修边" Member="检验修边s">
@@ -92,23 +92,6 @@
       <Association Name="帘布入库_帘布流转" Member="帘布流转s" ThisKey="Id" OtherKey="帘布批号" Type="帘布流转" />
     </Type>
   </Table>
-  <Table Name="dbo.皮囊成型" Member="皮囊成型s">
-    <Type Name="皮囊成型">
-      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="产品型号" Type="System.String" DbType="NChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="生产机台" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="作业员" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="帘布批号" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="胶片批号" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="登记时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="删除" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="皮囊成型_皮囊硫化" Member="皮囊硫化s" ThisKey="Id" OtherKey="成型皮囊" Type="皮囊硫化" />
-      <Association Name="机台_皮囊成型" Member="机台" ThisKey="生产机台" OtherKey="Id" Type="机台" IsForeignKey="true" />
-      <Association Name="帘布流转_皮囊成型" Member="帘布流转" ThisKey="帘布批号" OtherKey="Id" Type="帘布流转" IsForeignKey="true" />
-      <Association Name="橡胶薄片_皮囊成型" Member="橡胶薄片" ThisKey="胶片批号" OtherKey="Id" Type="橡胶薄片" IsForeignKey="true" />
-      <Association Name="员工_皮囊成型" Member="员工" ThisKey="作业员" OtherKey="Id" Type="员工" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.皮囊硫化" Member="皮囊硫化s">
     <Type Name="皮囊硫化">
       <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -122,9 +105,9 @@
       <Column Name="登记时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="删除" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="皮囊硫化_检验修边" Member="检验修边s" ThisKey="Id" OtherKey="硫化皮囊" Type="检验修边" />
-      <Association Name="皮囊成型_皮囊硫化" Member="皮囊成型" ThisKey="成型皮囊" OtherKey="Id" Type="皮囊成型" IsForeignKey="true" />
       <Association Name="机台_皮囊硫化" Member="机台" ThisKey="生产机台" OtherKey="Id" Type="机台" IsForeignKey="true" />
       <Association Name="员工_皮囊硫化" Member="员工" ThisKey="作业员" OtherKey="Id" Type="员工" IsForeignKey="true" />
+      <Association Name="皮囊成型_皮囊硫化" Member="皮囊成型" ThisKey="成型皮囊" OtherKey="Id" Type="皮囊成型" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.橡胶薄片" Member="橡胶薄片s">
@@ -138,7 +121,8 @@
       <Column Name="生产时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="登记时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="删除" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="橡胶薄片_皮囊成型" Member="皮囊成型s" ThisKey="Id" OtherKey="胶片批号" Type="皮囊成型" />
+      <Association Name="橡胶薄片_皮囊成型" Member="皮囊成型s" ThisKey="Id" OtherKey="内胶片批号" Type="皮囊成型" />
+      <Association Name="橡胶薄片_皮囊成型1" Member="皮囊成型s1" ThisKey="Id" OtherKey="外胶片批号" Type="皮囊成型" />
       <Association Name="胶料入库_橡胶薄片" Member="胶料入库" ThisKey="胶料批号" OtherKey="Id" Type="胶料入库" IsForeignKey="true" />
       <Association Name="员工_橡胶薄片" Member="员工" ThisKey="作业员" OtherKey="Id" Type="员工" IsForeignKey="true" />
     </Type>
@@ -152,10 +136,29 @@
       <Column Name="删除" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="员工_检验修边" Member="检验修边s" ThisKey="Id" OtherKey="检验员" Type="检验修边" />
       <Association Name="员工_帘布流转" Member="帘布流转s" ThisKey="Id" OtherKey="作业员" Type="帘布流转" />
-      <Association Name="员工_皮囊成型" Member="皮囊成型s" ThisKey="Id" OtherKey="作业员" Type="皮囊成型" />
       <Association Name="员工_皮囊硫化" Member="皮囊硫化s" ThisKey="Id" OtherKey="作业员" Type="皮囊硫化" />
       <Association Name="员工_橡胶薄片" Member="橡胶薄片s" ThisKey="Id" OtherKey="作业员" Type="橡胶薄片" />
+      <Association Name="员工_皮囊成型" Member="皮囊成型s" ThisKey="Id" OtherKey="作业员" Type="皮囊成型" />
       <Association Name="班别_员工" Member="班别1" ThisKey="班别" OtherKey="Id" Type="班别" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.皮囊成型" Member="皮囊成型s">
+    <Type Name="皮囊成型">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="产品型号" Type="System.String" DbType="NChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="生产机台" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="作业员" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="帘布批号" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="外胶片批号" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="内胶片批号" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="登记时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="删除" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="皮囊成型_皮囊硫化" Member="皮囊硫化s" ThisKey="Id" OtherKey="成型皮囊" Type="皮囊硫化" />
+      <Association Name="机台_皮囊成型" Member="机台" ThisKey="生产机台" OtherKey="Id" Type="机台" IsForeignKey="true" />
+      <Association Name="帘布流转_皮囊成型" Member="帘布流转" ThisKey="帘布批号" OtherKey="Id" Type="帘布流转" IsForeignKey="true" />
+      <Association Name="橡胶薄片_皮囊成型" Member="橡胶薄片" ThisKey="内胶片批号" OtherKey="Id" Type="橡胶薄片" IsForeignKey="true" />
+      <Association Name="橡胶薄片_皮囊成型1" Member="橡胶薄片1" ThisKey="外胶片批号" OtherKey="Id" Type="橡胶薄片" IsForeignKey="true" />
+      <Association Name="员工_皮囊成型" Member="员工" ThisKey="作业员" OtherKey="Id" Type="员工" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

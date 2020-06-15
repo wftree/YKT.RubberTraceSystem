@@ -57,6 +57,12 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
+    <Reference Include="zxing, Version=0.16.5.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.5\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.5.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.5\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs">
@@ -67,6 +73,36 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="帘布入库.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="帘布入库.Designer.cs">
+      <DependentUpon>帘布入库.cs</DependentUpon>
+    </Compile>
+    <Compile Include="帘布裁切.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="帘布裁切.Designer.cs">
+      <DependentUpon>帘布裁切.cs</DependentUpon>
+    </Compile>
+    <Compile Include="成型码生成.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="成型码生成.Designer.cs">
+      <DependentUpon>成型码生成.cs</DependentUpon>
+    </Compile>
+    <Compile Include="胶料入库.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="胶料入库.Designer.cs">
+      <DependentUpon>胶料入库.cs</DependentUpon>
+    </Compile>
+    <Compile Include="胶料出片.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="胶料出片.Designer.cs">
+      <DependentUpon>胶料出片.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -79,6 +115,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="帘布入库.resx">
+      <DependentUpon>帘布入库.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="帘布裁切.resx">
+      <DependentUpon>帘布裁切.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="成型码生成.resx">
+      <DependentUpon>成型码生成.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="胶料入库.resx">
+      <DependentUpon>胶料入库.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="胶料出片.resx">
+      <DependentUpon>胶料出片.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\YKT.RubberTraceSystem.Data.员工.datasource" />
     <None Include="Properties\DataSources\YKT.RubberTraceSystem.Data.班别.datasource" />
