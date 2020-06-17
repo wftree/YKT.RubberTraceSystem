@@ -25,11 +25,7 @@ namespace YKT.RubberTraceSystem.Windows
         {
             if (dataGridView1.SelectedRows.Count>0)
             {
-                QRCodeGenerator qrGenerator = new QRCodeGenerator();
-                QRCodeData qrCodeData = qrGenerator.CreateQrCode(dataGridView1.SelectedRows[0].Cells[0].Value.ToString(), QRCodeGenerator.ECCLevel.Q);
-                QRCode qrCode = new QRCode(qrCodeData);
-                pictureBox1.Image = qrCode.GetGraphic(20);
-
+                pictureBox1.Image = Utilizity.CreateQRCode(TableType.UR, dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
                 tbName.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                 cbClassType.SelectedValue = new Guid(dataGridView1.SelectedRows[0].Cells[2].Value.ToString());
 
