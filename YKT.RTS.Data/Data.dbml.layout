@@ -32,12 +32,6 @@
         <elementListCompartment Id="c1e264a9-5742-43c7-abd1-cbe3ad16f9fe" absoluteBounds="3.89, 9.585, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="410533d0-9528-481e-ac5b-75c201ae5b9d" absoluteBounds="3.625, 1.125, 2, 2.7324039713541666">
-      <DataClassMoniker Name="/DataDataContext/帘布流转" />
-      <nestedChildShapes>
-        <elementListCompartment Id="a0284270-4492-446a-b62c-d2279b0b806d" absoluteBounds="3.64, 1.585, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="0a7afaf4-dd8f-49ba-9816-fa3d68770dee" absoluteBounds="0.875, 9, 2, 2.7324039713541666">
       <DataClassMoniker Name="/DataDataContext/帘布入库" />
       <nestedChildShapes>
@@ -50,12 +44,6 @@
         <elementListCompartment Id="8c649e95-9eca-4c4e-a142-3de8089c7722" absoluteBounds="12.14, 4.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="8e29a36e-56b9-4870-a9dc-27dd1439544f" absoluteBounds="6.625, 5.25, 2, 2.5401025390625005">
-      <DataClassMoniker Name="/DataDataContext/橡胶薄片" />
-      <nestedChildShapes>
-        <elementListCompartment Id="93252427-a66d-40ea-ab6b-cc17ab98df14" absoluteBounds="6.64, 5.71, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <associationConnector edgePoints="[(2.78125 : 4.39589680989583); (2.78125 : 5.59375); (3.16666666666667 : 5.59375 : JumpStart); (3.33333333333333 : 5.59375 : JumpEnd); (3.625 : 5.59375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataDataContext/处理方法/处理方法_检验修边" />
       <nodes>
@@ -63,32 +51,18 @@
         <classShapeMoniker Id="391dde53-4f10-486c-9a8c-7f311ec57ba9" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.875 : 9.00153746153846); (3.25 : 8.62653746153846); (3.25 : 2.49120198567708); (3.625 : 2.49120198567708)]" fixedFrom="NotFixed" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DataDataContext/帘布入库/帘布入库_帘布流转" />
-      <nodes>
-        <classShapeMoniker Id="0a7afaf4-dd8f-49ba-9816-fa3d68770dee" />
-        <classShapeMoniker Id="410533d0-9528-481e-ac5b-75c201ae5b9d" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(12.125 : 5.36620198567708); (11.5 : 5.36620198567708); (11.5 : 6.4151025390625); (8.875 : 6.4151025390625); (8.875 : 5); (4.625 : 5); (4.625 : 5.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(12.125 : 5.36620198567708); (11.5 : 5.36620198567708); (11.5 : 6.4151025390625); (9.08333333333333 : 6.4151025390625 : JumpStart); (8.91666666666667 : 6.4151025390625 : JumpEnd); (8.625 : 6.4151025390625); (8.625 : 5.125); (4.625 : 5.125); (4.625 : 5.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataDataContext/皮囊硫化/皮囊硫化_检验修边" />
       <nodes>
         <classShapeMoniker Id="9846924b-0ef5-4507-911c-ec4e6fd50dad" />
         <classShapeMoniker Id="391dde53-4f10-486c-9a8c-7f311ec57ba9" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.625 : 2.46875); (9.63541416666667 : 2.46875 : JumpStart); (9.80208083333333 : 2.46875 : JumpEnd); (13.125 : 2.46875); (13.125 : 4)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(8.625 : 2.46875); (13.125 : 2.46875); (13.125 : 4)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataDataContext/机台/机台_皮囊硫化" />
       <nodes>
         <classShapeMoniker Id="9754a805-36e9-41f0-b5a9-cb70ffa57c7d" />
         <classShapeMoniker Id="9846924b-0ef5-4507-911c-ec4e6fd50dad" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.78125 : 9.125); (5.78125 : 7.69155110677083); (6.625 : 7.69155110677083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/DataDataContext/胶料入库/胶料入库_橡胶薄片" />
-      <nodes>
-        <classShapeMoniker Id="236894c7-5de5-4a1d-b591-aff35c2bba7d" />
-        <classShapeMoniker Id="8e29a36e-56b9-4870-a9dc-27dd1439544f" />
       </nodes>
     </associationConnector>
     <classShape Id="f4f7dd94-381c-443f-b40d-b913251a1b66" absoluteBounds="0.625, 5.875, 2, 1.7708968098958331">
@@ -104,25 +78,11 @@
         <classShapeMoniker Id="391dde53-4f10-486c-9a8c-7f311ec57ba9" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(0.71875 : 5.875); (0.71875 : 1.77684849283854); (3.625 : 1.77684849283854)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DataDataContext/员工/员工_帘布流转" />
-      <nodes>
-        <classShapeMoniker Id="f4f7dd94-381c-443f-b40d-b913251a1b66" />
-        <classShapeMoniker Id="410533d0-9528-481e-ac5b-75c201ae5b9d" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.625 : 6.76044840494792); (3.16666666666667 : 6.76044840494792 : JumpStart); (3.33333333333333 : 6.76044840494792 : JumpEnd); (3.375 : 6.76044840494792); (3.375 : 8.0401025390625); (5.69791666666667 : 8.0401025390625 : JumpStart); (5.86458333333333 : 8.0401025390625 : JumpEnd); (12.593748 : 8.0401025390625); (12.593748 : 6.73240397135417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.625 : 5.875); (1.625 : 4.875); (2.69791666666667 : 4.875 : JumpStart); (2.86458333333333 : 4.875 : JumpEnd); (3.16666666666667 : 4.875 : JumpStart); (3.33333333333333 : 4.875 : JumpEnd); (9 : 4.875); (9 : 6.6651025390625); (11.75 : 6.6651025390625); (11.75 : 6.08055497851563); (12.125 : 6.08055497851563)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataDataContext/员工/员工_皮囊硫化" />
       <nodes>
         <classShapeMoniker Id="f4f7dd94-381c-443f-b40d-b913251a1b66" />
         <classShapeMoniker Id="9846924b-0ef5-4507-911c-ec4e6fd50dad" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.625 : 7.6194482421875); (3.16666666666667 : 7.6194482421875 : JumpStart); (3.45833333333333 : 7.6194482421875 : JumpEnd); (6.625 : 7.6194482421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/DataDataContext/员工/员工_橡胶薄片" />
-      <nodes>
-        <classShapeMoniker Id="f4f7dd94-381c-443f-b40d-b913251a1b66" />
-        <classShapeMoniker Id="8e29a36e-56b9-4870-a9dc-27dd1439544f" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(6.875 : 10.2892976888021); (6.125 : 10.2892976888021); (6.125 : 8.75); (5.86458333333333 : 8.75 : JumpStart); (5.69791666666667 : 8.75 : JumpEnd); (3.2098707948718 : 8.75 : JumpStart); (3.04320412820513 : 8.75 : JumpEnd); (1.625 : 8.75); (1.625 : 7.64589680989583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
@@ -138,46 +98,86 @@
         <elementListCompartment Id="4cd62718-7feb-4506-9399-a5da5cc7dd86" absoluteBounds="9.265, 4.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(11.25 : 4.62060099283854); (12.125 : 4.62060099283854)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(11.25 : 4.62060099283854); (12.125 : 4.62060099283854)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataDataContext/皮囊成型/皮囊成型_皮囊硫化" />
       <nodes>
         <classShapeMoniker Id="be749fc5-874d-4534-b341-86ebbd82fc2f" />
         <classShapeMoniker Id="9846924b-0ef5-4507-911c-ec4e6fd50dad" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.625 : 3.078127); (9.63541416666667 : 3.078127 : JumpStart); (9.80208083333333 : 3.078127 : JumpEnd); (10.25 : 3.078127); (10.25 : 3.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.625 : 3.078127); (10.25 : 3.078127); (10.25 : 3.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataDataContext/机台/机台_皮囊成型" />
       <nodes>
         <classShapeMoniker Id="9754a805-36e9-41f0-b5a9-cb70ffa57c7d" />
         <classShapeMoniker Id="be749fc5-874d-4534-b341-86ebbd82fc2f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.625 : 1.40625); (9.7187475 : 1.40625); (9.7187475 : 3.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DataDataContext/帘布流转/帘布流转_皮囊成型" />
-      <nodes>
-        <classShapeMoniker Id="410533d0-9528-481e-ac5b-75c201ae5b9d" />
-        <classShapeMoniker Id="be749fc5-874d-4534-b341-86ebbd82fc2f" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(8.625 : 5.70755126953125); (8.79166666666667 : 5.70755126953125 : JumpStart); (8.95833333333333 : 5.70755126953125 : JumpEnd); (9.25 : 5.70755126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DataDataContext/橡胶薄片/橡胶薄片_皮囊成型" />
-      <nodes>
-        <classShapeMoniker Id="8e29a36e-56b9-4870-a9dc-27dd1439544f" />
-        <classShapeMoniker Id="be749fc5-874d-4534-b341-86ebbd82fc2f" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(8.625 : 5.41627563476563); (8.79166666666667 : 5.41627563476562 : JumpStart); (8.95833333333333 : 5.41627563476563 : JumpEnd); (9.25 : 5.41627563476563)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DataDataContext/橡胶薄片/橡胶薄片_皮囊成型1" />
-      <nodes>
-        <classShapeMoniker Id="8e29a36e-56b9-4870-a9dc-27dd1439544f" />
-        <classShapeMoniker Id="be749fc5-874d-4534-b341-86ebbd82fc2f" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(0.7500025 : 5.875); (0.7500025 : 4.72919840494792); (2.69791666666667 : 4.72919840494792 : JumpStart); (2.86458333333333 : 4.72919840494792 : JumpEnd); (3.16666666666667 : 4.72919840494792 : JumpStart); (3.33333333333333 : 4.72919840494792 : JumpEnd); (9.25 : 4.72919840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(0.71875 : 5.875); (0.71875 : 4.66669840494792); (2.69791666666667 : 4.66669840494792 : JumpStart); (2.86458333333333 : 4.66669840494792 : JumpEnd); (3.16666666666667 : 4.66669840494792 : JumpStart); (3.33333333333333 : 4.66669840494792 : JumpEnd); (9.25 : 4.66669840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataDataContext/员工/员工_皮囊成型" />
       <nodes>
         <classShapeMoniker Id="f4f7dd94-381c-443f-b40d-b913251a1b66" />
         <classShapeMoniker Id="be749fc5-874d-4534-b341-86ebbd82fc2f" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="08ab4ce0-ec09-479a-9318-8e346ff764f6" absoluteBounds="6.375, 5.75, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/DataDataContext/橡胶薄片" />
+      <nestedChildShapes>
+        <elementListCompartment Id="71f23bc9-4512-4d14-818b-8dcd2801f49f" absoluteBounds="6.39, 6.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.375 : 5.95755126953125); (8.54166666666667 : 5.95755126953125 : JumpStart); (8.70833333333333 : 5.95755126953125 : JumpEnd); (8.91666666666667 : 5.95755126953125 : JumpStart); (9.08333333333333 : 5.95755126953125 : JumpEnd); (9.25 : 5.95755126953125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataDataContext/橡胶薄片/橡胶薄片_皮囊成型" />
+      <nodes>
+        <classShapeMoniker Id="08ab4ce0-ec09-479a-9318-8e346ff764f6" />
+        <classShapeMoniker Id="be749fc5-874d-4534-b341-86ebbd82fc2f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.375 : 5.79127563476563); (8.54166666666667 : 5.79127563476563 : JumpStart); (8.70833333333333 : 5.79127563476563 : JumpEnd); (8.91666666666667 : 5.79127563476563 : JumpStart); (9.08333333333333 : 5.79127563476563 : JumpEnd); (9.25 : 5.79127563476563)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataDataContext/橡胶薄片/橡胶薄片_皮囊成型1" />
+      <nodes>
+        <classShapeMoniker Id="08ab4ce0-ec09-479a-9318-8e346ff764f6" />
+        <classShapeMoniker Id="be749fc5-874d-4534-b341-86ebbd82fc2f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.78125 : 9.125); (5.78125 : 8.03770182291667); (6.375 : 8.03770182291667)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataDataContext/胶料入库/胶料入库_橡胶薄片" />
+      <nodes>
+        <classShapeMoniker Id="236894c7-5de5-4a1d-b591-aff35c2bba7d" />
+        <classShapeMoniker Id="08ab4ce0-ec09-479a-9318-8e346ff764f6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.625 : 7.6194482421875); (3.16666666666667 : 7.6194482421875 : JumpStart); (3.33333333333333 : 7.6194482421875 : JumpEnd); (6.375 : 7.6194482421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataDataContext/员工/员工_橡胶薄片" />
+      <nodes>
+        <classShapeMoniker Id="f4f7dd94-381c-443f-b40d-b913251a1b66" />
+        <classShapeMoniker Id="08ab4ce0-ec09-479a-9318-8e346ff764f6" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6dff187e-55df-402c-bbf1-18350c457282" absoluteBounds="3.875, 1.375, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/DataDataContext/帘布流转" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9ad6ff41-b5e4-41e4-8b00-5c4c9b22419a" absoluteBounds="3.89, 1.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.875 : 3.94155110677083); (9.25 : 3.94155110677083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataDataContext/帘布流转/帘布流转_皮囊成型" />
+      <nodes>
+        <classShapeMoniker Id="6dff187e-55df-402c-bbf1-18350c457282" />
+        <classShapeMoniker Id="be749fc5-874d-4534-b341-86ebbd82fc2f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.875 : 9.00153746153846); (3.25 : 8.62653746153846); (3.25 : 2.74120198567708); (3.875 : 2.74120198567708)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataDataContext/帘布入库/帘布入库_帘布流转" />
+      <nodes>
+        <classShapeMoniker Id="0a7afaf4-dd8f-49ba-9816-fa3d68770dee" />
+        <classShapeMoniker Id="6dff187e-55df-402c-bbf1-18350c457282" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(0.7500025 : 5.875); (0.7500025 : 1.96875); (3.875 : 1.96875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataDataContext/员工/员工_帘布流转" />
+      <nodes>
+        <classShapeMoniker Id="f4f7dd94-381c-443f-b40d-b913251a1b66" />
+        <classShapeMoniker Id="6dff187e-55df-402c-bbf1-18350c457282" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

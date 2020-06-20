@@ -28,43 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.tbSupplyNo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tbWeight = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tbSNo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbAssLine = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbTypeNo = new System.Windows.Forms.TextBox();
+            this.dtpPDate = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnStaffPrintQR = new System.Windows.Forms.Button();
             this.dgRubberInventory = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.胶料牌号DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.箱号DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.生产线号DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.供应商产品代号DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.生产日期DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.批次号DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.重量DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.登记时间DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.删除DataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.胶料入库BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnCreate = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgRubberInventory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.胶料入库BindingSource)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -86,7 +100,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 618);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(803, 716);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -94,20 +108,22 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.btnEdit, 0, 7);
+            this.tableLayoutPanel2.Controls.Add(this.btnCreate, 1, 7);
             this.tableLayoutPanel2.Controls.Add(this.label7, 0, 6);
-            this.tableLayoutPanel2.Controls.Add(this.textBox7, 1, 6);
+            this.tableLayoutPanel2.Controls.Add(this.tbSupplyNo, 1, 6);
             this.tableLayoutPanel2.Controls.Add(this.label6, 0, 5);
-            this.tableLayoutPanel2.Controls.Add(this.textBox6, 1, 5);
+            this.tableLayoutPanel2.Controls.Add(this.tbWeight, 1, 5);
             this.tableLayoutPanel2.Controls.Add(this.label5, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.textBox5, 1, 4);
+            this.tableLayoutPanel2.Controls.Add(this.tbSNo, 1, 4);
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.textBox4, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.textBox3, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.tbAssLine, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.textBox2, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.tbBox, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBox1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tbTypeNo, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.dtpPDate, 1, 3);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -120,7 +136,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(294, 262);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(294, 360);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // label7
@@ -134,14 +150,14 @@
             this.label7.Text = "供应商产品代号";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox7
+            // tbSupplyNo
             // 
-            this.textBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox7.Location = new System.Drawing.Point(103, 213);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(188, 21);
-            this.textBox7.TabIndex = 13;
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbSupplyNo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbSupplyNo.Location = new System.Drawing.Point(103, 213);
+            this.tbSupplyNo.Name = "tbSupplyNo";
+            this.tbSupplyNo.Size = new System.Drawing.Size(188, 21);
+            this.tbSupplyNo.TabIndex = 13;
+            this.tbSupplyNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
@@ -154,14 +170,14 @@
             this.label6.Text = "重量";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox6
+            // tbWeight
             // 
-            this.textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox6.Location = new System.Drawing.Point(103, 178);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(188, 21);
-            this.textBox6.TabIndex = 11;
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbWeight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbWeight.Location = new System.Drawing.Point(103, 178);
+            this.tbWeight.Name = "tbWeight";
+            this.tbWeight.Size = new System.Drawing.Size(188, 21);
+            this.tbWeight.TabIndex = 11;
+            this.tbWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label5
             // 
@@ -174,14 +190,14 @@
             this.label5.Text = "批次号";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox5
+            // tbSNo
             // 
-            this.textBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox5.Location = new System.Drawing.Point(103, 143);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(188, 21);
-            this.textBox5.TabIndex = 9;
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbSNo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbSNo.Location = new System.Drawing.Point(103, 143);
+            this.tbSNo.Name = "tbSNo";
+            this.tbSNo.Size = new System.Drawing.Size(188, 21);
+            this.tbSNo.TabIndex = 9;
+            this.tbSNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
             // 
@@ -194,15 +210,6 @@
             this.label4.Text = "生产日期";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox4
-            // 
-            this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox4.Location = new System.Drawing.Point(103, 108);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(188, 21);
-            this.textBox4.TabIndex = 7;
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -214,14 +221,14 @@
             this.label3.Text = "生产线号";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox3
+            // tbAssLine
             // 
-            this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox3.Location = new System.Drawing.Point(103, 73);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(188, 21);
-            this.textBox3.TabIndex = 5;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbAssLine.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbAssLine.Location = new System.Drawing.Point(103, 73);
+            this.tbAssLine.Name = "tbAssLine";
+            this.tbAssLine.Size = new System.Drawing.Size(188, 21);
+            this.tbAssLine.TabIndex = 5;
+            this.tbAssLine.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -234,14 +241,14 @@
             this.label2.Text = "箱号";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox2
+            // tbBox
             // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Location = new System.Drawing.Point(103, 38);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(188, 21);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbBox.Location = new System.Drawing.Point(103, 38);
+            this.tbBox.Name = "tbBox";
+            this.tbBox.Size = new System.Drawing.Size(188, 21);
+            this.tbBox.TabIndex = 3;
+            this.tbBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -254,14 +261,21 @@
             this.label1.Text = "橡胶牌号";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // tbTypeNo
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(103, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 21);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbTypeNo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbTypeNo.Location = new System.Drawing.Point(103, 3);
+            this.tbTypeNo.Name = "tbTypeNo";
+            this.tbTypeNo.Size = new System.Drawing.Size(188, 21);
+            this.tbTypeNo.TabIndex = 1;
+            this.tbTypeNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // dtpPDate
+            // 
+            this.dtpPDate.Location = new System.Drawing.Point(103, 108);
+            this.dtpPDate.Name = "dtpPDate";
+            this.dtpPDate.Size = new System.Drawing.Size(188, 21);
+            this.dtpPDate.TabIndex = 14;
             // 
             // tableLayoutPanel3
             // 
@@ -270,7 +284,7 @@
             this.tableLayoutPanel3.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnStaffPrintQR, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 271);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 369);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 300F));
@@ -297,26 +311,117 @@
             this.btnStaffPrintQR.TabIndex = 3;
             this.btnStaffPrintQR.Text = "打印二维码";
             this.btnStaffPrintQR.UseVisualStyleBackColor = true;
+            this.btnStaffPrintQR.Click += new System.EventHandler(this.btnStaffPrintQR_Click);
             // 
             // dgRubberInventory
             // 
             this.dgRubberInventory.AllowUserToAddRows = false;
             this.dgRubberInventory.AllowUserToDeleteRows = false;
+            this.dgRubberInventory.AutoGenerateColumns = false;
             this.dgRubberInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgRubberInventory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.胶料牌号DataGridViewTextBoxColumn,
+            this.箱号DataGridViewTextBoxColumn,
+            this.生产线号DataGridViewTextBoxColumn,
+            this.供应商产品代号DataGridViewTextBoxColumn,
+            this.生产日期DataGridViewTextBoxColumn,
+            this.批次号DataGridViewTextBoxColumn,
+            this.重量DataGridViewTextBoxColumn,
+            this.登记时间DataGridViewTextBoxColumn,
+            this.删除DataGridViewCheckBoxColumn});
+            this.dgRubberInventory.DataSource = this.胶料入库BindingSource;
             this.dgRubberInventory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgRubberInventory.Location = new System.Drawing.Point(303, 271);
+            this.dgRubberInventory.Location = new System.Drawing.Point(303, 369);
+            this.dgRubberInventory.MultiSelect = false;
             this.dgRubberInventory.Name = "dgRubberInventory";
             this.dgRubberInventory.ReadOnly = true;
             this.dgRubberInventory.RowTemplate.Height = 23;
-            this.dgRubberInventory.Size = new System.Drawing.Size(494, 344);
+            this.dgRubberInventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgRubberInventory.Size = new System.Drawing.Size(497, 344);
             this.dgRubberInventory.TabIndex = 2;
+            this.dgRubberInventory.SelectionChanged += new System.EventHandler(this.dgRubberInventory_SelectionChanged);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // 胶料牌号DataGridViewTextBoxColumn
+            // 
+            this.胶料牌号DataGridViewTextBoxColumn.DataPropertyName = "胶料牌号";
+            this.胶料牌号DataGridViewTextBoxColumn.HeaderText = "胶料牌号";
+            this.胶料牌号DataGridViewTextBoxColumn.Name = "胶料牌号DataGridViewTextBoxColumn";
+            this.胶料牌号DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // 箱号DataGridViewTextBoxColumn
+            // 
+            this.箱号DataGridViewTextBoxColumn.DataPropertyName = "箱号";
+            this.箱号DataGridViewTextBoxColumn.HeaderText = "箱号";
+            this.箱号DataGridViewTextBoxColumn.Name = "箱号DataGridViewTextBoxColumn";
+            this.箱号DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // 生产线号DataGridViewTextBoxColumn
+            // 
+            this.生产线号DataGridViewTextBoxColumn.DataPropertyName = "生产线号";
+            this.生产线号DataGridViewTextBoxColumn.HeaderText = "生产线号";
+            this.生产线号DataGridViewTextBoxColumn.Name = "生产线号DataGridViewTextBoxColumn";
+            this.生产线号DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // 供应商产品代号DataGridViewTextBoxColumn
+            // 
+            this.供应商产品代号DataGridViewTextBoxColumn.DataPropertyName = "供应商产品代号";
+            this.供应商产品代号DataGridViewTextBoxColumn.HeaderText = "供应商产品代号";
+            this.供应商产品代号DataGridViewTextBoxColumn.Name = "供应商产品代号DataGridViewTextBoxColumn";
+            this.供应商产品代号DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // 生产日期DataGridViewTextBoxColumn
+            // 
+            this.生产日期DataGridViewTextBoxColumn.DataPropertyName = "生产日期";
+            this.生产日期DataGridViewTextBoxColumn.HeaderText = "生产日期";
+            this.生产日期DataGridViewTextBoxColumn.Name = "生产日期DataGridViewTextBoxColumn";
+            this.生产日期DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // 批次号DataGridViewTextBoxColumn
+            // 
+            this.批次号DataGridViewTextBoxColumn.DataPropertyName = "批次号";
+            this.批次号DataGridViewTextBoxColumn.HeaderText = "批次号";
+            this.批次号DataGridViewTextBoxColumn.Name = "批次号DataGridViewTextBoxColumn";
+            this.批次号DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // 重量DataGridViewTextBoxColumn
+            // 
+            this.重量DataGridViewTextBoxColumn.DataPropertyName = "重量";
+            this.重量DataGridViewTextBoxColumn.HeaderText = "重量";
+            this.重量DataGridViewTextBoxColumn.Name = "重量DataGridViewTextBoxColumn";
+            this.重量DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // 登记时间DataGridViewTextBoxColumn
+            // 
+            this.登记时间DataGridViewTextBoxColumn.DataPropertyName = "登记时间";
+            this.登记时间DataGridViewTextBoxColumn.HeaderText = "登记时间";
+            this.登记时间DataGridViewTextBoxColumn.Name = "登记时间DataGridViewTextBoxColumn";
+            this.登记时间DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // 删除DataGridViewCheckBoxColumn
+            // 
+            this.删除DataGridViewCheckBoxColumn.DataPropertyName = "删除";
+            this.删除DataGridViewCheckBoxColumn.HeaderText = "删除";
+            this.删除DataGridViewCheckBoxColumn.Name = "删除DataGridViewCheckBoxColumn";
+            this.删除DataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // 胶料入库BindingSource
+            // 
+            this.胶料入库BindingSource.DataSource = typeof(YKT.RubberTraceSystem.Data.胶料入库);
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Controls.Add(this.btnCreate, 0, 3);
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel4.Controls.Add(this.pictureBox4, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.label10, 0, 2);
             this.tableLayoutPanel4.Controls.Add(this.label9, 0, 1);
@@ -326,13 +431,58 @@
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(303, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 4;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel4.RowCount = 5;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(494, 262);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(497, 360);
             this.tableLayoutPanel4.TabIndex = 3;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = global::YKT.RubberTraceSystem.Windows.Properties.Resources.数据上传;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox4.Location = new System.Drawing.Point(153, 163);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(294, 74);
+            this.pictureBox4.TabIndex = 11;
+            this.pictureBox4.TabStop = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label10.Location = new System.Drawing.Point(3, 160);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(144, 80);
+            this.label10.TabIndex = 10;
+            this.label10.Text = "上传数据";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label9.Location = new System.Drawing.Point(3, 80);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(144, 80);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "准备扫码";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::YKT.RubberTraceSystem.Windows.Properties.Resources.清除盘点数据;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox3.Location = new System.Drawing.Point(153, 83);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(294, 74);
+            this.pictureBox3.TabIndex = 9;
+            this.pictureBox3.TabStop = false;
             // 
             // label8
             // 
@@ -340,89 +490,63 @@
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Location = new System.Drawing.Point(3, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(144, 60);
+            this.label8.Size = new System.Drawing.Size(144, 80);
             this.label8.TabIndex = 2;
             this.label8.Text = "盘点模式";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackgroundImage = global::YKT.RubberTraceSystem.Windows.Properties.Resources.盘点模式_即存储模式_;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Location = new System.Drawing.Point(153, 3);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(338, 54);
+            this.pictureBox2.Size = new System.Drawing.Size(294, 74);
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Location = new System.Drawing.Point(3, 60);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(144, 60);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "准备扫码";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox3.Location = new System.Drawing.Point(153, 63);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(338, 54);
-            this.pictureBox3.TabIndex = 9;
-            this.pictureBox3.TabStop = false;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.Location = new System.Drawing.Point(3, 120);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(144, 60);
-            this.label10.TabIndex = 10;
-            this.label10.Text = "上传数据";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox4.Location = new System.Drawing.Point(153, 123);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(338, 54);
-            this.pictureBox4.TabIndex = 11;
-            this.pictureBox4.TabStop = false;
             // 
             // btnCreate
             // 
             this.btnCreate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCreate.Location = new System.Drawing.Point(3, 183);
+            this.btnCreate.Location = new System.Drawing.Point(103, 248);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(144, 76);
-            this.btnCreate.TabIndex = 13;
+            this.btnCreate.Size = new System.Drawing.Size(188, 109);
+            this.btnCreate.TabIndex = 15;
             this.btnCreate.Text = "入库";
             this.btnCreate.UseVisualStyleBackColor = true;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEdit.Location = new System.Drawing.Point(3, 248);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(94, 109);
+            this.btnEdit.TabIndex = 16;
+            this.btnEdit.Text = "修改";
+            this.btnEdit.UseVisualStyleBackColor = true;
             // 
             // 胶料入库
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 618);
+            this.ClientSize = new System.Drawing.Size(803, 716);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "胶料入库";
             this.Text = "胶料入库";
+            this.Load += new System.EventHandler(this.胶料入库_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgRubberInventory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.胶料入库BindingSource)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -434,19 +558,18 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.DataGridView dgRubberInventory;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox tbWeight;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tbSNo;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbAssLine;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbTypeNo;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox tbSupplyNo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnStaffPrintQR;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
@@ -456,6 +579,19 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.DateTimePicker dtpPDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 胶料牌号DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 箱号DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 生产线号DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 供应商产品代号DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 生产日期DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 批次号DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 重量DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 登记时间DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn 删除DataGridViewCheckBoxColumn;
+        private System.Windows.Forms.BindingSource 胶料入库BindingSource;
+        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnCreate;
     }
 }

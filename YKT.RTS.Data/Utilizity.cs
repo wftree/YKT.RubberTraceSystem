@@ -23,6 +23,11 @@ namespace YKT.RubberTraceSystem.Data
             
             return CreateQRCode(type.ToString()+":"+value);
         }
+        public static string CreateQRCodeStr(TableType type, string value)
+        {
+
+            return type.ToString() + ":" + value;
+        }
         public static Guid? DecodeQRCode(string qr)
         {
             string[] temp = qr.Split(new char[1] { ':' });

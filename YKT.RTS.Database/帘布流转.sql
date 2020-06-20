@@ -1,11 +1,11 @@
 ﻿CREATE TABLE [dbo].[帘布流转]
 (
 	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT newid(), 
-    [帘布代号] NCHAR(200) NOT NULL, 
     [产品编号] NCHAR(200) NOT NULL, 
     [宽度] FLOAT NOT NULL, 
     [厚度] FLOAT NOT NULL, 
-    [作业员] UNIQUEIDENTIFIER NOT NULL, 
+    [角度] FLOAT NOT NULL, 
+    [作业员] UNIQUEIDENTIFIER NULL, 
     [帘布批号] UNIQUEIDENTIFIER NOT NULL, 
     [使用期限] DATETIME NOT NULL, 
     [登记时间] DATETIME NOT NULL DEFAULT getdate(), 

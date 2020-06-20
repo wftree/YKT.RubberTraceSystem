@@ -13,9 +13,8 @@ using YKT.RubberTraceSystem.Data;
 
 namespace YKT.RubberTraceSystem.Windows
 {
-    public partial class Main : Form
+    public partial class Main : BaseForm
     {
-        DataDataContext ddc = new DataDataContext();
         public Main()
         {
             InitializeComponent();
@@ -35,7 +34,8 @@ namespace YKT.RubberTraceSystem.Windows
 
         private void btnStaffPrintQR_Click(object sender, EventArgs e)
         {
-
+            IQRPrinter printer = QRPrinterFactory.GetQRPrinter();
+            printer.PrintQRCode(120, 120, 6, Utilizity.CreateQRCodeStr(TableType.UR, dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
         }
 
         private void Main_Load(object sender, EventArgs e)
