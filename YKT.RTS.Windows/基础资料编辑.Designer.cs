@@ -1,6 +1,6 @@
 ﻿namespace YKT.RubberTraceSystem.Windows
 {
-    partial class Main
+    partial class 基础资料编辑
     {
         /// <summary>
         /// Required designer variable.
@@ -251,9 +251,10 @@
             // tbName
             // 
             this.tbName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbName.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tbName.Location = new System.Drawing.Point(150, 3);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(141, 21);
+            this.tbName.Size = new System.Drawing.Size(141, 26);
             this.tbName.TabIndex = 1;
             // 
             // label2
@@ -283,10 +284,11 @@
             this.cbClassType.DataSource = this.班别BindingSource;
             this.cbClassType.DisplayMember = "班别1";
             this.cbClassType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbClassType.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cbClassType.FormattingEnabled = true;
             this.cbClassType.Location = new System.Drawing.Point(150, 38);
             this.cbClassType.Name = "cbClassType";
-            this.cbClassType.Size = new System.Drawing.Size(141, 20);
+            this.cbClassType.Size = new System.Drawing.Size(141, 24);
             this.cbClassType.TabIndex = 4;
             this.cbClassType.ValueMember = "Id";
             // 
@@ -333,13 +335,13 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // Main
+            // 基础资料编辑
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 670);
             this.Controls.Add(this.tabControl1);
-            this.Name = "Main";
+            this.Name = "基础资料编辑";
             this.Text = "溢康通橡胶追踪系统";
             this.Load += new System.EventHandler(this.Main_Load);
             this.tabControl1.ResumeLayout(false);

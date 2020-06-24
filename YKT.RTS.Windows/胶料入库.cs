@@ -83,7 +83,7 @@ namespace YKT.RubberTraceSystem.Windows
         }
         private void LoadData()
         {
-            var users = from m in ddc.胶料入库s where m.删除 == false select m;
+            var users = from m in ddc.胶料入库s where m.删除 == false orderby m.登记时间 descending select m;
             胶料入库BindingSource.DataSource = users;
         }
 

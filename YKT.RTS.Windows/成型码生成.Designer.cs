@@ -61,7 +61,6 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.dgFabric = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.帘布代号DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.产品编号DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.宽度DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.厚度DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -459,7 +458,6 @@
             this.dgFabric.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgFabric.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn1,
-            this.帘布代号DataGridViewTextBoxColumn,
             this.产品编号DataGridViewTextBoxColumn,
             this.宽度DataGridViewTextBoxColumn1,
             this.厚度DataGridViewTextBoxColumn1,
@@ -487,13 +485,6 @@
             this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
             this.idDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // 帘布代号DataGridViewTextBoxColumn
-            // 
-            this.帘布代号DataGridViewTextBoxColumn.DataPropertyName = "帘布代号";
-            this.帘布代号DataGridViewTextBoxColumn.HeaderText = "帘布代号";
-            this.帘布代号DataGridViewTextBoxColumn.Name = "帘布代号DataGridViewTextBoxColumn";
-            this.帘布代号DataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // 产品编号DataGridViewTextBoxColumn
             // 

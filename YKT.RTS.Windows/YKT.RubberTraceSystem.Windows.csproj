@@ -74,11 +74,11 @@
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="IQRPrinter.cs" />
-    <Compile Include="Main.cs">
+    <Compile Include="基础资料编辑.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
+    <Compile Include="基础资料编辑.Designer.cs">
+      <DependentUpon>基础资料编辑.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,8 +113,8 @@
     <Compile Include="胶料出片.Designer.cs">
       <DependentUpon>胶料出片.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
+    <EmbeddedResource Include="基础资料编辑.resx">
+      <DependentUpon>基础资料编辑.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

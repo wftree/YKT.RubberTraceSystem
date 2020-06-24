@@ -13,9 +13,9 @@ using YKT.RubberTraceSystem.Data;
 
 namespace YKT.RubberTraceSystem.Windows
 {
-    public partial class Main : BaseForm
+    public partial class 基础资料编辑 : BaseForm
     {
-        public Main()
+        public 基础资料编辑()
         {
             InitializeComponent();
         }
@@ -80,6 +80,26 @@ namespace YKT.RubberTraceSystem.Windows
                 scope.Complete();
             }
             LoadData();
+        }
+
+        private void btn_CLFFEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_CLFFAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_BBEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_BBAdd_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
