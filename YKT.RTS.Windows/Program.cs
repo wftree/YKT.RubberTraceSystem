@@ -16,7 +16,7 @@ namespace YKT.RubberTraceSystem.Windows
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new 基础资料编辑());
+            Application.Run(new Login());
         }
     }
 }

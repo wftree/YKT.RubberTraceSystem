@@ -98,4 +98,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="硫化皮囊" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="2d86221c-dab1-4827-a5b4-ddb4a1963b47" ChangeDateTime="06/25/2020 00:10:18">
+    <Property Name="ElementName" Value="[dbo].[FK_User_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[User]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_User_ToTCategory]" />
+  </Operation>
 </Operations>

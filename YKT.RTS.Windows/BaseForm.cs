@@ -13,6 +13,10 @@ namespace YKT.RubberTraceSystem.Windows
 {
     public partial class BaseForm : Form
     {
+        public string GetValue(object value)
+        {
+            return value == null ? "" : value.ToString();
+        }
         public DataDataContext ddc = new DataDataContext();
         public BaseForm()
         {
@@ -85,6 +89,17 @@ namespace YKT.RubberTraceSystem.Windows
         }
 
         protected bool CheckInput(TextBox tb, string message, ref string str)
+        {
+            if (tb.Text.Trim() == "")
+            {
+                MessageBox.Show(message);
+                return false;
+            }
+            str = tb.Text.Trim();
+            return true;
+        }
+
+        protected bool CheckInput(MaskedTextBox tb, string message, ref string str)
         {
             if (tb.Text.Trim() == "")
             {

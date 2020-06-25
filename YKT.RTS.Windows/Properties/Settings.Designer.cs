@@ -22,5 +22,41 @@ namespace YKT.RubberTraceSystem.Windows.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("300")]
+        public int QRL {
+            get {
+                return ((int)(this["QRL"]));
+            }
+            set {
+                this["QRL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("60")]
+        public int QRH {
+            get {
+                return ((int)(this["QRH"]));
+            }
+            set {
+                this["QRH"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public int SCALE {
+            get {
+                return ((int)(this["SCALE"]));
+            }
+            set {
+                this["SCALE"] = value;
+            }
+        }
     }
 }

@@ -91,7 +91,7 @@ namespace YKT.RubberTraceSystem.Windows
                 foreach (var item in all)
                 {
 
-                    if (!printer.PrintQRCode(120, 120, 6, Utilizity.CreateQRCodeStr(TableType.FC, item.ToString())))
+                    if (!printer.PrintQRCode(Utilizity.CreateQRCodeStr(TableType.FC, item.ToString())))
                     {
                         MessageBox.Show("打印错误，请重新生成成品代码", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;

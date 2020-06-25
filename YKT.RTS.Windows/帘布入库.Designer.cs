@@ -35,14 +35,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tbWeight = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.tbDueTo = new System.Windows.Forms.TextBox();
-            this.tbPDate = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbLength = new System.Windows.Forms.TextBox();
             this.btnStaffPrintQR = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.tbFabircType = new System.Windows.Forms.TextBox();
+            this.tbFabricType = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbTypeNo = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -62,6 +60,8 @@
             this.登记时间DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.删除DataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.帘布入库BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dtpPDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpVDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -133,26 +133,6 @@
             this.label5.Text = "有效日期";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tbDueTo
-            // 
-            this.tbDueTo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbDueTo.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tbDueTo.Location = new System.Drawing.Point(103, 143);
-            this.tbDueTo.Name = "tbDueTo";
-            this.tbDueTo.Size = new System.Drawing.Size(188, 26);
-            this.tbDueTo.TabIndex = 9;
-            this.tbDueTo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // tbPDate
-            // 
-            this.tbPDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbPDate.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tbPDate.Location = new System.Drawing.Point(103, 108);
-            this.tbPDate.Name = "tbPDate";
-            this.tbPDate.Size = new System.Drawing.Size(188, 26);
-            this.tbPDate.TabIndex = 7;
-            this.tbPDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -206,15 +186,15 @@
             this.label2.Text = "帘布代号";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tbFabircType
+            // tbFabricType
             // 
-            this.tbFabircType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbFabircType.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tbFabircType.Location = new System.Drawing.Point(103, 38);
-            this.tbFabircType.Name = "tbFabircType";
-            this.tbFabircType.Size = new System.Drawing.Size(188, 26);
-            this.tbFabircType.TabIndex = 3;
-            this.tbFabircType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbFabricType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbFabricType.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tbFabricType.Location = new System.Drawing.Point(103, 38);
+            this.tbFabricType.Name = "tbFabricType";
+            this.tbFabricType.Size = new System.Drawing.Size(188, 26);
+            this.tbFabricType.TabIndex = 3;
+            this.tbFabricType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -242,6 +222,7 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.dtpVDate, 1, 4);
             this.tableLayoutPanel2.Controls.Add(this.btnEdit, 0, 7);
             this.tableLayoutPanel2.Controls.Add(this.btnCreate, 1, 7);
             this.tableLayoutPanel2.Controls.Add(this.label7, 0, 6);
@@ -249,15 +230,14 @@
             this.tableLayoutPanel2.Controls.Add(this.label6, 0, 5);
             this.tableLayoutPanel2.Controls.Add(this.tbWeight, 1, 5);
             this.tableLayoutPanel2.Controls.Add(this.label5, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.tbDueTo, 1, 4);
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.tbPDate, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.tbLength, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.tbFabircType, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.tbFabricType, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tbTypeNo, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.dtpPDate, 1, 3);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -282,6 +262,7 @@
             this.btnEdit.TabIndex = 15;
             this.btnEdit.Text = "修改";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnCreate
             // 
@@ -354,6 +335,7 @@
             this.dgFabircInventory.RowTemplate.Height = 23;
             this.dgFabircInventory.Size = new System.Drawing.Size(609, 690);
             this.dgFabircInventory.TabIndex = 2;
+            this.dgFabircInventory.SelectionChanged += new System.EventHandler(this.dgFabircInventory_SelectionChanged);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -429,6 +411,24 @@
             // 
             this.帘布入库BindingSource.DataSource = typeof(YKT.RubberTraceSystem.Data.帘布入库);
             // 
+            // dtpPDate
+            // 
+            this.dtpPDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtpPDate.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dtpPDate.Location = new System.Drawing.Point(103, 108);
+            this.dtpPDate.Name = "dtpPDate";
+            this.dtpPDate.Size = new System.Drawing.Size(188, 26);
+            this.dtpPDate.TabIndex = 16;
+            // 
+            // dtpVDate
+            // 
+            this.dtpVDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtpVDate.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dtpVDate.Location = new System.Drawing.Point(103, 143);
+            this.dtpVDate.Name = "dtpVDate";
+            this.dtpVDate.Size = new System.Drawing.Size(188, 26);
+            this.dtpVDate.TabIndex = 17;
+            // 
             // 帘布入库
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -457,14 +457,12 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbWeight;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tbDueTo;
-        private System.Windows.Forms.TextBox tbPDate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbLength;
         private System.Windows.Forms.Button btnStaffPrintQR;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbFabircType;
+        private System.Windows.Forms.TextBox tbFabricType;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbTypeNo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
@@ -484,5 +482,7 @@
         private System.Windows.Forms.BindingSource 帘布入库BindingSource;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnCreate;
+        private System.Windows.Forms.DateTimePicker dtpPDate;
+        private System.Windows.Forms.DateTimePicker dtpVDate;
     }
 }

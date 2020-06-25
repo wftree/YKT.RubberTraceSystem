@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using YKT.RubberTraceSystem.Windows.Properties;
 
 namespace YKT.RubberTraceSystem.Windows
 {
@@ -294,6 +295,11 @@ namespace YKT.RubberTraceSystem.Windows
             B_ClosePrn();
 
             return true;
+        }
+
+        public bool PrintQRCode(string data)
+        {
+            return PrintQRCode(Settings.Default.QRL, Settings.Default.QRH, Settings.Default.SCALE, data);
         }
     }
 }

@@ -55,7 +55,7 @@ namespace YKT.RubberTraceSystem.Windows
                 temp.胶料牌号 = typeno;
                 temp.箱号 = boxno;
                 temp.生产线号 = assline;
-                temp.生产日期 = dtpPDate.Value.ToString();
+                temp.生产日期 = dtpPDate.Value;
                 temp.批次号 = sno;
                 temp.重量 = weight;
                 temp.供应商产品代号 = tbSupplyNo.Text;
@@ -70,7 +70,7 @@ namespace YKT.RubberTraceSystem.Windows
         private void btnStaffPrintQR_Click(object sender, EventArgs e)
         {
             IQRPrinter printer = QRPrinterFactory.GetQRPrinter();
-            if (!printer.PrintQRCode(120, 120, 6, Utilizity.CreateQRCodeStr(TableType.RI, dgRubberInventory.SelectedRows[0].Cells[0].Value.ToString())))
+            if (!printer.PrintQRCode(Utilizity.CreateQRCodeStr(TableType.RI, dgRubberInventory.SelectedRows[0].Cells[0].Value.ToString())))
             {
                 MessageBox.Show("打印错误，请检查打印机", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -90,10 +90,63 @@ namespace YKT.RubberTraceSystem.Windows
         private void dgRubberInventory_SelectionChanged(object sender, EventArgs e)
         {
             //是否允许修改？？需要后定。
-            //if (dgOutRubber.SelectedRows.Count > 0)
-            //{
-            //    tbTypeNo.Text = dgOutRubber.SelectedRows[0].Cells["Id"].Value.ToString();
-            //}
+            if (dgRubberInventory.SelectedRows.Count > 0)
+            {
+                Data.胶料入库 temp = ddc.胶料入库s.Single(x => x.Id == new Guid(dgRubberInventory.SelectedRows[0].Cells["Id"].Value.ToString()) && x.删除 == false);
+                tbTypeNo.Text = temp.胶料牌号;
+                tbBox.Text = temp.箱号;
+                tbAssLine.Text = temp.生产线号;
+                dtpPDate.Value = temp.生产日期;
+                tbSNo.Text = temp.批次号;
+                tbWeight.Text = temp.重量.ToString();
+                tbSupplyNo.Text = temp.供应商产品代号;
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            string typeno = "";
+            if (!CheckInput(tbTypeNo, "请输入橡胶牌号", ref typeno))
+            {
+                return;
+            }
+            string boxno = "";
+            if (!CheckInput(tbBox, "请输入箱号", ref boxno))
+            {
+                return;
+            }
+            string assline = "";
+            if (!CheckInput(tbAssLine, "请输入生产线号", ref assline))
+            {
+                return;
+            }
+            string sno = "";
+            if (!CheckInput(tbAssLine, "请输入批次号", ref sno))
+            {
+                return;
+            }
+            float weight = 0;
+            if (!CheckInput(tbWeight, "请输入重量", ref weight))
+            {
+                return;
+            }
+
+            using (TransactionScope scope = new TransactionScope())
+            {
+
+                Data.胶料入库 temp = ddc.胶料入库s.Single(x => x.Id == new Guid(dgRubberInventory.SelectedRows[0].Cells["Id"].Value.ToString()) && x.删除 == false);
+                temp.胶料牌号 = typeno;
+                temp.箱号 = boxno;
+                temp.生产线号 = assline;
+                temp.生产日期 = dtpPDate.Value;
+                temp.批次号 = sno;
+                temp.重量 = weight;
+                temp.供应商产品代号 = tbSupplyNo.Text;
+                temp.登记时间 = DateTime.Now;
+
+                ddc.SubmitChanges();
+                scope.Complete();
+            }
         }
     }
 }

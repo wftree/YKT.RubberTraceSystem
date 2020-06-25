@@ -30,6 +30,15 @@ namespace YKT.RubberTraceSystem.Data
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertCategory(Category instance);
+    partial void UpdateCategory(Category instance);
+    partial void DeleteCategory(Category instance);
+    partial void Insert员工(员工 instance);
+    partial void Update员工(员工 instance);
+    partial void Delete员工(员工 instance);
+    partial void InsertUser(User instance);
+    partial void UpdateUser(User instance);
+    partial void DeleteUser(User instance);
     partial void Insert班别(班别 instance);
     partial void Update班别(班别 instance);
     partial void Delete班别(班别 instance);
@@ -45,24 +54,21 @@ namespace YKT.RubberTraceSystem.Data
     partial void Insert胶料入库(胶料入库 instance);
     partial void Update胶料入库(胶料入库 instance);
     partial void Delete胶料入库(胶料入库 instance);
-    partial void Insert帘布入库(帘布入库 instance);
-    partial void Update帘布入库(帘布入库 instance);
-    partial void Delete帘布入库(帘布入库 instance);
-    partial void Insert皮囊硫化(皮囊硫化 instance);
-    partial void Update皮囊硫化(皮囊硫化 instance);
-    partial void Delete皮囊硫化(皮囊硫化 instance);
-    partial void Insert员工(员工 instance);
-    partial void Update员工(员工 instance);
-    partial void Delete员工(员工 instance);
-    partial void Insert皮囊成型(皮囊成型 instance);
-    partial void Update皮囊成型(皮囊成型 instance);
-    partial void Delete皮囊成型(皮囊成型 instance);
-    partial void Insert橡胶薄片(橡胶薄片 instance);
-    partial void Update橡胶薄片(橡胶薄片 instance);
-    partial void Delete橡胶薄片(橡胶薄片 instance);
     partial void Insert帘布流转(帘布流转 instance);
     partial void Update帘布流转(帘布流转 instance);
     partial void Delete帘布流转(帘布流转 instance);
+    partial void Insert帘布入库(帘布入库 instance);
+    partial void Update帘布入库(帘布入库 instance);
+    partial void Delete帘布入库(帘布入库 instance);
+    partial void Insert皮囊成型(皮囊成型 instance);
+    partial void Update皮囊成型(皮囊成型 instance);
+    partial void Delete皮囊成型(皮囊成型 instance);
+    partial void Insert皮囊硫化(皮囊硫化 instance);
+    partial void Update皮囊硫化(皮囊硫化 instance);
+    partial void Delete皮囊硫化(皮囊硫化 instance);
+    partial void Insert橡胶薄片(橡胶薄片 instance);
+    partial void Update橡胶薄片(橡胶薄片 instance);
+    partial void Delete橡胶薄片(橡胶薄片 instance);
     #endregion
 		
 		public DataDataContext() : 
@@ -93,6 +99,30 @@ namespace YKT.RubberTraceSystem.Data
 				base(connection, mappingSource)
 		{
 			OnCreated();
+		}
+		
+		public System.Data.Linq.Table<Category> Categories
+		{
+			get
+			{
+				return this.GetTable<Category>();
+			}
+		}
+		
+		public System.Data.Linq.Table<员工> 员工s
+		{
+			get
+			{
+				return this.GetTable<员工>();
+			}
+		}
+		
+		public System.Data.Linq.Table<User> Users
+		{
+			get
+			{
+				return this.GetTable<User>();
+			}
 		}
 		
 		public System.Data.Linq.Table<班别> 班别s
@@ -135,27 +165,19 @@ namespace YKT.RubberTraceSystem.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<帘布流转> 帘布流转s
+		{
+			get
+			{
+				return this.GetTable<帘布流转>();
+			}
+		}
+		
 		public System.Data.Linq.Table<帘布入库> 帘布入库s
 		{
 			get
 			{
 				return this.GetTable<帘布入库>();
-			}
-		}
-		
-		public System.Data.Linq.Table<皮囊硫化> 皮囊硫化s
-		{
-			get
-			{
-				return this.GetTable<皮囊硫化>();
-			}
-		}
-		
-		public System.Data.Linq.Table<员工> 员工s
-		{
-			get
-			{
-				return this.GetTable<员工>();
 			}
 		}
 		
@@ -167,6 +189,14 @@ namespace YKT.RubberTraceSystem.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<皮囊硫化> 皮囊硫化s
+		{
+			get
+			{
+				return this.GetTable<皮囊硫化>();
+			}
+		}
+		
 		public System.Data.Linq.Table<橡胶薄片> 橡胶薄片s
 		{
 			get
@@ -174,12 +204,632 @@ namespace YKT.RubberTraceSystem.Data
 				return this.GetTable<橡胶薄片>();
 			}
 		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Category")]
+	public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
+	{
 		
-		public System.Data.Linq.Table<帘布流转> 帘布流转s
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Name;
+		
+		private EntitySet<User> _Users;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    #endregion
+		
+		public Category()
+		{
+			this._Users = new EntitySet<User>(new Action<User>(this.attach_Users), new Action<User>(this.detach_Users));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
 		{
 			get
 			{
-				return this.GetTable<帘布流转>();
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NChar(20) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_User", Storage="_Users", ThisKey="Id", OtherKey="CategoryId")]
+		public EntitySet<User> Users
+		{
+			get
+			{
+				return this._Users;
+			}
+			set
+			{
+				this._Users.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Users(User entity)
+		{
+			this.SendPropertyChanging();
+			entity.Category = this;
+		}
+		
+		private void detach_Users(User entity)
+		{
+			this.SendPropertyChanging();
+			entity.Category = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.员工")]
+	public partial class 员工 : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _Id;
+		
+		private string _姓名;
+		
+		private System.Guid _班别;
+		
+		private System.DateTime _登记时间;
+		
+		private bool _删除;
+		
+		private EntitySet<检验修边> _检验修边s;
+		
+		private EntitySet<帘布流转> _帘布流转s;
+		
+		private EntitySet<皮囊成型> _皮囊成型s;
+		
+		private EntitySet<皮囊硫化> _皮囊硫化s;
+		
+		private EntitySet<橡胶薄片> _橡胶薄片s;
+		
+		private EntityRef<班别> _班别1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(System.Guid value);
+    partial void OnIdChanged();
+    partial void On姓名Changing(string value);
+    partial void On姓名Changed();
+    partial void On班别Changing(System.Guid value);
+    partial void On班别Changed();
+    partial void On登记时间Changing(System.DateTime value);
+    partial void On登记时间Changed();
+    partial void On删除Changing(bool value);
+    partial void On删除Changed();
+    #endregion
+		
+		public 员工()
+		{
+			this._检验修边s = new EntitySet<检验修边>(new Action<检验修边>(this.attach_检验修边s), new Action<检验修边>(this.detach_检验修边s));
+			this._帘布流转s = new EntitySet<帘布流转>(new Action<帘布流转>(this.attach_帘布流转s), new Action<帘布流转>(this.detach_帘布流转s));
+			this._皮囊成型s = new EntitySet<皮囊成型>(new Action<皮囊成型>(this.attach_皮囊成型s), new Action<皮囊成型>(this.detach_皮囊成型s));
+			this._皮囊硫化s = new EntitySet<皮囊硫化>(new Action<皮囊硫化>(this.attach_皮囊硫化s), new Action<皮囊硫化>(this.detach_皮囊硫化s));
+			this._橡胶薄片s = new EntitySet<橡胶薄片>(new Action<橡胶薄片>(this.attach_橡胶薄片s), new Action<橡胶薄片>(this.detach_橡胶薄片s));
+			this._班别1 = default(EntityRef<班别>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_姓名", DbType="NChar(200) NOT NULL", CanBeNull=false)]
+		public string 姓名
+		{
+			get
+			{
+				return this._姓名;
+			}
+			set
+			{
+				if ((this._姓名 != value))
+				{
+					this.On姓名Changing(value);
+					this.SendPropertyChanging();
+					this._姓名 = value;
+					this.SendPropertyChanged("姓名");
+					this.On姓名Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_班别", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid 班别
+		{
+			get
+			{
+				return this._班别;
+			}
+			set
+			{
+				if ((this._班别 != value))
+				{
+					if (this._班别1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.On班别Changing(value);
+					this.SendPropertyChanging();
+					this._班别 = value;
+					this.SendPropertyChanged("班别");
+					this.On班别Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_登记时间", DbType="DateTime NOT NULL")]
+		public System.DateTime 登记时间
+		{
+			get
+			{
+				return this._登记时间;
+			}
+			set
+			{
+				if ((this._登记时间 != value))
+				{
+					this.On登记时间Changing(value);
+					this.SendPropertyChanging();
+					this._登记时间 = value;
+					this.SendPropertyChanged("登记时间");
+					this.On登记时间Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_删除", DbType="Bit NOT NULL")]
+		public bool 删除
+		{
+			get
+			{
+				return this._删除;
+			}
+			set
+			{
+				if ((this._删除 != value))
+				{
+					this.On删除Changing(value);
+					this.SendPropertyChanging();
+					this._删除 = value;
+					this.SendPropertyChanged("删除");
+					this.On删除Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="员工_检验修边", Storage="_检验修边s", ThisKey="Id", OtherKey="检验员")]
+		public EntitySet<检验修边> 检验修边s
+		{
+			get
+			{
+				return this._检验修边s;
+			}
+			set
+			{
+				this._检验修边s.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="员工_帘布流转", Storage="_帘布流转s", ThisKey="Id", OtherKey="作业员")]
+		public EntitySet<帘布流转> 帘布流转s
+		{
+			get
+			{
+				return this._帘布流转s;
+			}
+			set
+			{
+				this._帘布流转s.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="员工_皮囊成型", Storage="_皮囊成型s", ThisKey="Id", OtherKey="作业员")]
+		public EntitySet<皮囊成型> 皮囊成型s
+		{
+			get
+			{
+				return this._皮囊成型s;
+			}
+			set
+			{
+				this._皮囊成型s.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="员工_皮囊硫化", Storage="_皮囊硫化s", ThisKey="Id", OtherKey="作业员")]
+		public EntitySet<皮囊硫化> 皮囊硫化s
+		{
+			get
+			{
+				return this._皮囊硫化s;
+			}
+			set
+			{
+				this._皮囊硫化s.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="员工_橡胶薄片", Storage="_橡胶薄片s", ThisKey="Id", OtherKey="作业员")]
+		public EntitySet<橡胶薄片> 橡胶薄片s
+		{
+			get
+			{
+				return this._橡胶薄片s;
+			}
+			set
+			{
+				this._橡胶薄片s.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="班别_员工", Storage="_班别1", ThisKey="班别", OtherKey="Id", IsForeignKey=true)]
+		public 班别 班别1
+		{
+			get
+			{
+				return this._班别1.Entity;
+			}
+			set
+			{
+				班别 previousValue = this._班别1.Entity;
+				if (((previousValue != value) 
+							|| (this._班别1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._班别1.Entity = null;
+						previousValue.员工s.Remove(this);
+					}
+					this._班别1.Entity = value;
+					if ((value != null))
+					{
+						value.员工s.Add(this);
+						this._班别 = value.Id;
+					}
+					else
+					{
+						this._班别 = default(System.Guid);
+					}
+					this.SendPropertyChanged("班别1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_检验修边s(检验修边 entity)
+		{
+			this.SendPropertyChanging();
+			entity.员工 = this;
+		}
+		
+		private void detach_检验修边s(检验修边 entity)
+		{
+			this.SendPropertyChanging();
+			entity.员工 = null;
+		}
+		
+		private void attach_帘布流转s(帘布流转 entity)
+		{
+			this.SendPropertyChanging();
+			entity.员工 = this;
+		}
+		
+		private void detach_帘布流转s(帘布流转 entity)
+		{
+			this.SendPropertyChanging();
+			entity.员工 = null;
+		}
+		
+		private void attach_皮囊成型s(皮囊成型 entity)
+		{
+			this.SendPropertyChanging();
+			entity.员工 = this;
+		}
+		
+		private void detach_皮囊成型s(皮囊成型 entity)
+		{
+			this.SendPropertyChanging();
+			entity.员工 = null;
+		}
+		
+		private void attach_皮囊硫化s(皮囊硫化 entity)
+		{
+			this.SendPropertyChanging();
+			entity.员工 = this;
+		}
+		
+		private void detach_皮囊硫化s(皮囊硫化 entity)
+		{
+			this.SendPropertyChanging();
+			entity.员工 = null;
+		}
+		
+		private void attach_橡胶薄片s(橡胶薄片 entity)
+		{
+			this.SendPropertyChanging();
+			entity.员工 = this;
+		}
+		
+		private void detach_橡胶薄片s(橡胶薄片 entity)
+		{
+			this.SendPropertyChanging();
+			entity.员工 = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
+	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _CategoryId;
+		
+		private string _Name;
+		
+		private string _MD5;
+		
+		private EntityRef<Category> _Category;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnCategoryIdChanging(int value);
+    partial void OnCategoryIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnMD5Changing(string value);
+    partial void OnMD5Changed();
+    #endregion
+		
+		public User()
+		{
+			this._Category = default(EntityRef<Category>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryId", DbType="Int NOT NULL")]
+		public int CategoryId
+		{
+			get
+			{
+				return this._CategoryId;
+			}
+			set
+			{
+				if ((this._CategoryId != value))
+				{
+					if (this._Category.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCategoryIdChanging(value);
+					this.SendPropertyChanging();
+					this._CategoryId = value;
+					this.SendPropertyChanged("CategoryId");
+					this.OnCategoryIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MD5", DbType="NChar(32)")]
+		public string MD5
+		{
+			get
+			{
+				return this._MD5;
+			}
+			set
+			{
+				if ((this._MD5 != value))
+				{
+					this.OnMD5Changing(value);
+					this.SendPropertyChanging();
+					this._MD5 = value;
+					this.SendPropertyChanged("MD5");
+					this.OnMD5Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_User", Storage="_Category", ThisKey="CategoryId", OtherKey="Id", IsForeignKey=true)]
+		public Category Category
+		{
+			get
+			{
+				return this._Category.Entity;
+			}
+			set
+			{
+				Category previousValue = this._Category.Entity;
+				if (((previousValue != value) 
+							|| (this._Category.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Category.Entity = null;
+						previousValue.Users.Remove(this);
+					}
+					this._Category.Entity = value;
+					if ((value != null))
+					{
+						value.Users.Add(this);
+						this._CategoryId = value.Id;
+					}
+					else
+					{
+						this._CategoryId = default(int);
+					}
+					this.SendPropertyChanged("Category");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -550,9 +1200,9 @@ namespace YKT.RubberTraceSystem.Data
 		
 		private bool _删除;
 		
-		private EntitySet<皮囊硫化> _皮囊硫化s;
-		
 		private EntitySet<皮囊成型> _皮囊成型s;
+		
+		private EntitySet<皮囊硫化> _皮囊硫化s;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -574,8 +1224,8 @@ namespace YKT.RubberTraceSystem.Data
 		
 		public 机台()
 		{
-			this._皮囊硫化s = new EntitySet<皮囊硫化>(new Action<皮囊硫化>(this.attach_皮囊硫化s), new Action<皮囊硫化>(this.detach_皮囊硫化s));
 			this._皮囊成型s = new EntitySet<皮囊成型>(new Action<皮囊成型>(this.attach_皮囊成型s), new Action<皮囊成型>(this.detach_皮囊成型s));
+			this._皮囊硫化s = new EntitySet<皮囊硫化>(new Action<皮囊硫化>(this.attach_皮囊硫化s), new Action<皮囊硫化>(this.detach_皮囊硫化s));
 			OnCreated();
 		}
 		
@@ -699,19 +1349,6 @@ namespace YKT.RubberTraceSystem.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="机台_皮囊硫化", Storage="_皮囊硫化s", ThisKey="Id", OtherKey="生产机台")]
-		public EntitySet<皮囊硫化> 皮囊硫化s
-		{
-			get
-			{
-				return this._皮囊硫化s;
-			}
-			set
-			{
-				this._皮囊硫化s.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="机台_皮囊成型", Storage="_皮囊成型s", ThisKey="Id", OtherKey="生产机台")]
 		public EntitySet<皮囊成型> 皮囊成型s
 		{
@@ -722,6 +1359,19 @@ namespace YKT.RubberTraceSystem.Data
 			set
 			{
 				this._皮囊成型s.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="机台_皮囊硫化", Storage="_皮囊硫化s", ThisKey="Id", OtherKey="生产机台")]
+		public EntitySet<皮囊硫化> 皮囊硫化s
+		{
+			get
+			{
+				return this._皮囊硫化s;
+			}
+			set
+			{
+				this._皮囊硫化s.Assign(value);
 			}
 		}
 		
@@ -745,18 +1395,6 @@ namespace YKT.RubberTraceSystem.Data
 			}
 		}
 		
-		private void attach_皮囊硫化s(皮囊硫化 entity)
-		{
-			this.SendPropertyChanging();
-			entity.机台 = this;
-		}
-		
-		private void detach_皮囊硫化s(皮囊硫化 entity)
-		{
-			this.SendPropertyChanging();
-			entity.机台 = null;
-		}
-		
 		private void attach_皮囊成型s(皮囊成型 entity)
 		{
 			this.SendPropertyChanging();
@@ -764,6 +1402,18 @@ namespace YKT.RubberTraceSystem.Data
 		}
 		
 		private void detach_皮囊成型s(皮囊成型 entity)
+		{
+			this.SendPropertyChanging();
+			entity.机台 = null;
+		}
+		
+		private void attach_皮囊硫化s(皮囊硫化 entity)
+		{
+			this.SendPropertyChanging();
+			entity.机台 = this;
+		}
+		
+		private void detach_皮囊硫化s(皮囊硫化 entity)
 		{
 			this.SendPropertyChanging();
 			entity.机台 = null;
@@ -792,9 +1442,9 @@ namespace YKT.RubberTraceSystem.Data
 		
 		private EntityRef<处理方法> _处理方法1;
 		
-		private EntityRef<皮囊硫化> _皮囊硫化;
-		
 		private EntityRef<员工> _员工;
+		
+		private EntityRef<皮囊硫化> _皮囊硫化;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -819,8 +1469,8 @@ namespace YKT.RubberTraceSystem.Data
 		public 检验修边()
 		{
 			this._处理方法1 = default(EntityRef<处理方法>);
-			this._皮囊硫化 = default(EntityRef<皮囊硫化>);
 			this._员工 = default(EntityRef<员工>);
+			this._皮囊硫化 = default(EntityRef<皮囊硫化>);
 			OnCreated();
 		}
 		
@@ -1010,40 +1660,6 @@ namespace YKT.RubberTraceSystem.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="皮囊硫化_检验修边", Storage="_皮囊硫化", ThisKey="硫化皮囊", OtherKey="Id", IsForeignKey=true)]
-		public 皮囊硫化 皮囊硫化
-		{
-			get
-			{
-				return this._皮囊硫化.Entity;
-			}
-			set
-			{
-				皮囊硫化 previousValue = this._皮囊硫化.Entity;
-				if (((previousValue != value) 
-							|| (this._皮囊硫化.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._皮囊硫化.Entity = null;
-						previousValue.检验修边s.Remove(this);
-					}
-					this._皮囊硫化.Entity = value;
-					if ((value != null))
-					{
-						value.检验修边s.Add(this);
-						this._硫化皮囊 = value.Id;
-					}
-					else
-					{
-						this._硫化皮囊 = default(System.Guid);
-					}
-					this.SendPropertyChanged("皮囊硫化");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="员工_检验修边", Storage="_员工", ThisKey="检验员", OtherKey="Id", IsForeignKey=true)]
 		public 员工 员工
 		{
@@ -1074,6 +1690,40 @@ namespace YKT.RubberTraceSystem.Data
 						this._检验员 = default(System.Guid);
 					}
 					this.SendPropertyChanged("员工");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="皮囊硫化_检验修边", Storage="_皮囊硫化", ThisKey="硫化皮囊", OtherKey="Id", IsForeignKey=true)]
+		public 皮囊硫化 皮囊硫化
+		{
+			get
+			{
+				return this._皮囊硫化.Entity;
+			}
+			set
+			{
+				皮囊硫化 previousValue = this._皮囊硫化.Entity;
+				if (((previousValue != value) 
+							|| (this._皮囊硫化.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._皮囊硫化.Entity = null;
+						previousValue.检验修边s.Remove(this);
+					}
+					this._皮囊硫化.Entity = value;
+					if ((value != null))
+					{
+						value.检验修边s.Add(this);
+						this._硫化皮囊 = value.Id;
+					}
+					else
+					{
+						this._硫化皮囊 = default(System.Guid);
+					}
+					this.SendPropertyChanged("皮囊硫化");
 				}
 			}
 		}
@@ -1115,7 +1765,7 @@ namespace YKT.RubberTraceSystem.Data
 		
 		private string _供应商产品代号;
 		
-		private string _生产日期;
+		private System.DateTime _生产日期;
 		
 		private string _批次号;
 		
@@ -1141,7 +1791,7 @@ namespace YKT.RubberTraceSystem.Data
     partial void On生产线号Changed();
     partial void On供应商产品代号Changing(string value);
     partial void On供应商产品代号Changed();
-    partial void On生产日期Changing(string value);
+    partial void On生产日期Changing(System.DateTime value);
     partial void On生产日期Changed();
     partial void On批次号Changing(string value);
     partial void On批次号Changed();
@@ -1259,8 +1909,8 @@ namespace YKT.RubberTraceSystem.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_生产日期", DbType="NChar(200) NOT NULL", CanBeNull=false)]
-		public string 生产日期
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_生产日期", DbType="DateTime NOT NULL")]
+		public System.DateTime 生产日期
 		{
 			get
 			{
@@ -1405,6 +2055,394 @@ namespace YKT.RubberTraceSystem.Data
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.帘布流转")]
+	public partial class 帘布流转 : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _Id;
+		
+		private string _产品编号;
+		
+		private double _宽度;
+		
+		private double _厚度;
+		
+		private double _角度;
+		
+		private System.Nullable<System.Guid> _作业员;
+		
+		private System.Guid _帘布批号;
+		
+		private System.DateTime _使用期限;
+		
+		private System.DateTime _登记时间;
+		
+		private bool _删除;
+		
+		private EntitySet<皮囊成型> _皮囊成型s;
+		
+		private EntityRef<员工> _员工;
+		
+		private EntityRef<帘布入库> _帘布入库;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(System.Guid value);
+    partial void OnIdChanged();
+    partial void On产品编号Changing(string value);
+    partial void On产品编号Changed();
+    partial void On宽度Changing(double value);
+    partial void On宽度Changed();
+    partial void On厚度Changing(double value);
+    partial void On厚度Changed();
+    partial void On角度Changing(double value);
+    partial void On角度Changed();
+    partial void On作业员Changing(System.Nullable<System.Guid> value);
+    partial void On作业员Changed();
+    partial void On帘布批号Changing(System.Guid value);
+    partial void On帘布批号Changed();
+    partial void On使用期限Changing(System.DateTime value);
+    partial void On使用期限Changed();
+    partial void On登记时间Changing(System.DateTime value);
+    partial void On登记时间Changed();
+    partial void On删除Changing(bool value);
+    partial void On删除Changed();
+    #endregion
+		
+		public 帘布流转()
+		{
+			this._皮囊成型s = new EntitySet<皮囊成型>(new Action<皮囊成型>(this.attach_皮囊成型s), new Action<皮囊成型>(this.detach_皮囊成型s));
+			this._员工 = default(EntityRef<员工>);
+			this._帘布入库 = default(EntityRef<帘布入库>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_产品编号", DbType="NChar(200) NOT NULL", CanBeNull=false)]
+		public string 产品编号
+		{
+			get
+			{
+				return this._产品编号;
+			}
+			set
+			{
+				if ((this._产品编号 != value))
+				{
+					this.On产品编号Changing(value);
+					this.SendPropertyChanging();
+					this._产品编号 = value;
+					this.SendPropertyChanged("产品编号");
+					this.On产品编号Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_宽度", DbType="Float NOT NULL")]
+		public double 宽度
+		{
+			get
+			{
+				return this._宽度;
+			}
+			set
+			{
+				if ((this._宽度 != value))
+				{
+					this.On宽度Changing(value);
+					this.SendPropertyChanging();
+					this._宽度 = value;
+					this.SendPropertyChanged("宽度");
+					this.On宽度Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_厚度", DbType="Float NOT NULL")]
+		public double 厚度
+		{
+			get
+			{
+				return this._厚度;
+			}
+			set
+			{
+				if ((this._厚度 != value))
+				{
+					this.On厚度Changing(value);
+					this.SendPropertyChanging();
+					this._厚度 = value;
+					this.SendPropertyChanged("厚度");
+					this.On厚度Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_角度", DbType="Float NOT NULL")]
+		public double 角度
+		{
+			get
+			{
+				return this._角度;
+			}
+			set
+			{
+				if ((this._角度 != value))
+				{
+					this.On角度Changing(value);
+					this.SendPropertyChanging();
+					this._角度 = value;
+					this.SendPropertyChanged("角度");
+					this.On角度Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_作业员", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> 作业员
+		{
+			get
+			{
+				return this._作业员;
+			}
+			set
+			{
+				if ((this._作业员 != value))
+				{
+					if (this._员工.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.On作业员Changing(value);
+					this.SendPropertyChanging();
+					this._作业员 = value;
+					this.SendPropertyChanged("作业员");
+					this.On作业员Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_帘布批号", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid 帘布批号
+		{
+			get
+			{
+				return this._帘布批号;
+			}
+			set
+			{
+				if ((this._帘布批号 != value))
+				{
+					if (this._帘布入库.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.On帘布批号Changing(value);
+					this.SendPropertyChanging();
+					this._帘布批号 = value;
+					this.SendPropertyChanged("帘布批号");
+					this.On帘布批号Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_使用期限", DbType="DateTime NOT NULL")]
+		public System.DateTime 使用期限
+		{
+			get
+			{
+				return this._使用期限;
+			}
+			set
+			{
+				if ((this._使用期限 != value))
+				{
+					this.On使用期限Changing(value);
+					this.SendPropertyChanging();
+					this._使用期限 = value;
+					this.SendPropertyChanged("使用期限");
+					this.On使用期限Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_登记时间", DbType="DateTime NOT NULL")]
+		public System.DateTime 登记时间
+		{
+			get
+			{
+				return this._登记时间;
+			}
+			set
+			{
+				if ((this._登记时间 != value))
+				{
+					this.On登记时间Changing(value);
+					this.SendPropertyChanging();
+					this._登记时间 = value;
+					this.SendPropertyChanged("登记时间");
+					this.On登记时间Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_删除", DbType="Bit NOT NULL")]
+		public bool 删除
+		{
+			get
+			{
+				return this._删除;
+			}
+			set
+			{
+				if ((this._删除 != value))
+				{
+					this.On删除Changing(value);
+					this.SendPropertyChanging();
+					this._删除 = value;
+					this.SendPropertyChanged("删除");
+					this.On删除Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="帘布流转_皮囊成型", Storage="_皮囊成型s", ThisKey="Id", OtherKey="帘布批号")]
+		public EntitySet<皮囊成型> 皮囊成型s
+		{
+			get
+			{
+				return this._皮囊成型s;
+			}
+			set
+			{
+				this._皮囊成型s.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="员工_帘布流转", Storage="_员工", ThisKey="作业员", OtherKey="Id", IsForeignKey=true)]
+		public 员工 员工
+		{
+			get
+			{
+				return this._员工.Entity;
+			}
+			set
+			{
+				员工 previousValue = this._员工.Entity;
+				if (((previousValue != value) 
+							|| (this._员工.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._员工.Entity = null;
+						previousValue.帘布流转s.Remove(this);
+					}
+					this._员工.Entity = value;
+					if ((value != null))
+					{
+						value.帘布流转s.Add(this);
+						this._作业员 = value.Id;
+					}
+					else
+					{
+						this._作业员 = default(Nullable<System.Guid>);
+					}
+					this.SendPropertyChanged("员工");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="帘布入库_帘布流转", Storage="_帘布入库", ThisKey="帘布批号", OtherKey="Id", IsForeignKey=true)]
+		public 帘布入库 帘布入库
+		{
+			get
+			{
+				return this._帘布入库.Entity;
+			}
+			set
+			{
+				帘布入库 previousValue = this._帘布入库.Entity;
+				if (((previousValue != value) 
+							|| (this._帘布入库.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._帘布入库.Entity = null;
+						previousValue.帘布流转s.Remove(this);
+					}
+					this._帘布入库.Entity = value;
+					if ((value != null))
+					{
+						value.帘布流转s.Add(this);
+						this._帘布批号 = value.Id;
+					}
+					else
+					{
+						this._帘布批号 = default(System.Guid);
+					}
+					this.SendPropertyChanged("帘布入库");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_皮囊成型s(皮囊成型 entity)
+		{
+			this.SendPropertyChanging();
+			entity.帘布流转 = this;
+		}
+		
+		private void detach_皮囊成型s(皮囊成型 entity)
+		{
+			this.SendPropertyChanging();
+			entity.帘布流转 = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.帘布入库")]
 	public partial class 帘布入库 : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1421,9 +2459,9 @@ namespace YKT.RubberTraceSystem.Data
 		
 		private System.Nullable<double> _生产序号;
 		
-		private string _生产日期;
+		private System.DateTime _生产日期;
 		
-		private string _有效日期;
+		private System.DateTime _有效日期;
 		
 		private double _重量;
 		
@@ -1447,9 +2485,9 @@ namespace YKT.RubberTraceSystem.Data
     partial void On帘布长度Changed();
     partial void On生产序号Changing(System.Nullable<double> value);
     partial void On生产序号Changed();
-    partial void On生产日期Changing(string value);
+    partial void On生产日期Changing(System.DateTime value);
     partial void On生产日期Changed();
-    partial void On有效日期Changing(string value);
+    partial void On有效日期Changing(System.DateTime value);
     partial void On有效日期Changed();
     partial void On重量Changing(double value);
     partial void On重量Changed();
@@ -1565,8 +2603,8 @@ namespace YKT.RubberTraceSystem.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_生产日期", DbType="NChar(200) NOT NULL", CanBeNull=false)]
-		public string 生产日期
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_生产日期", DbType="DateTime NOT NULL")]
+		public System.DateTime 生产日期
 		{
 			get
 			{
@@ -1585,8 +2623,8 @@ namespace YKT.RubberTraceSystem.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_有效日期", DbType="NChar(200) NOT NULL", CanBeNull=false)]
-		public string 有效日期
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_有效日期", DbType="DateTime NOT NULL")]
+		public System.DateTime 有效日期
 		{
 			get
 			{
@@ -1711,774 +2749,6 @@ namespace YKT.RubberTraceSystem.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.皮囊硫化")]
-	public partial class 皮囊硫化 : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _Id;
-		
-		private string _产品型号;
-		
-		private System.Guid _生产机台;
-		
-		private System.Guid _作业员;
-		
-		private System.Guid _成型皮囊;
-		
-		private System.Nullable<double> _硫化温度;
-		
-		private System.Nullable<double> _硫化时间;
-		
-		private System.Nullable<System.Guid> _模具;
-		
-		private System.DateTime _登记时间;
-		
-		private bool _删除;
-		
-		private EntitySet<检验修边> _检验修边s;
-		
-		private EntityRef<机台> _机台;
-		
-		private EntityRef<员工> _员工;
-		
-		private EntityRef<皮囊成型> _皮囊成型;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(System.Guid value);
-    partial void OnIdChanged();
-    partial void On产品型号Changing(string value);
-    partial void On产品型号Changed();
-    partial void On生产机台Changing(System.Guid value);
-    partial void On生产机台Changed();
-    partial void On作业员Changing(System.Guid value);
-    partial void On作业员Changed();
-    partial void On成型皮囊Changing(System.Guid value);
-    partial void On成型皮囊Changed();
-    partial void On硫化温度Changing(System.Nullable<double> value);
-    partial void On硫化温度Changed();
-    partial void On硫化时间Changing(System.Nullable<double> value);
-    partial void On硫化时间Changed();
-    partial void On模具Changing(System.Nullable<System.Guid> value);
-    partial void On模具Changed();
-    partial void On登记时间Changing(System.DateTime value);
-    partial void On登记时间Changed();
-    partial void On删除Changing(bool value);
-    partial void On删除Changed();
-    #endregion
-		
-		public 皮囊硫化()
-		{
-			this._检验修边s = new EntitySet<检验修边>(new Action<检验修边>(this.attach_检验修边s), new Action<检验修边>(this.detach_检验修边s));
-			this._机台 = default(EntityRef<机台>);
-			this._员工 = default(EntityRef<员工>);
-			this._皮囊成型 = default(EntityRef<皮囊成型>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_产品型号", DbType="NChar(200) NOT NULL", CanBeNull=false)]
-		public string 产品型号
-		{
-			get
-			{
-				return this._产品型号;
-			}
-			set
-			{
-				if ((this._产品型号 != value))
-				{
-					this.On产品型号Changing(value);
-					this.SendPropertyChanging();
-					this._产品型号 = value;
-					this.SendPropertyChanged("产品型号");
-					this.On产品型号Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_生产机台", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid 生产机台
-		{
-			get
-			{
-				return this._生产机台;
-			}
-			set
-			{
-				if ((this._生产机台 != value))
-				{
-					if (this._机台.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.On生产机台Changing(value);
-					this.SendPropertyChanging();
-					this._生产机台 = value;
-					this.SendPropertyChanged("生产机台");
-					this.On生产机台Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_作业员", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid 作业员
-		{
-			get
-			{
-				return this._作业员;
-			}
-			set
-			{
-				if ((this._作业员 != value))
-				{
-					if (this._员工.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.On作业员Changing(value);
-					this.SendPropertyChanging();
-					this._作业员 = value;
-					this.SendPropertyChanged("作业员");
-					this.On作业员Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_成型皮囊", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid 成型皮囊
-		{
-			get
-			{
-				return this._成型皮囊;
-			}
-			set
-			{
-				if ((this._成型皮囊 != value))
-				{
-					if (this._皮囊成型.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.On成型皮囊Changing(value);
-					this.SendPropertyChanging();
-					this._成型皮囊 = value;
-					this.SendPropertyChanged("成型皮囊");
-					this.On成型皮囊Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_硫化温度", DbType="Float")]
-		public System.Nullable<double> 硫化温度
-		{
-			get
-			{
-				return this._硫化温度;
-			}
-			set
-			{
-				if ((this._硫化温度 != value))
-				{
-					this.On硫化温度Changing(value);
-					this.SendPropertyChanging();
-					this._硫化温度 = value;
-					this.SendPropertyChanged("硫化温度");
-					this.On硫化温度Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_硫化时间", DbType="Float")]
-		public System.Nullable<double> 硫化时间
-		{
-			get
-			{
-				return this._硫化时间;
-			}
-			set
-			{
-				if ((this._硫化时间 != value))
-				{
-					this.On硫化时间Changing(value);
-					this.SendPropertyChanging();
-					this._硫化时间 = value;
-					this.SendPropertyChanged("硫化时间");
-					this.On硫化时间Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_模具", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> 模具
-		{
-			get
-			{
-				return this._模具;
-			}
-			set
-			{
-				if ((this._模具 != value))
-				{
-					this.On模具Changing(value);
-					this.SendPropertyChanging();
-					this._模具 = value;
-					this.SendPropertyChanged("模具");
-					this.On模具Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_登记时间", DbType="DateTime NOT NULL")]
-		public System.DateTime 登记时间
-		{
-			get
-			{
-				return this._登记时间;
-			}
-			set
-			{
-				if ((this._登记时间 != value))
-				{
-					this.On登记时间Changing(value);
-					this.SendPropertyChanging();
-					this._登记时间 = value;
-					this.SendPropertyChanged("登记时间");
-					this.On登记时间Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_删除", DbType="Bit NOT NULL")]
-		public bool 删除
-		{
-			get
-			{
-				return this._删除;
-			}
-			set
-			{
-				if ((this._删除 != value))
-				{
-					this.On删除Changing(value);
-					this.SendPropertyChanging();
-					this._删除 = value;
-					this.SendPropertyChanged("删除");
-					this.On删除Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="皮囊硫化_检验修边", Storage="_检验修边s", ThisKey="Id", OtherKey="硫化皮囊")]
-		public EntitySet<检验修边> 检验修边s
-		{
-			get
-			{
-				return this._检验修边s;
-			}
-			set
-			{
-				this._检验修边s.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="机台_皮囊硫化", Storage="_机台", ThisKey="生产机台", OtherKey="Id", IsForeignKey=true)]
-		public 机台 机台
-		{
-			get
-			{
-				return this._机台.Entity;
-			}
-			set
-			{
-				机台 previousValue = this._机台.Entity;
-				if (((previousValue != value) 
-							|| (this._机台.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._机台.Entity = null;
-						previousValue.皮囊硫化s.Remove(this);
-					}
-					this._机台.Entity = value;
-					if ((value != null))
-					{
-						value.皮囊硫化s.Add(this);
-						this._生产机台 = value.Id;
-					}
-					else
-					{
-						this._生产机台 = default(System.Guid);
-					}
-					this.SendPropertyChanged("机台");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="员工_皮囊硫化", Storage="_员工", ThisKey="作业员", OtherKey="Id", IsForeignKey=true)]
-		public 员工 员工
-		{
-			get
-			{
-				return this._员工.Entity;
-			}
-			set
-			{
-				员工 previousValue = this._员工.Entity;
-				if (((previousValue != value) 
-							|| (this._员工.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._员工.Entity = null;
-						previousValue.皮囊硫化s.Remove(this);
-					}
-					this._员工.Entity = value;
-					if ((value != null))
-					{
-						value.皮囊硫化s.Add(this);
-						this._作业员 = value.Id;
-					}
-					else
-					{
-						this._作业员 = default(System.Guid);
-					}
-					this.SendPropertyChanged("员工");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="皮囊成型_皮囊硫化", Storage="_皮囊成型", ThisKey="成型皮囊", OtherKey="Id", IsForeignKey=true)]
-		public 皮囊成型 皮囊成型
-		{
-			get
-			{
-				return this._皮囊成型.Entity;
-			}
-			set
-			{
-				皮囊成型 previousValue = this._皮囊成型.Entity;
-				if (((previousValue != value) 
-							|| (this._皮囊成型.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._皮囊成型.Entity = null;
-						previousValue.皮囊硫化s.Remove(this);
-					}
-					this._皮囊成型.Entity = value;
-					if ((value != null))
-					{
-						value.皮囊硫化s.Add(this);
-						this._成型皮囊 = value.Id;
-					}
-					else
-					{
-						this._成型皮囊 = default(System.Guid);
-					}
-					this.SendPropertyChanged("皮囊成型");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_检验修边s(检验修边 entity)
-		{
-			this.SendPropertyChanging();
-			entity.皮囊硫化 = this;
-		}
-		
-		private void detach_检验修边s(检验修边 entity)
-		{
-			this.SendPropertyChanging();
-			entity.皮囊硫化 = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.员工")]
-	public partial class 员工 : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _Id;
-		
-		private string _姓名;
-		
-		private System.Guid _班别;
-		
-		private System.DateTime _登记时间;
-		
-		private bool _删除;
-		
-		private EntitySet<检验修边> _检验修边s;
-		
-		private EntitySet<皮囊硫化> _皮囊硫化s;
-		
-		private EntitySet<皮囊成型> _皮囊成型s;
-		
-		private EntitySet<橡胶薄片> _橡胶薄片s;
-		
-		private EntitySet<帘布流转> _帘布流转s;
-		
-		private EntityRef<班别> _班别1;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(System.Guid value);
-    partial void OnIdChanged();
-    partial void On姓名Changing(string value);
-    partial void On姓名Changed();
-    partial void On班别Changing(System.Guid value);
-    partial void On班别Changed();
-    partial void On登记时间Changing(System.DateTime value);
-    partial void On登记时间Changed();
-    partial void On删除Changing(bool value);
-    partial void On删除Changed();
-    #endregion
-		
-		public 员工()
-		{
-			this._检验修边s = new EntitySet<检验修边>(new Action<检验修边>(this.attach_检验修边s), new Action<检验修边>(this.detach_检验修边s));
-			this._皮囊硫化s = new EntitySet<皮囊硫化>(new Action<皮囊硫化>(this.attach_皮囊硫化s), new Action<皮囊硫化>(this.detach_皮囊硫化s));
-			this._皮囊成型s = new EntitySet<皮囊成型>(new Action<皮囊成型>(this.attach_皮囊成型s), new Action<皮囊成型>(this.detach_皮囊成型s));
-			this._橡胶薄片s = new EntitySet<橡胶薄片>(new Action<橡胶薄片>(this.attach_橡胶薄片s), new Action<橡胶薄片>(this.detach_橡胶薄片s));
-			this._帘布流转s = new EntitySet<帘布流转>(new Action<帘布流转>(this.attach_帘布流转s), new Action<帘布流转>(this.detach_帘布流转s));
-			this._班别1 = default(EntityRef<班别>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_姓名", DbType="NChar(200) NOT NULL", CanBeNull=false)]
-		public string 姓名
-		{
-			get
-			{
-				return this._姓名;
-			}
-			set
-			{
-				if ((this._姓名 != value))
-				{
-					this.On姓名Changing(value);
-					this.SendPropertyChanging();
-					this._姓名 = value;
-					this.SendPropertyChanged("姓名");
-					this.On姓名Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_班别", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid 班别
-		{
-			get
-			{
-				return this._班别;
-			}
-			set
-			{
-				if ((this._班别 != value))
-				{
-					if (this._班别1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.On班别Changing(value);
-					this.SendPropertyChanging();
-					this._班别 = value;
-					this.SendPropertyChanged("班别");
-					this.On班别Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_登记时间", DbType="DateTime NOT NULL")]
-		public System.DateTime 登记时间
-		{
-			get
-			{
-				return this._登记时间;
-			}
-			set
-			{
-				if ((this._登记时间 != value))
-				{
-					this.On登记时间Changing(value);
-					this.SendPropertyChanging();
-					this._登记时间 = value;
-					this.SendPropertyChanged("登记时间");
-					this.On登记时间Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_删除", DbType="Bit NOT NULL")]
-		public bool 删除
-		{
-			get
-			{
-				return this._删除;
-			}
-			set
-			{
-				if ((this._删除 != value))
-				{
-					this.On删除Changing(value);
-					this.SendPropertyChanging();
-					this._删除 = value;
-					this.SendPropertyChanged("删除");
-					this.On删除Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="员工_检验修边", Storage="_检验修边s", ThisKey="Id", OtherKey="检验员")]
-		public EntitySet<检验修边> 检验修边s
-		{
-			get
-			{
-				return this._检验修边s;
-			}
-			set
-			{
-				this._检验修边s.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="员工_皮囊硫化", Storage="_皮囊硫化s", ThisKey="Id", OtherKey="作业员")]
-		public EntitySet<皮囊硫化> 皮囊硫化s
-		{
-			get
-			{
-				return this._皮囊硫化s;
-			}
-			set
-			{
-				this._皮囊硫化s.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="员工_皮囊成型", Storage="_皮囊成型s", ThisKey="Id", OtherKey="作业员")]
-		public EntitySet<皮囊成型> 皮囊成型s
-		{
-			get
-			{
-				return this._皮囊成型s;
-			}
-			set
-			{
-				this._皮囊成型s.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="员工_橡胶薄片", Storage="_橡胶薄片s", ThisKey="Id", OtherKey="作业员")]
-		public EntitySet<橡胶薄片> 橡胶薄片s
-		{
-			get
-			{
-				return this._橡胶薄片s;
-			}
-			set
-			{
-				this._橡胶薄片s.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="员工_帘布流转", Storage="_帘布流转s", ThisKey="Id", OtherKey="作业员")]
-		public EntitySet<帘布流转> 帘布流转s
-		{
-			get
-			{
-				return this._帘布流转s;
-			}
-			set
-			{
-				this._帘布流转s.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="班别_员工", Storage="_班别1", ThisKey="班别", OtherKey="Id", IsForeignKey=true)]
-		public 班别 班别1
-		{
-			get
-			{
-				return this._班别1.Entity;
-			}
-			set
-			{
-				班别 previousValue = this._班别1.Entity;
-				if (((previousValue != value) 
-							|| (this._班别1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._班别1.Entity = null;
-						previousValue.员工s.Remove(this);
-					}
-					this._班别1.Entity = value;
-					if ((value != null))
-					{
-						value.员工s.Add(this);
-						this._班别 = value.Id;
-					}
-					else
-					{
-						this._班别 = default(System.Guid);
-					}
-					this.SendPropertyChanged("班别1");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_检验修边s(检验修边 entity)
-		{
-			this.SendPropertyChanging();
-			entity.员工 = this;
-		}
-		
-		private void detach_检验修边s(检验修边 entity)
-		{
-			this.SendPropertyChanging();
-			entity.员工 = null;
-		}
-		
-		private void attach_皮囊硫化s(皮囊硫化 entity)
-		{
-			this.SendPropertyChanging();
-			entity.员工 = this;
-		}
-		
-		private void detach_皮囊硫化s(皮囊硫化 entity)
-		{
-			this.SendPropertyChanging();
-			entity.员工 = null;
-		}
-		
-		private void attach_皮囊成型s(皮囊成型 entity)
-		{
-			this.SendPropertyChanging();
-			entity.员工 = this;
-		}
-		
-		private void detach_皮囊成型s(皮囊成型 entity)
-		{
-			this.SendPropertyChanging();
-			entity.员工 = null;
-		}
-		
-		private void attach_橡胶薄片s(橡胶薄片 entity)
-		{
-			this.SendPropertyChanging();
-			entity.员工 = this;
-		}
-		
-		private void detach_橡胶薄片s(橡胶薄片 entity)
-		{
-			this.SendPropertyChanging();
-			entity.员工 = null;
-		}
-		
-		private void attach_帘布流转s(帘布流转 entity)
-		{
-			this.SendPropertyChanging();
-			entity.员工 = this;
-		}
-		
-		private void detach_帘布流转s(帘布流转 entity)
-		{
-			this.SendPropertyChanging();
-			entity.员工 = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.皮囊成型")]
 	public partial class 皮囊成型 : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2507,13 +2777,13 @@ namespace YKT.RubberTraceSystem.Data
 		
 		private EntityRef<机台> _机台;
 		
+		private EntityRef<帘布流转> _帘布流转;
+		
 		private EntityRef<员工> _员工;
 		
 		private EntityRef<橡胶薄片> _橡胶薄片;
 		
 		private EntityRef<橡胶薄片> _橡胶薄片1;
-		
-		private EntityRef<帘布流转> _帘布流转;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2543,10 +2813,10 @@ namespace YKT.RubberTraceSystem.Data
 		{
 			this._皮囊硫化s = new EntitySet<皮囊硫化>(new Action<皮囊硫化>(this.attach_皮囊硫化s), new Action<皮囊硫化>(this.detach_皮囊硫化s));
 			this._机台 = default(EntityRef<机台>);
+			this._帘布流转 = default(EntityRef<帘布流转>);
 			this._员工 = default(EntityRef<员工>);
 			this._橡胶薄片 = default(EntityRef<橡胶薄片>);
 			this._橡胶薄片1 = default(EntityRef<橡胶薄片>);
-			this._帘布流转 = default(EntityRef<帘布流转>);
 			OnCreated();
 		}
 		
@@ -2797,6 +3067,40 @@ namespace YKT.RubberTraceSystem.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="帘布流转_皮囊成型", Storage="_帘布流转", ThisKey="帘布批号", OtherKey="Id", IsForeignKey=true)]
+		public 帘布流转 帘布流转
+		{
+			get
+			{
+				return this._帘布流转.Entity;
+			}
+			set
+			{
+				帘布流转 previousValue = this._帘布流转.Entity;
+				if (((previousValue != value) 
+							|| (this._帘布流转.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._帘布流转.Entity = null;
+						previousValue.皮囊成型s.Remove(this);
+					}
+					this._帘布流转.Entity = value;
+					if ((value != null))
+					{
+						value.皮囊成型s.Add(this);
+						this._帘布批号 = value.Id;
+					}
+					else
+					{
+						this._帘布批号 = default(System.Guid);
+					}
+					this.SendPropertyChanged("帘布流转");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="员工_皮囊成型", Storage="_员工", ThisKey="作业员", OtherKey="Id", IsForeignKey=true)]
 		public 员工 员工
 		{
@@ -2899,40 +3203,6 @@ namespace YKT.RubberTraceSystem.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="帘布流转_皮囊成型", Storage="_帘布流转", ThisKey="帘布批号", OtherKey="Id", IsForeignKey=true)]
-		public 帘布流转 帘布流转
-		{
-			get
-			{
-				return this._帘布流转.Entity;
-			}
-			set
-			{
-				帘布流转 previousValue = this._帘布流转.Entity;
-				if (((previousValue != value) 
-							|| (this._帘布流转.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._帘布流转.Entity = null;
-						previousValue.皮囊成型s.Remove(this);
-					}
-					this._帘布流转.Entity = value;
-					if ((value != null))
-					{
-						value.皮囊成型s.Add(this);
-						this._帘布批号 = value.Id;
-					}
-					else
-					{
-						this._帘布批号 = default(System.Guid);
-					}
-					this.SendPropertyChanged("帘布流转");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2963,6 +3233,435 @@ namespace YKT.RubberTraceSystem.Data
 		{
 			this.SendPropertyChanging();
 			entity.皮囊成型 = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.皮囊硫化")]
+	public partial class 皮囊硫化 : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _Id;
+		
+		private string _产品型号;
+		
+		private System.Guid _生产机台;
+		
+		private System.Guid _作业员;
+		
+		private System.Guid _成型皮囊;
+		
+		private System.Nullable<double> _硫化温度;
+		
+		private System.Nullable<double> _硫化时间;
+		
+		private System.Nullable<System.Guid> _模具;
+		
+		private System.DateTime _登记时间;
+		
+		private bool _删除;
+		
+		private EntitySet<检验修边> _检验修边s;
+		
+		private EntityRef<皮囊成型> _皮囊成型;
+		
+		private EntityRef<机台> _机台;
+		
+		private EntityRef<员工> _员工;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(System.Guid value);
+    partial void OnIdChanged();
+    partial void On产品型号Changing(string value);
+    partial void On产品型号Changed();
+    partial void On生产机台Changing(System.Guid value);
+    partial void On生产机台Changed();
+    partial void On作业员Changing(System.Guid value);
+    partial void On作业员Changed();
+    partial void On成型皮囊Changing(System.Guid value);
+    partial void On成型皮囊Changed();
+    partial void On硫化温度Changing(System.Nullable<double> value);
+    partial void On硫化温度Changed();
+    partial void On硫化时间Changing(System.Nullable<double> value);
+    partial void On硫化时间Changed();
+    partial void On模具Changing(System.Nullable<System.Guid> value);
+    partial void On模具Changed();
+    partial void On登记时间Changing(System.DateTime value);
+    partial void On登记时间Changed();
+    partial void On删除Changing(bool value);
+    partial void On删除Changed();
+    #endregion
+		
+		public 皮囊硫化()
+		{
+			this._检验修边s = new EntitySet<检验修边>(new Action<检验修边>(this.attach_检验修边s), new Action<检验修边>(this.detach_检验修边s));
+			this._皮囊成型 = default(EntityRef<皮囊成型>);
+			this._机台 = default(EntityRef<机台>);
+			this._员工 = default(EntityRef<员工>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_产品型号", DbType="NChar(200) NOT NULL", CanBeNull=false)]
+		public string 产品型号
+		{
+			get
+			{
+				return this._产品型号;
+			}
+			set
+			{
+				if ((this._产品型号 != value))
+				{
+					this.On产品型号Changing(value);
+					this.SendPropertyChanging();
+					this._产品型号 = value;
+					this.SendPropertyChanged("产品型号");
+					this.On产品型号Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_生产机台", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid 生产机台
+		{
+			get
+			{
+				return this._生产机台;
+			}
+			set
+			{
+				if ((this._生产机台 != value))
+				{
+					if (this._机台.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.On生产机台Changing(value);
+					this.SendPropertyChanging();
+					this._生产机台 = value;
+					this.SendPropertyChanged("生产机台");
+					this.On生产机台Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_作业员", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid 作业员
+		{
+			get
+			{
+				return this._作业员;
+			}
+			set
+			{
+				if ((this._作业员 != value))
+				{
+					if (this._员工.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.On作业员Changing(value);
+					this.SendPropertyChanging();
+					this._作业员 = value;
+					this.SendPropertyChanged("作业员");
+					this.On作业员Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_成型皮囊", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid 成型皮囊
+		{
+			get
+			{
+				return this._成型皮囊;
+			}
+			set
+			{
+				if ((this._成型皮囊 != value))
+				{
+					if (this._皮囊成型.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.On成型皮囊Changing(value);
+					this.SendPropertyChanging();
+					this._成型皮囊 = value;
+					this.SendPropertyChanged("成型皮囊");
+					this.On成型皮囊Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_硫化温度", DbType="Float")]
+		public System.Nullable<double> 硫化温度
+		{
+			get
+			{
+				return this._硫化温度;
+			}
+			set
+			{
+				if ((this._硫化温度 != value))
+				{
+					this.On硫化温度Changing(value);
+					this.SendPropertyChanging();
+					this._硫化温度 = value;
+					this.SendPropertyChanged("硫化温度");
+					this.On硫化温度Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_硫化时间", DbType="Float")]
+		public System.Nullable<double> 硫化时间
+		{
+			get
+			{
+				return this._硫化时间;
+			}
+			set
+			{
+				if ((this._硫化时间 != value))
+				{
+					this.On硫化时间Changing(value);
+					this.SendPropertyChanging();
+					this._硫化时间 = value;
+					this.SendPropertyChanged("硫化时间");
+					this.On硫化时间Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_模具", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> 模具
+		{
+			get
+			{
+				return this._模具;
+			}
+			set
+			{
+				if ((this._模具 != value))
+				{
+					this.On模具Changing(value);
+					this.SendPropertyChanging();
+					this._模具 = value;
+					this.SendPropertyChanged("模具");
+					this.On模具Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_登记时间", DbType="DateTime NOT NULL")]
+		public System.DateTime 登记时间
+		{
+			get
+			{
+				return this._登记时间;
+			}
+			set
+			{
+				if ((this._登记时间 != value))
+				{
+					this.On登记时间Changing(value);
+					this.SendPropertyChanging();
+					this._登记时间 = value;
+					this.SendPropertyChanged("登记时间");
+					this.On登记时间Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_删除", DbType="Bit NOT NULL")]
+		public bool 删除
+		{
+			get
+			{
+				return this._删除;
+			}
+			set
+			{
+				if ((this._删除 != value))
+				{
+					this.On删除Changing(value);
+					this.SendPropertyChanging();
+					this._删除 = value;
+					this.SendPropertyChanged("删除");
+					this.On删除Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="皮囊硫化_检验修边", Storage="_检验修边s", ThisKey="Id", OtherKey="硫化皮囊")]
+		public EntitySet<检验修边> 检验修边s
+		{
+			get
+			{
+				return this._检验修边s;
+			}
+			set
+			{
+				this._检验修边s.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="皮囊成型_皮囊硫化", Storage="_皮囊成型", ThisKey="成型皮囊", OtherKey="Id", IsForeignKey=true)]
+		public 皮囊成型 皮囊成型
+		{
+			get
+			{
+				return this._皮囊成型.Entity;
+			}
+			set
+			{
+				皮囊成型 previousValue = this._皮囊成型.Entity;
+				if (((previousValue != value) 
+							|| (this._皮囊成型.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._皮囊成型.Entity = null;
+						previousValue.皮囊硫化s.Remove(this);
+					}
+					this._皮囊成型.Entity = value;
+					if ((value != null))
+					{
+						value.皮囊硫化s.Add(this);
+						this._成型皮囊 = value.Id;
+					}
+					else
+					{
+						this._成型皮囊 = default(System.Guid);
+					}
+					this.SendPropertyChanged("皮囊成型");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="机台_皮囊硫化", Storage="_机台", ThisKey="生产机台", OtherKey="Id", IsForeignKey=true)]
+		public 机台 机台
+		{
+			get
+			{
+				return this._机台.Entity;
+			}
+			set
+			{
+				机台 previousValue = this._机台.Entity;
+				if (((previousValue != value) 
+							|| (this._机台.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._机台.Entity = null;
+						previousValue.皮囊硫化s.Remove(this);
+					}
+					this._机台.Entity = value;
+					if ((value != null))
+					{
+						value.皮囊硫化s.Add(this);
+						this._生产机台 = value.Id;
+					}
+					else
+					{
+						this._生产机台 = default(System.Guid);
+					}
+					this.SendPropertyChanged("机台");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="员工_皮囊硫化", Storage="_员工", ThisKey="作业员", OtherKey="Id", IsForeignKey=true)]
+		public 员工 员工
+		{
+			get
+			{
+				return this._员工.Entity;
+			}
+			set
+			{
+				员工 previousValue = this._员工.Entity;
+				if (((previousValue != value) 
+							|| (this._员工.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._员工.Entity = null;
+						previousValue.皮囊硫化s.Remove(this);
+					}
+					this._员工.Entity = value;
+					if ((value != null))
+					{
+						value.皮囊硫化s.Add(this);
+						this._作业员 = value.Id;
+					}
+					else
+					{
+						this._作业员 = default(System.Guid);
+					}
+					this.SendPropertyChanged("员工");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_检验修边s(检验修边 entity)
+		{
+			this.SendPropertyChanging();
+			entity.皮囊硫化 = this;
+		}
+		
+		private void detach_检验修边s(检验修边 entity)
+		{
+			this.SendPropertyChanging();
+			entity.皮囊硫化 = null;
 		}
 	}
 	
@@ -3379,394 +4078,6 @@ namespace YKT.RubberTraceSystem.Data
 		{
 			this.SendPropertyChanging();
 			entity.橡胶薄片1 = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.帘布流转")]
-	public partial class 帘布流转 : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _Id;
-		
-		private string _产品编号;
-		
-		private double _宽度;
-		
-		private double _厚度;
-		
-		private double _角度;
-		
-		private System.Nullable<System.Guid> _作业员;
-		
-		private System.Guid _帘布批号;
-		
-		private System.DateTime _使用期限;
-		
-		private System.DateTime _登记时间;
-		
-		private bool _删除;
-		
-		private EntitySet<皮囊成型> _皮囊成型s;
-		
-		private EntityRef<帘布入库> _帘布入库;
-		
-		private EntityRef<员工> _员工;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(System.Guid value);
-    partial void OnIdChanged();
-    partial void On产品编号Changing(string value);
-    partial void On产品编号Changed();
-    partial void On宽度Changing(double value);
-    partial void On宽度Changed();
-    partial void On厚度Changing(double value);
-    partial void On厚度Changed();
-    partial void On角度Changing(double value);
-    partial void On角度Changed();
-    partial void On作业员Changing(System.Nullable<System.Guid> value);
-    partial void On作业员Changed();
-    partial void On帘布批号Changing(System.Guid value);
-    partial void On帘布批号Changed();
-    partial void On使用期限Changing(System.DateTime value);
-    partial void On使用期限Changed();
-    partial void On登记时间Changing(System.DateTime value);
-    partial void On登记时间Changed();
-    partial void On删除Changing(bool value);
-    partial void On删除Changed();
-    #endregion
-		
-		public 帘布流转()
-		{
-			this._皮囊成型s = new EntitySet<皮囊成型>(new Action<皮囊成型>(this.attach_皮囊成型s), new Action<皮囊成型>(this.detach_皮囊成型s));
-			this._帘布入库 = default(EntityRef<帘布入库>);
-			this._员工 = default(EntityRef<员工>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_产品编号", DbType="NChar(200) NOT NULL", CanBeNull=false)]
-		public string 产品编号
-		{
-			get
-			{
-				return this._产品编号;
-			}
-			set
-			{
-				if ((this._产品编号 != value))
-				{
-					this.On产品编号Changing(value);
-					this.SendPropertyChanging();
-					this._产品编号 = value;
-					this.SendPropertyChanged("产品编号");
-					this.On产品编号Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_宽度", DbType="Float NOT NULL")]
-		public double 宽度
-		{
-			get
-			{
-				return this._宽度;
-			}
-			set
-			{
-				if ((this._宽度 != value))
-				{
-					this.On宽度Changing(value);
-					this.SendPropertyChanging();
-					this._宽度 = value;
-					this.SendPropertyChanged("宽度");
-					this.On宽度Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_厚度", DbType="Float NOT NULL")]
-		public double 厚度
-		{
-			get
-			{
-				return this._厚度;
-			}
-			set
-			{
-				if ((this._厚度 != value))
-				{
-					this.On厚度Changing(value);
-					this.SendPropertyChanging();
-					this._厚度 = value;
-					this.SendPropertyChanged("厚度");
-					this.On厚度Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_角度", DbType="Float NOT NULL")]
-		public double 角度
-		{
-			get
-			{
-				return this._角度;
-			}
-			set
-			{
-				if ((this._角度 != value))
-				{
-					this.On角度Changing(value);
-					this.SendPropertyChanging();
-					this._角度 = value;
-					this.SendPropertyChanged("角度");
-					this.On角度Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_作业员", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> 作业员
-		{
-			get
-			{
-				return this._作业员;
-			}
-			set
-			{
-				if ((this._作业员 != value))
-				{
-					if (this._员工.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.On作业员Changing(value);
-					this.SendPropertyChanging();
-					this._作业员 = value;
-					this.SendPropertyChanged("作业员");
-					this.On作业员Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_帘布批号", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid 帘布批号
-		{
-			get
-			{
-				return this._帘布批号;
-			}
-			set
-			{
-				if ((this._帘布批号 != value))
-				{
-					if (this._帘布入库.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.On帘布批号Changing(value);
-					this.SendPropertyChanging();
-					this._帘布批号 = value;
-					this.SendPropertyChanged("帘布批号");
-					this.On帘布批号Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_使用期限", DbType="DateTime NOT NULL")]
-		public System.DateTime 使用期限
-		{
-			get
-			{
-				return this._使用期限;
-			}
-			set
-			{
-				if ((this._使用期限 != value))
-				{
-					this.On使用期限Changing(value);
-					this.SendPropertyChanging();
-					this._使用期限 = value;
-					this.SendPropertyChanged("使用期限");
-					this.On使用期限Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_登记时间", DbType="DateTime NOT NULL")]
-		public System.DateTime 登记时间
-		{
-			get
-			{
-				return this._登记时间;
-			}
-			set
-			{
-				if ((this._登记时间 != value))
-				{
-					this.On登记时间Changing(value);
-					this.SendPropertyChanging();
-					this._登记时间 = value;
-					this.SendPropertyChanged("登记时间");
-					this.On登记时间Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_删除", DbType="Bit NOT NULL")]
-		public bool 删除
-		{
-			get
-			{
-				return this._删除;
-			}
-			set
-			{
-				if ((this._删除 != value))
-				{
-					this.On删除Changing(value);
-					this.SendPropertyChanging();
-					this._删除 = value;
-					this.SendPropertyChanged("删除");
-					this.On删除Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="帘布流转_皮囊成型", Storage="_皮囊成型s", ThisKey="Id", OtherKey="帘布批号")]
-		public EntitySet<皮囊成型> 皮囊成型s
-		{
-			get
-			{
-				return this._皮囊成型s;
-			}
-			set
-			{
-				this._皮囊成型s.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="帘布入库_帘布流转", Storage="_帘布入库", ThisKey="帘布批号", OtherKey="Id", IsForeignKey=true)]
-		public 帘布入库 帘布入库
-		{
-			get
-			{
-				return this._帘布入库.Entity;
-			}
-			set
-			{
-				帘布入库 previousValue = this._帘布入库.Entity;
-				if (((previousValue != value) 
-							|| (this._帘布入库.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._帘布入库.Entity = null;
-						previousValue.帘布流转s.Remove(this);
-					}
-					this._帘布入库.Entity = value;
-					if ((value != null))
-					{
-						value.帘布流转s.Add(this);
-						this._帘布批号 = value.Id;
-					}
-					else
-					{
-						this._帘布批号 = default(System.Guid);
-					}
-					this.SendPropertyChanged("帘布入库");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="员工_帘布流转", Storage="_员工", ThisKey="作业员", OtherKey="Id", IsForeignKey=true)]
-		public 员工 员工
-		{
-			get
-			{
-				return this._员工.Entity;
-			}
-			set
-			{
-				员工 previousValue = this._员工.Entity;
-				if (((previousValue != value) 
-							|| (this._员工.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._员工.Entity = null;
-						previousValue.帘布流转s.Remove(this);
-					}
-					this._员工.Entity = value;
-					if ((value != null))
-					{
-						value.帘布流转s.Add(this);
-						this._作业员 = value.Id;
-					}
-					else
-					{
-						this._作业员 = default(Nullable<System.Guid>);
-					}
-					this.SendPropertyChanged("员工");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_皮囊成型s(皮囊成型 entity)
-		{
-			this.SendPropertyChanging();
-			entity.帘布流转 = this;
-		}
-		
-		private void detach_皮囊成型s(皮囊成型 entity)
-		{
-			this.SendPropertyChanging();
-			entity.帘布流转 = null;
 		}
 	}
 }

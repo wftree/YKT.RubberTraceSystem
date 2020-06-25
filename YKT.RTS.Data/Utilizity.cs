@@ -60,6 +60,14 @@ namespace YKT.RubberTraceSystem.Data
     public enum TableType
     {
         /// <summary>
+        ///处理方法 
+        /// </summary>
+        MT,
+        /// <summary>
+        /// 班别
+        /// </summary>
+        CT,
+        /// <summary>
         /// 用户
         /// </summary>
         UR,

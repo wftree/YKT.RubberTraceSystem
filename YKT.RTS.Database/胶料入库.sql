@@ -5,7 +5,7 @@
     [箱号] NCHAR(200), 
     [生产线号] NCHAR(200), 
     [供应商产品代号] NCHAR(200), 
-    [生产日期] NCHAR(200) NOT NULL, 
+    [生产日期] DATETIME NOT NULL, 
     [批次号] NCHAR(200) NOT NULL, 
     [重量] FLOAT NOT NULL, 
     [登记时间] DATETIME NOT NULL DEFAULT getdate(), 
