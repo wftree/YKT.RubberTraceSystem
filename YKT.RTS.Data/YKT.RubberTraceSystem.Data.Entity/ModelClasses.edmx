@@ -1,0 +1,1134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="YKT.RubberTraceSystem.DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="MD5" Type="nchar" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="班别">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="班别" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="登记时间" Type="datetime" Nullable="false" />
+          <Property Name="删除" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="处理方法">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="处理方法" Type="nchar" MaxLength="200" Nullable="false" />
+          <Property Name="附件" Type="nchar" MaxLength="200" />
+          <Property Name="登记时间" Type="datetime" Nullable="false" />
+          <Property Name="删除" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="机台">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="机台编号" Type="nchar" MaxLength="200" Nullable="false" />
+          <Property Name="机台名称" Type="nchar" MaxLength="200" />
+          <Property Name="机台描述" Type="nchar" MaxLength="200" />
+          <Property Name="登记时间" Type="datetime" Nullable="false" />
+          <Property Name="删除" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="检验修边">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="结果" Type="bit" Nullable="false" />
+          <Property Name="处理方法" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="检验员" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="硫化皮囊" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="登记时间" Type="datetime" Nullable="false" />
+          <Property Name="删除" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="胶料入库">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="胶料牌号" Type="nchar" MaxLength="200" Nullable="false" />
+          <Property Name="箱号" Type="nchar" MaxLength="200" />
+          <Property Name="生产线号" Type="nchar" MaxLength="200" />
+          <Property Name="供应商产品代号" Type="nchar" MaxLength="200" />
+          <Property Name="生产日期" Type="datetime" Nullable="false" />
+          <Property Name="批次号" Type="nchar" MaxLength="200" Nullable="false" />
+          <Property Name="重量" Type="float" Nullable="false" />
+          <Property Name="登记时间" Type="datetime" Nullable="false" />
+          <Property Name="删除" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="帘布流转">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="产品编号" Type="nchar" MaxLength="200" Nullable="false" />
+          <Property Name="宽度" Type="float" Nullable="false" />
+          <Property Name="厚度" Type="float" Nullable="false" />
+          <Property Name="角度" Type="float" Nullable="false" />
+          <Property Name="作业员" Type="uniqueidentifier" />
+          <Property Name="帘布批号" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="使用期限" Type="datetime" Nullable="false" />
+          <Property Name="登记时间" Type="datetime" Nullable="false" />
+          <Property Name="删除" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="帘布入库">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="帘布代号" Type="nchar" MaxLength="200" Nullable="false" />
+          <Property Name="胶料" Type="nchar" MaxLength="200" />
+          <Property Name="帘布长度" Type="float" Nullable="false" />
+          <Property Name="生产序号" Type="float" />
+          <Property Name="生产日期" Type="datetime" Nullable="false" />
+          <Property Name="有效日期" Type="datetime" Nullable="false" />
+          <Property Name="重量" Type="float" Nullable="false" />
+          <Property Name="登记时间" Type="datetime" Nullable="false" />
+          <Property Name="删除" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="皮囊成型">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="产品型号" Type="nchar" MaxLength="200" Nullable="false" />
+          <Property Name="生产机台" Type="uniqueidentifier" />
+          <Property Name="作业员" Type="uniqueidentifier" />
+          <Property Name="帘布批号" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="外胶片批号" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="内胶片批号" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="登记时间" Type="datetime" Nullable="false" />
+          <Property Name="删除" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="皮囊硫化">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="产品型号" Type="nchar" MaxLength="200" Nullable="false" />
+          <Property Name="生产机台" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="作业员" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="成型皮囊" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="硫化温度" Type="float" />
+          <Property Name="硫化时间" Type="float" />
+          <Property Name="模具" Type="uniqueidentifier" />
+          <Property Name="登记时间" Type="datetime" Nullable="false" />
+          <Property Name="删除" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="橡胶薄片">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="宽度" Type="float" Nullable="false" />
+          <Property Name="厚度" Type="float" Nullable="false" />
+          <Property Name="数量" Type="float" Nullable="false" />
+          <Property Name="作业员" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="胶料批号" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="生产序号" Type="float" Nullable="false" />
+          <Property Name="生产时间" Type="datetime" Nullable="false" />
+          <Property Name="登记时间" Type="datetime" Nullable="false" />
+          <Property Name="删除" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="员工">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="姓名" Type="nchar" MaxLength="200" Nullable="false" />
+          <Property Name="班别" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="登记时间" Type="datetime" Nullable="false" />
+          <Property Name="删除" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_User_ToTCategory">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_检验修边_处理方法">
+          <End Role="处理方法" Type="Self.处理方法" Multiplicity="1" />
+          <End Role="检验修边" Type="Self.检验修边" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="处理方法">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="检验修边">
+              <PropertyRef Name="处理方法" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_检验修边_皮囊硫化">
+          <End Role="皮囊硫化" Type="Self.皮囊硫化" Multiplicity="1" />
+          <End Role="检验修边" Type="Self.检验修边" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="皮囊硫化">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="检验修边">
+              <PropertyRef Name="硫化皮囊" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_检验修边_员工">
+          <End Role="员工" Type="Self.员工" Multiplicity="1" />
+          <End Role="检验修边" Type="Self.检验修边" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="员工">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="检验修边">
+              <PropertyRef Name="检验员" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_帘布流转_帘布入库">
+          <End Role="帘布入库" Type="Self.帘布入库" Multiplicity="1" />
+          <End Role="帘布流转" Type="Self.帘布流转" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="帘布入库">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="帘布流转">
+              <PropertyRef Name="帘布批号" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_帘布流转_员工">
+          <End Role="员工" Type="Self.员工" Multiplicity="0..1" />
+          <End Role="帘布流转" Type="Self.帘布流转" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="员工">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="帘布流转">
+              <PropertyRef Name="作业员" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_皮囊成型_机台">
+          <End Role="机台" Type="Self.机台" Multiplicity="0..1" />
+          <End Role="皮囊成型" Type="Self.皮囊成型" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="机台">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="皮囊成型">
+              <PropertyRef Name="生产机台" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_皮囊成型_帘布流转">
+          <End Role="帘布流转" Type="Self.帘布流转" Multiplicity="1" />
+          <End Role="皮囊成型" Type="Self.皮囊成型" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="帘布流转">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="皮囊成型">
+              <PropertyRef Name="帘布批号" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_皮囊成型_内橡胶薄片">
+          <End Role="橡胶薄片" Type="Self.橡胶薄片" Multiplicity="1" />
+          <End Role="皮囊成型" Type="Self.皮囊成型" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="橡胶薄片">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="皮囊成型">
+              <PropertyRef Name="内胶片批号" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_皮囊成型_外橡胶薄片">
+          <End Role="橡胶薄片" Type="Self.橡胶薄片" Multiplicity="1" />
+          <End Role="皮囊成型" Type="Self.皮囊成型" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="橡胶薄片">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="皮囊成型">
+              <PropertyRef Name="外胶片批号" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_皮囊成型_员工">
+          <End Role="员工" Type="Self.员工" Multiplicity="0..1" />
+          <End Role="皮囊成型" Type="Self.皮囊成型" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="员工">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="皮囊成型">
+              <PropertyRef Name="作业员" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_皮囊硫化_成型皮囊">
+          <End Role="皮囊成型" Type="Self.皮囊成型" Multiplicity="1" />
+          <End Role="皮囊硫化" Type="Self.皮囊硫化" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="皮囊成型">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="皮囊硫化">
+              <PropertyRef Name="成型皮囊" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_皮囊硫化_机台">
+          <End Role="机台" Type="Self.机台" Multiplicity="1" />
+          <End Role="皮囊硫化" Type="Self.皮囊硫化" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="机台">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="皮囊硫化">
+              <PropertyRef Name="生产机台" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_皮囊硫化_员工">
+          <End Role="员工" Type="Self.员工" Multiplicity="1" />
+          <End Role="皮囊硫化" Type="Self.皮囊硫化" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="员工">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="皮囊硫化">
+              <PropertyRef Name="作业员" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_橡胶薄片_胶料入库">
+          <End Role="胶料入库" Type="Self.胶料入库" Multiplicity="1" />
+          <End Role="橡胶薄片" Type="Self.橡胶薄片" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="胶料入库">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="橡胶薄片">
+              <PropertyRef Name="胶料批号" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_橡胶薄片_员工">
+          <End Role="员工" Type="Self.员工" Multiplicity="1" />
+          <End Role="橡胶薄片" Type="Self.橡胶薄片" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="员工">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="橡胶薄片">
+              <PropertyRef Name="作业员" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_员工_班别">
+          <End Role="班别" Type="Self.班别" Multiplicity="1" />
+          <End Role="员工" Type="Self.员工" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="班别">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="员工">
+              <PropertyRef Name="班别" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="YKTRubberTraceSystemDatabaseModelStoreContainer">
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="班别" EntityType="Self.班别" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="处理方法" EntityType="Self.处理方法" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="机台" EntityType="Self.机台" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="检验修边" EntityType="Self.检验修边" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="胶料入库" EntityType="Self.胶料入库" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="帘布流转" EntityType="Self.帘布流转" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="帘布入库" EntityType="Self.帘布入库" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="皮囊成型" EntityType="Self.皮囊成型" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="皮囊硫化" EntityType="Self.皮囊硫化" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="橡胶薄片" EntityType="Self.橡胶薄片" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="员工" EntityType="Self.员工" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_User_ToTCategory" Association="Self.FK_User_ToTCategory">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_检验修边_处理方法" Association="Self.FK_检验修边_处理方法">
+            <End Role="处理方法" EntitySet="处理方法" />
+            <End Role="检验修边" EntitySet="检验修边" />
+          </AssociationSet>
+          <AssociationSet Name="FK_检验修边_皮囊硫化" Association="Self.FK_检验修边_皮囊硫化">
+            <End Role="皮囊硫化" EntitySet="皮囊硫化" />
+            <End Role="检验修边" EntitySet="检验修边" />
+          </AssociationSet>
+          <AssociationSet Name="FK_检验修边_员工" Association="Self.FK_检验修边_员工">
+            <End Role="员工" EntitySet="员工" />
+            <End Role="检验修边" EntitySet="检验修边" />
+          </AssociationSet>
+          <AssociationSet Name="FK_帘布流转_帘布入库" Association="Self.FK_帘布流转_帘布入库">
+            <End Role="帘布入库" EntitySet="帘布入库" />
+            <End Role="帘布流转" EntitySet="帘布流转" />
+          </AssociationSet>
+          <AssociationSet Name="FK_帘布流转_员工" Association="Self.FK_帘布流转_员工">
+            <End Role="员工" EntitySet="员工" />
+            <End Role="帘布流转" EntitySet="帘布流转" />
+          </AssociationSet>
+          <AssociationSet Name="FK_皮囊成型_机台" Association="Self.FK_皮囊成型_机台">
+            <End Role="机台" EntitySet="机台" />
+            <End Role="皮囊成型" EntitySet="皮囊成型" />
+          </AssociationSet>
+          <AssociationSet Name="FK_皮囊成型_帘布流转" Association="Self.FK_皮囊成型_帘布流转">
+            <End Role="帘布流转" EntitySet="帘布流转" />
+            <End Role="皮囊成型" EntitySet="皮囊成型" />
+          </AssociationSet>
+          <AssociationSet Name="FK_皮囊成型_内橡胶薄片" Association="Self.FK_皮囊成型_内橡胶薄片">
+            <End Role="橡胶薄片" EntitySet="橡胶薄片" />
+            <End Role="皮囊成型" EntitySet="皮囊成型" />
+          </AssociationSet>
+          <AssociationSet Name="FK_皮囊成型_外橡胶薄片" Association="Self.FK_皮囊成型_外橡胶薄片">
+            <End Role="橡胶薄片" EntitySet="橡胶薄片" />
+            <End Role="皮囊成型" EntitySet="皮囊成型" />
+          </AssociationSet>
+          <AssociationSet Name="FK_皮囊成型_员工" Association="Self.FK_皮囊成型_员工">
+            <End Role="员工" EntitySet="员工" />
+            <End Role="皮囊成型" EntitySet="皮囊成型" />
+          </AssociationSet>
+          <AssociationSet Name="FK_皮囊硫化_成型皮囊" Association="Self.FK_皮囊硫化_成型皮囊">
+            <End Role="皮囊成型" EntitySet="皮囊成型" />
+            <End Role="皮囊硫化" EntitySet="皮囊硫化" />
+          </AssociationSet>
+          <AssociationSet Name="FK_皮囊硫化_机台" Association="Self.FK_皮囊硫化_机台">
+            <End Role="机台" EntitySet="机台" />
+            <End Role="皮囊硫化" EntitySet="皮囊硫化" />
+          </AssociationSet>
+          <AssociationSet Name="FK_皮囊硫化_员工" Association="Self.FK_皮囊硫化_员工">
+            <End Role="员工" EntitySet="员工" />
+            <End Role="皮囊硫化" EntitySet="皮囊硫化" />
+          </AssociationSet>
+          <AssociationSet Name="FK_橡胶薄片_胶料入库" Association="Self.FK_橡胶薄片_胶料入库">
+            <End Role="胶料入库" EntitySet="胶料入库" />
+            <End Role="橡胶薄片" EntitySet="橡胶薄片" />
+          </AssociationSet>
+          <AssociationSet Name="FK_橡胶薄片_员工" Association="Self.FK_橡胶薄片_员工">
+            <End Role="员工" EntitySet="员工" />
+            <End Role="橡胶薄片" EntitySet="橡胶薄片" />
+          </AssociationSet>
+          <AssociationSet Name="FK_员工_班别" Association="Self.FK_员工_班别">
+            <End Role="班别" EntitySet="班别" />
+            <End Role="员工" EntitySet="员工" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="YKT.RubberTraceSystem.DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_ToTCategory" FromRole="Category" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="MD5" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_User_ToTCategory" FromRole="User" ToRole="Category" />
+        </EntityType>
+        <EntityType Name="班别">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="班别1" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="登记时间" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="删除" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="员工" Relationship="Self.FK_员工_班别" FromRole="班别" ToRole="员工" />
+        </EntityType>
+        <EntityType Name="处理方法">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="处理方法1" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="附件" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="登记时间" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="删除" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="检验修边" Relationship="Self.FK_检验修边_处理方法" FromRole="处理方法" ToRole="检验修边" />
+        </EntityType>
+        <EntityType Name="机台">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="机台编号" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="机台名称" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="机台描述" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="登记时间" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="删除" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="皮囊成型" Relationship="Self.FK_皮囊成型_机台" FromRole="机台" ToRole="皮囊成型" />
+          <NavigationProperty Name="皮囊硫化" Relationship="Self.FK_皮囊硫化_机台" FromRole="机台" ToRole="皮囊硫化" />
+        </EntityType>
+        <EntityType Name="检验修边">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="结果" Type="Boolean" Nullable="false" />
+          <Property Name="处理方法" Type="Guid" Nullable="false" />
+          <Property Name="检验员" Type="Guid" Nullable="false" />
+          <Property Name="硫化皮囊" Type="Guid" Nullable="false" />
+          <Property Name="登记时间" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="删除" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="处理方法1" Relationship="Self.FK_检验修边_处理方法" FromRole="检验修边" ToRole="处理方法" />
+          <NavigationProperty Name="皮囊硫化" Relationship="Self.FK_检验修边_皮囊硫化" FromRole="检验修边" ToRole="皮囊硫化" />
+          <NavigationProperty Name="员工" Relationship="Self.FK_检验修边_员工" FromRole="检验修边" ToRole="员工" />
+        </EntityType>
+        <EntityType Name="胶料入库">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="胶料牌号" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="箱号" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="生产线号" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="供应商产品代号" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="生产日期" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="批次号" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="重量" Type="Double" Nullable="false" />
+          <Property Name="登记时间" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="删除" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="橡胶薄片" Relationship="Self.FK_橡胶薄片_胶料入库" FromRole="胶料入库" ToRole="橡胶薄片" />
+        </EntityType>
+        <EntityType Name="帘布流转">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="产品编号" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="宽度" Type="Double" Nullable="false" />
+          <Property Name="厚度" Type="Double" Nullable="false" />
+          <Property Name="角度" Type="Double" Nullable="false" />
+          <Property Name="作业员" Type="Guid" />
+          <Property Name="帘布批号" Type="Guid" Nullable="false" />
+          <Property Name="使用期限" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="登记时间" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="删除" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="帘布入库" Relationship="Self.FK_帘布流转_帘布入库" FromRole="帘布流转" ToRole="帘布入库" />
+          <NavigationProperty Name="员工" Relationship="Self.FK_帘布流转_员工" FromRole="帘布流转" ToRole="员工" />
+          <NavigationProperty Name="皮囊成型" Relationship="Self.FK_皮囊成型_帘布流转" FromRole="帘布流转" ToRole="皮囊成型" />
+        </EntityType>
+        <EntityType Name="帘布入库">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="帘布代号" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="胶料" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="帘布长度" Type="Double" Nullable="false" />
+          <Property Name="生产序号" Type="Double" />
+          <Property Name="生产日期" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="有效日期" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="重量" Type="Double" Nullable="false" />
+          <Property Name="登记时间" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="删除" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="帘布流转" Relationship="Self.FK_帘布流转_帘布入库" FromRole="帘布入库" ToRole="帘布流转" />
+        </EntityType>
+        <EntityType Name="皮囊成型">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="产品型号" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="生产机台" Type="Guid" />
+          <Property Name="作业员" Type="Guid" />
+          <Property Name="帘布批号" Type="Guid" Nullable="false" />
+          <Property Name="外胶片批号" Type="Guid" Nullable="false" />
+          <Property Name="内胶片批号" Type="Guid" Nullable="false" />
+          <Property Name="登记时间" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="删除" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="机台" Relationship="Self.FK_皮囊成型_机台" FromRole="皮囊成型" ToRole="机台" />
+          <NavigationProperty Name="帘布流转" Relationship="Self.FK_皮囊成型_帘布流转" FromRole="皮囊成型" ToRole="帘布流转" />
+          <NavigationProperty Name="橡胶薄片" Relationship="Self.FK_皮囊成型_内橡胶薄片" FromRole="皮囊成型" ToRole="橡胶薄片" />
+          <NavigationProperty Name="橡胶薄片1" Relationship="Self.FK_皮囊成型_外橡胶薄片" FromRole="皮囊成型" ToRole="橡胶薄片" />
+          <NavigationProperty Name="员工" Relationship="Self.FK_皮囊成型_员工" FromRole="皮囊成型" ToRole="员工" />
+          <NavigationProperty Name="皮囊硫化" Relationship="Self.FK_皮囊硫化_成型皮囊" FromRole="皮囊成型" ToRole="皮囊硫化" />
+        </EntityType>
+        <EntityType Name="皮囊硫化">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="产品型号" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="生产机台" Type="Guid" Nullable="false" />
+          <Property Name="作业员" Type="Guid" Nullable="false" />
+          <Property Name="成型皮囊" Type="Guid" Nullable="false" />
+          <Property Name="硫化温度" Type="Double" />
+          <Property Name="硫化时间" Type="Double" />
+          <Property Name="模具" Type="Guid" />
+          <Property Name="登记时间" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="删除" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="机台" Relationship="Self.FK_皮囊硫化_机台" FromRole="皮囊硫化" ToRole="机台" />
+          <NavigationProperty Name="检验修边" Relationship="Self.FK_检验修边_皮囊硫化" FromRole="皮囊硫化" ToRole="检验修边" />
+          <NavigationProperty Name="皮囊成型" Relationship="Self.FK_皮囊硫化_成型皮囊" FromRole="皮囊硫化" ToRole="皮囊成型" />
+          <NavigationProperty Name="员工" Relationship="Self.FK_皮囊硫化_员工" FromRole="皮囊硫化" ToRole="员工" />
+        </EntityType>
+        <EntityType Name="橡胶薄片">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="宽度" Type="Double" Nullable="false" />
+          <Property Name="厚度" Type="Double" Nullable="false" />
+          <Property Name="数量" Type="Double" Nullable="false" />
+          <Property Name="作业员" Type="Guid" Nullable="false" />
+          <Property Name="胶料批号" Type="Guid" Nullable="false" />
+          <Property Name="生产序号" Type="Double" Nullable="false" />
+          <Property Name="生产时间" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="登记时间" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="删除" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="胶料入库" Relationship="Self.FK_橡胶薄片_胶料入库" FromRole="橡胶薄片" ToRole="胶料入库" />
+          <NavigationProperty Name="皮囊成型" Relationship="Self.FK_皮囊成型_内橡胶薄片" FromRole="橡胶薄片" ToRole="皮囊成型" />
+          <NavigationProperty Name="皮囊成型1" Relationship="Self.FK_皮囊成型_外橡胶薄片" FromRole="橡胶薄片" ToRole="皮囊成型" />
+          <NavigationProperty Name="员工" Relationship="Self.FK_橡胶薄片_员工" FromRole="橡胶薄片" ToRole="员工" />
+        </EntityType>
+        <EntityType Name="员工">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="姓名" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="班别" Type="Guid" Nullable="false" />
+          <Property Name="登记时间" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="删除" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="班别1" Relationship="Self.FK_员工_班别" FromRole="员工" ToRole="班别" />
+          <NavigationProperty Name="检验修边" Relationship="Self.FK_检验修边_员工" FromRole="员工" ToRole="检验修边" />
+          <NavigationProperty Name="帘布流转" Relationship="Self.FK_帘布流转_员工" FromRole="员工" ToRole="帘布流转" />
+          <NavigationProperty Name="皮囊成型" Relationship="Self.FK_皮囊成型_员工" FromRole="员工" ToRole="皮囊成型" />
+          <NavigationProperty Name="皮囊硫化" Relationship="Self.FK_皮囊硫化_员工" FromRole="员工" ToRole="皮囊硫化" />
+          <NavigationProperty Name="橡胶薄片" Relationship="Self.FK_橡胶薄片_员工" FromRole="员工" ToRole="橡胶薄片" />
+        </EntityType>
+        <Association Name="FK_User_ToTCategory">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_员工_班别">
+          <End Role="班别" Type="Self.班别" Multiplicity="1" />
+          <End Role="员工" Type="Self.员工" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="班别">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="员工">
+              <PropertyRef Name="班别" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_检验修边_处理方法">
+          <End Role="处理方法" Type="Self.处理方法" Multiplicity="1" />
+          <End Role="检验修边" Type="Self.检验修边" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="处理方法">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="检验修边">
+              <PropertyRef Name="处理方法" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_皮囊成型_机台">
+          <End Role="机台" Type="Self.机台" Multiplicity="0..1" />
+          <End Role="皮囊成型" Type="Self.皮囊成型" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="机台">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="皮囊成型">
+              <PropertyRef Name="生产机台" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_皮囊硫化_机台">
+          <End Role="机台" Type="Self.机台" Multiplicity="1" />
+          <End Role="皮囊硫化" Type="Self.皮囊硫化" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="机台">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="皮囊硫化">
+              <PropertyRef Name="生产机台" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_检验修边_皮囊硫化">
+          <End Role="皮囊硫化" Type="Self.皮囊硫化" Multiplicity="1" />
+          <End Role="检验修边" Type="Self.检验修边" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="皮囊硫化">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="检验修边">
+              <PropertyRef Name="硫化皮囊" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_检验修边_员工">
+          <End Role="员工" Type="Self.员工" Multiplicity="1" />
+          <End Role="检验修边" Type="Self.检验修边" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="员工">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="检验修边">
+              <PropertyRef Name="检验员" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_橡胶薄片_胶料入库">
+          <End Role="胶料入库" Type="Self.胶料入库" Multiplicity="1" />
+          <End Role="橡胶薄片" Type="Self.橡胶薄片" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="胶料入库">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="橡胶薄片">
+              <PropertyRef Name="胶料批号" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_帘布流转_帘布入库">
+          <End Role="帘布入库" Type="Self.帘布入库" Multiplicity="1" />
+          <End Role="帘布流转" Type="Self.帘布流转" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="帘布入库">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="帘布流转">
+              <PropertyRef Name="帘布批号" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_帘布流转_员工">
+          <End Role="员工" Type="Self.员工" Multiplicity="0..1" />
+          <End Role="帘布流转" Type="Self.帘布流转" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="员工">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="帘布流转">
+              <PropertyRef Name="作业员" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_皮囊成型_帘布流转">
+          <End Role="帘布流转" Type="Self.帘布流转" Multiplicity="1" />
+          <End Role="皮囊成型" Type="Self.皮囊成型" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="帘布流转">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="皮囊成型">
+              <PropertyRef Name="帘布批号" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_皮囊成型_内橡胶薄片">
+          <End Role="橡胶薄片" Type="Self.橡胶薄片" Multiplicity="1" />
+          <End Role="皮囊成型" Type="Self.皮囊成型" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="橡胶薄片">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="皮囊成型">
+              <PropertyRef Name="内胶片批号" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_皮囊成型_外橡胶薄片">
+          <End Role="橡胶薄片" Type="Self.橡胶薄片" Multiplicity="1" />
+          <End Role="皮囊成型" Type="Self.皮囊成型" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="橡胶薄片">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="皮囊成型">
+              <PropertyRef Name="外胶片批号" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_皮囊成型_员工">
+          <End Role="员工" Type="Self.员工" Multiplicity="0..1" />
+          <End Role="皮囊成型" Type="Self.皮囊成型" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="员工">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="皮囊成型">
+              <PropertyRef Name="作业员" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_皮囊硫化_成型皮囊">
+          <End Role="皮囊成型" Type="Self.皮囊成型" Multiplicity="1" />
+          <End Role="皮囊硫化" Type="Self.皮囊硫化" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="皮囊成型">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="皮囊硫化">
+              <PropertyRef Name="成型皮囊" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_皮囊硫化_员工">
+          <End Role="员工" Type="Self.员工" Multiplicity="1" />
+          <End Role="皮囊硫化" Type="Self.皮囊硫化" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="员工">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="皮囊硫化">
+              <PropertyRef Name="作业员" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_橡胶薄片_员工">
+          <End Role="员工" Type="Self.员工" Multiplicity="1" />
+          <End Role="橡胶薄片" Type="Self.橡胶薄片" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="员工">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="橡胶薄片">
+              <PropertyRef Name="作业员" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Category" EntityType="Self.Category" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="班别" EntityType="Self.班别" />
+          <EntitySet Name="处理方法" EntityType="Self.处理方法" />
+          <EntitySet Name="机台" EntityType="Self.机台" />
+          <EntitySet Name="检验修边" EntityType="Self.检验修边" />
+          <EntitySet Name="胶料入库" EntityType="Self.胶料入库" />
+          <EntitySet Name="帘布流转" EntityType="Self.帘布流转" />
+          <EntitySet Name="帘布入库" EntityType="Self.帘布入库" />
+          <EntitySet Name="皮囊成型" EntityType="Self.皮囊成型" />
+          <EntitySet Name="皮囊硫化" EntityType="Self.皮囊硫化" />
+          <EntitySet Name="橡胶薄片" EntityType="Self.橡胶薄片" />
+          <EntitySet Name="员工" EntityType="Self.员工" />
+          <AssociationSet Name="FK_User_ToTCategory" Association="Self.FK_User_ToTCategory">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_员工_班别" Association="Self.FK_员工_班别">
+            <End Role="班别" EntitySet="班别" />
+            <End Role="员工" EntitySet="员工" />
+          </AssociationSet>
+          <AssociationSet Name="FK_检验修边_处理方法" Association="Self.FK_检验修边_处理方法">
+            <End Role="处理方法" EntitySet="处理方法" />
+            <End Role="检验修边" EntitySet="检验修边" />
+          </AssociationSet>
+          <AssociationSet Name="FK_皮囊成型_机台" Association="Self.FK_皮囊成型_机台">
+            <End Role="机台" EntitySet="机台" />
+            <End Role="皮囊成型" EntitySet="皮囊成型" />
+          </AssociationSet>
+          <AssociationSet Name="FK_皮囊硫化_机台" Association="Self.FK_皮囊硫化_机台">
+            <End Role="机台" EntitySet="机台" />
+            <End Role="皮囊硫化" EntitySet="皮囊硫化" />
+          </AssociationSet>
+          <AssociationSet Name="FK_检验修边_皮囊硫化" Association="Self.FK_检验修边_皮囊硫化">
+            <End Role="皮囊硫化" EntitySet="皮囊硫化" />
+            <End Role="检验修边" EntitySet="检验修边" />
+          </AssociationSet>
+          <AssociationSet Name="FK_检验修边_员工" Association="Self.FK_检验修边_员工">
+            <End Role="员工" EntitySet="员工" />
+            <End Role="检验修边" EntitySet="检验修边" />
+          </AssociationSet>
+          <AssociationSet Name="FK_橡胶薄片_胶料入库" Association="Self.FK_橡胶薄片_胶料入库">
+            <End Role="胶料入库" EntitySet="胶料入库" />
+            <End Role="橡胶薄片" EntitySet="橡胶薄片" />
+          </AssociationSet>
+          <AssociationSet Name="FK_帘布流转_帘布入库" Association="Self.FK_帘布流转_帘布入库">
+            <End Role="帘布入库" EntitySet="帘布入库" />
+            <End Role="帘布流转" EntitySet="帘布流转" />
+          </AssociationSet>
+          <AssociationSet Name="FK_帘布流转_员工" Association="Self.FK_帘布流转_员工">
+            <End Role="员工" EntitySet="员工" />
+            <End Role="帘布流转" EntitySet="帘布流转" />
+          </AssociationSet>
+          <AssociationSet Name="FK_皮囊成型_帘布流转" Association="Self.FK_皮囊成型_帘布流转">
+            <End Role="帘布流转" EntitySet="帘布流转" />
+            <End Role="皮囊成型" EntitySet="皮囊成型" />
+          </AssociationSet>
+          <AssociationSet Name="FK_皮囊成型_内橡胶薄片" Association="Self.FK_皮囊成型_内橡胶薄片">
+            <End Role="橡胶薄片" EntitySet="橡胶薄片" />
+            <End Role="皮囊成型" EntitySet="皮囊成型" />
+          </AssociationSet>
+          <AssociationSet Name="FK_皮囊成型_外橡胶薄片" Association="Self.FK_皮囊成型_外橡胶薄片">
+            <End Role="橡胶薄片" EntitySet="橡胶薄片" />
+            <End Role="皮囊成型" EntitySet="皮囊成型" />
+          </AssociationSet>
+          <AssociationSet Name="FK_皮囊成型_员工" Association="Self.FK_皮囊成型_员工">
+            <End Role="员工" EntitySet="员工" />
+            <End Role="皮囊成型" EntitySet="皮囊成型" />
+          </AssociationSet>
+          <AssociationSet Name="FK_皮囊硫化_成型皮囊" Association="Self.FK_皮囊硫化_成型皮囊">
+            <End Role="皮囊成型" EntitySet="皮囊成型" />
+            <End Role="皮囊硫化" EntitySet="皮囊硫化" />
+          </AssociationSet>
+          <AssociationSet Name="FK_皮囊硫化_员工" Association="Self.FK_皮囊硫化_员工">
+            <End Role="员工" EntitySet="员工" />
+            <End Role="皮囊硫化" EntitySet="皮囊硫化" />
+          </AssociationSet>
+          <AssociationSet Name="FK_橡胶薄片_员工" Association="Self.FK_橡胶薄片_员工">
+            <End Role="员工" EntitySet="员工" />
+            <End Role="橡胶薄片" EntitySet="橡胶薄片" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="YKTRubberTraceSystemDatabaseModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="YKT.RubberTraceSystem.DatabaseModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="YKT.RubberTraceSystem.DatabaseModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MD5" ColumnName="MD5" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="班别">
+            <EntityTypeMapping TypeName="YKT.RubberTraceSystem.DatabaseModel.班别">
+              <MappingFragment StoreEntitySet="班别">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="班别1" ColumnName="班别" />
+                <ScalarProperty Name="登记时间" ColumnName="登记时间" />
+                <ScalarProperty Name="删除" ColumnName="删除" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="处理方法">
+            <EntityTypeMapping TypeName="YKT.RubberTraceSystem.DatabaseModel.处理方法">
+              <MappingFragment StoreEntitySet="处理方法">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="处理方法1" ColumnName="处理方法" />
+                <ScalarProperty Name="附件" ColumnName="附件" />
+                <ScalarProperty Name="登记时间" ColumnName="登记时间" />
+                <ScalarProperty Name="删除" ColumnName="删除" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="机台">
+            <EntityTypeMapping TypeName="YKT.RubberTraceSystem.DatabaseModel.机台">
+              <MappingFragment StoreEntitySet="机台">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="机台编号" ColumnName="机台编号" />
+                <ScalarProperty Name="机台名称" ColumnName="机台名称" />
+                <ScalarProperty Name="机台描述" ColumnName="机台描述" />
+                <ScalarProperty Name="登记时间" ColumnName="登记时间" />
+                <ScalarProperty Name="删除" ColumnName="删除" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="检验修边">
+            <EntityTypeMapping TypeName="YKT.RubberTraceSystem.DatabaseModel.检验修边">
+              <MappingFragment StoreEntitySet="检验修边">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="结果" ColumnName="结果" />
+                <ScalarProperty Name="处理方法" ColumnName="处理方法" />
+                <ScalarProperty Name="检验员" ColumnName="检验员" />
+                <ScalarProperty Name="硫化皮囊" ColumnName="硫化皮囊" />
+                <ScalarProperty Name="登记时间" ColumnName="登记时间" />
+                <ScalarProperty Name="删除" ColumnName="删除" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="胶料入库">
+            <EntityTypeMapping TypeName="YKT.RubberTraceSystem.DatabaseModel.胶料入库">
+              <MappingFragment StoreEntitySet="胶料入库">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="胶料牌号" ColumnName="胶料牌号" />
+                <ScalarProperty Name="箱号" ColumnName="箱号" />
+                <ScalarProperty Name="生产线号" ColumnName="生产线号" />
+                <ScalarProperty Name="供应商产品代号" ColumnName="供应商产品代号" />
+                <ScalarProperty Name="生产日期" ColumnName="生产日期" />
+                <ScalarProperty Name="批次号" ColumnName="批次号" />
+                <ScalarProperty Name="重量" ColumnName="重量" />
+                <ScalarProperty Name="登记时间" ColumnName="登记时间" />
+                <ScalarProperty Name="删除" ColumnName="删除" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="帘布流转">
+            <EntityTypeMapping TypeName="YKT.RubberTraceSystem.DatabaseModel.帘布流转">
+              <MappingFragment StoreEntitySet="帘布流转">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="产品编号" ColumnName="产品编号" />
+                <ScalarProperty Name="宽度" ColumnName="宽度" />
+                <ScalarProperty Name="厚度" ColumnName="厚度" />
+                <ScalarProperty Name="角度" ColumnName="角度" />
+                <ScalarProperty Name="作业员" ColumnName="作业员" />
+                <ScalarProperty Name="帘布批号" ColumnName="帘布批号" />
+                <ScalarProperty Name="使用期限" ColumnName="使用期限" />
+                <ScalarProperty Name="登记时间" ColumnName="登记时间" />
+                <ScalarProperty Name="删除" ColumnName="删除" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="帘布入库">
+            <EntityTypeMapping TypeName="YKT.RubberTraceSystem.DatabaseModel.帘布入库">
+              <MappingFragment StoreEntitySet="帘布入库">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="帘布代号" ColumnName="帘布代号" />
+                <ScalarProperty Name="胶料" ColumnName="胶料" />
+                <ScalarProperty Name="帘布长度" ColumnName="帘布长度" />
+                <ScalarProperty Name="生产序号" ColumnName="生产序号" />
+                <ScalarProperty Name="生产日期" ColumnName="生产日期" />
+                <ScalarProperty Name="有效日期" ColumnName="有效日期" />
+                <ScalarProperty Name="重量" ColumnName="重量" />
+                <ScalarProperty Name="登记时间" ColumnName="登记时间" />
+                <ScalarProperty Name="删除" ColumnName="删除" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="皮囊成型">
+            <EntityTypeMapping TypeName="YKT.RubberTraceSystem.DatabaseModel.皮囊成型">
+              <MappingFragment StoreEntitySet="皮囊成型">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="产品型号" ColumnName="产品型号" />
+                <ScalarProperty Name="生产机台" ColumnName="生产机台" />
+                <ScalarProperty Name="作业员" ColumnName="作业员" />
+                <ScalarProperty Name="帘布批号" ColumnName="帘布批号" />
+                <ScalarProperty Name="外胶片批号" ColumnName="外胶片批号" />
+                <ScalarProperty Name="内胶片批号" ColumnName="内胶片批号" />
+                <ScalarProperty Name="登记时间" ColumnName="登记时间" />
+                <ScalarProperty Name="删除" ColumnName="删除" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="皮囊硫化">
+            <EntityTypeMapping TypeName="YKT.RubberTraceSystem.DatabaseModel.皮囊硫化">
+              <MappingFragment StoreEntitySet="皮囊硫化">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="产品型号" ColumnName="产品型号" />
+                <ScalarProperty Name="生产机台" ColumnName="生产机台" />
+                <ScalarProperty Name="作业员" ColumnName="作业员" />
+                <ScalarProperty Name="成型皮囊" ColumnName="成型皮囊" />
+                <ScalarProperty Name="硫化温度" ColumnName="硫化温度" />
+                <ScalarProperty Name="硫化时间" ColumnName="硫化时间" />
+                <ScalarProperty Name="模具" ColumnName="模具" />
+                <ScalarProperty Name="登记时间" ColumnName="登记时间" />
+                <ScalarProperty Name="删除" ColumnName="删除" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="橡胶薄片">
+            <EntityTypeMapping TypeName="YKT.RubberTraceSystem.DatabaseModel.橡胶薄片">
+              <MappingFragment StoreEntitySet="橡胶薄片">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="宽度" ColumnName="宽度" />
+                <ScalarProperty Name="厚度" ColumnName="厚度" />
+                <ScalarProperty Name="数量" ColumnName="数量" />
+                <ScalarProperty Name="作业员" ColumnName="作业员" />
+                <ScalarProperty Name="胶料批号" ColumnName="胶料批号" />
+                <ScalarProperty Name="生产序号" ColumnName="生产序号" />
+                <ScalarProperty Name="生产时间" ColumnName="生产时间" />
+                <ScalarProperty Name="登记时间" ColumnName="登记时间" />
+                <ScalarProperty Name="删除" ColumnName="删除" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="员工">
+            <EntityTypeMapping TypeName="YKT.RubberTraceSystem.DatabaseModel.员工">
+              <MappingFragment StoreEntitySet="员工">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="姓名" ColumnName="姓名" />
+                <ScalarProperty Name="班别" ColumnName="班别" />
+                <ScalarProperty Name="登记时间" ColumnName="登记时间" />
+                <ScalarProperty Name="删除" ColumnName="删除" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

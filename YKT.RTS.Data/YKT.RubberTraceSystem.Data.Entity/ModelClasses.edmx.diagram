@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b056731798b44f77a2cc80a094024326" Name="Diagram1">
+        <EntityTypeShape EntityType="YKT.RubberTraceSystem.DatabaseModel.Category" Width="1.5" PointX="10.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="YKT.RubberTraceSystem.DatabaseModel.User" Width="1.5" PointX="13" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YKT.RubberTraceSystem.DatabaseModel.班别" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="YKT.RubberTraceSystem.DatabaseModel.处理方法" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YKT.RubberTraceSystem.DatabaseModel.机台" Width="1.5" PointX="10.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YKT.RubberTraceSystem.DatabaseModel.检验修边" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="YKT.RubberTraceSystem.DatabaseModel.胶料入库" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YKT.RubberTraceSystem.DatabaseModel.帘布流转" Width="1.5" PointX="8.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="YKT.RubberTraceSystem.DatabaseModel.帘布入库" Width="1.5" PointX="6" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YKT.RubberTraceSystem.DatabaseModel.皮囊成型" Width="1.5" PointX="10.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YKT.RubberTraceSystem.DatabaseModel.皮囊硫化" Width="1.5" PointX="12.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="YKT.RubberTraceSystem.DatabaseModel.橡胶薄片" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="YKT.RubberTraceSystem.DatabaseModel.员工" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="YKT.RubberTraceSystem.DatabaseModel.FK_User_ToTCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="YKT.RubberTraceSystem.DatabaseModel.FK_员工_班别" ManuallyRouted="false" />
+        <AssociationConnector Association="YKT.RubberTraceSystem.DatabaseModel.FK_检验修边_处理方法" ManuallyRouted="false" />
+        <AssociationConnector Association="YKT.RubberTraceSystem.DatabaseModel.FK_皮囊成型_机台" ManuallyRouted="false" />
+        <AssociationConnector Association="YKT.RubberTraceSystem.DatabaseModel.FK_皮囊硫化_机台" ManuallyRouted="false" />
+        <AssociationConnector Association="YKT.RubberTraceSystem.DatabaseModel.FK_检验修边_皮囊硫化" ManuallyRouted="false" />
+        <AssociationConnector Association="YKT.RubberTraceSystem.DatabaseModel.FK_检验修边_员工" ManuallyRouted="false" />
+        <AssociationConnector Association="YKT.RubberTraceSystem.DatabaseModel.FK_橡胶薄片_胶料入库" ManuallyRouted="false" />
+        <AssociationConnector Association="YKT.RubberTraceSystem.DatabaseModel.FK_帘布流转_帘布入库" ManuallyRouted="false" />
+        <AssociationConnector Association="YKT.RubberTraceSystem.DatabaseModel.FK_帘布流转_员工" ManuallyRouted="false" />
+        <AssociationConnector Association="YKT.RubberTraceSystem.DatabaseModel.FK_皮囊成型_帘布流转" ManuallyRouted="false" />
+        <AssociationConnector Association="YKT.RubberTraceSystem.DatabaseModel.FK_皮囊成型_内橡胶薄片" ManuallyRouted="false" />
+        <AssociationConnector Association="YKT.RubberTraceSystem.DatabaseModel.FK_皮囊成型_外橡胶薄片" ManuallyRouted="false" />
+        <AssociationConnector Association="YKT.RubberTraceSystem.DatabaseModel.FK_皮囊成型_员工" ManuallyRouted="false" />
+        <AssociationConnector Association="YKT.RubberTraceSystem.DatabaseModel.FK_皮囊硫化_成型皮囊" ManuallyRouted="false" />
+        <AssociationConnector Association="YKT.RubberTraceSystem.DatabaseModel.FK_皮囊硫化_员工" ManuallyRouted="false" />
+        <AssociationConnector Association="YKT.RubberTraceSystem.DatabaseModel.FK_橡胶薄片_员工" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

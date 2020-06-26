@@ -44,8 +44,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbTypeNo = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.dtpVDate = new System.Windows.Forms.DateTimePicker();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
+            this.dtpPDate = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.dgFabircInventory = new System.Windows.Forms.DataGridView();
@@ -60,8 +62,6 @@
             this.登记时间DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.删除DataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.帘布入库BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dtpPDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpVDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -253,6 +253,15 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(294, 294);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
+            // dtpVDate
+            // 
+            this.dtpVDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtpVDate.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dtpVDate.Location = new System.Drawing.Point(103, 143);
+            this.dtpVDate.Name = "dtpVDate";
+            this.dtpVDate.Size = new System.Drawing.Size(188, 26);
+            this.dtpVDate.TabIndex = 17;
+            // 
             // btnEdit
             // 
             this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -274,6 +283,15 @@
             this.btnCreate.Text = "入库";
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            // 
+            // dtpPDate
+            // 
+            this.dtpPDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtpPDate.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dtpPDate.Location = new System.Drawing.Point(103, 108);
+            this.dtpPDate.Name = "dtpPDate";
+            this.dtpPDate.Size = new System.Drawing.Size(188, 26);
+            this.dtpPDate.TabIndex = 16;
             // 
             // tableLayoutPanel1
             // 
@@ -410,24 +428,6 @@
             // 帘布入库BindingSource
             // 
             this.帘布入库BindingSource.DataSource = typeof(YKT.RubberTraceSystem.Data.帘布入库);
-            // 
-            // dtpPDate
-            // 
-            this.dtpPDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtpPDate.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dtpPDate.Location = new System.Drawing.Point(103, 108);
-            this.dtpPDate.Name = "dtpPDate";
-            this.dtpPDate.Size = new System.Drawing.Size(188, 26);
-            this.dtpPDate.TabIndex = 16;
-            // 
-            // dtpVDate
-            // 
-            this.dtpVDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtpVDate.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dtpVDate.Location = new System.Drawing.Point(103, 143);
-            this.dtpVDate.Name = "dtpVDate";
-            this.dtpVDate.Size = new System.Drawing.Size(188, 26);
-            this.dtpVDate.TabIndex = 17;
             // 
             // 帘布入库
             // 
