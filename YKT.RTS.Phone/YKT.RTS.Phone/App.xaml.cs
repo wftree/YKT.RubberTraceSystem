@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using YKT.RTS.Phone.Services;
 using YKT.RTS.Phone.Views;
+using YKT.RubberTraceSystem.Phone.Services;
 
 namespace YKT.RTS.Phone
 {
@@ -14,6 +15,7 @@ namespace YKT.RTS.Phone
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
+            DependencyService.Register<QRScanningService>();
             MainPage = new MainPage();
         }
 

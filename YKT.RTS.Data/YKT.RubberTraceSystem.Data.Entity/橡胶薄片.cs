@@ -11,7 +11,8 @@ namespace YKT.RubberTraceSystem.Data.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
     public partial class 橡胶薄片
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -31,12 +32,16 @@ namespace YKT.RubberTraceSystem.Data.Entity
         public System.DateTime 生产时间 { get; set; }
         public System.DateTime 登记时间 { get; set; }
         public bool 删除 { get; set; }
-    
+
+        [IgnoreDataMember]
         public virtual 胶料入库 胶料入库 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [IgnoreDataMember]
         public virtual ICollection<皮囊成型> 皮囊成型 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [IgnoreDataMember]
         public virtual ICollection<皮囊成型> 皮囊成型1 { get; set; }
+        [IgnoreDataMember]
         public virtual 员工 员工 { get; set; }
     }
 }

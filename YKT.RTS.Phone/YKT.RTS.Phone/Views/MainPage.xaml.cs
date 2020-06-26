@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using YKT.RTS.Phone.Models;
+using YKT.RubberTraceSystem.Phone.Views;
 
 namespace YKT.RTS.Phone.Views
 {
@@ -30,6 +31,9 @@ namespace YKT.RTS.Phone.Views
             {
                 switch (id)
                 {
+                    case (int)MenuItemType.Setting:
+                        MenuPages.Add(id, new NavigationPage(new SettingPage()));
+                        break;
                     case (int)MenuItemType.Browse:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;

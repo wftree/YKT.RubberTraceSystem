@@ -11,7 +11,8 @@ namespace YKT.RubberTraceSystem.Data.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
     public partial class 员工
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -29,17 +30,23 @@ namespace YKT.RubberTraceSystem.Data.Entity
         public System.Guid 班别 { get; set; }
         public System.DateTime 登记时间 { get; set; }
         public bool 删除 { get; set; }
-    
+
+        [IgnoreDataMember]
         public virtual 班别 班别1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [IgnoreDataMember]
         public virtual ICollection<检验修边> 检验修边 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [IgnoreDataMember]
         public virtual ICollection<帘布流转> 帘布流转 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [IgnoreDataMember]
         public virtual ICollection<皮囊成型> 皮囊成型 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [IgnoreDataMember]
         public virtual ICollection<皮囊硫化> 皮囊硫化 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [IgnoreDataMember]
         public virtual ICollection<橡胶薄片> 橡胶薄片 { get; set; }
     }
 }

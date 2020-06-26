@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="YKT.RubberTraceSystem.Phone.Views.SettingPage">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Entry x:Name="txtBarcode"  
+               Placeholder="员工编号"/>
+            <Button Text="点击扫描"  
+                x:Name="btnScan"  
+                Clicked="btnScan_Clicked"/>
+            <Label x:Name="txtResult" Text="未识别员工"></Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

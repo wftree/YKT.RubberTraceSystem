@@ -21,6 +21,7 @@ namespace YKT.RTS.Phone.Views
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
+                new HomeMenuItem {Id = MenuItemType.Setting, Title = "Setting"},
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" }
             };
 
