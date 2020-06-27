@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 using System.Windows.Forms;
+using Utilizities;
 using YKT.RubberTraceSystem.Data;
 
 namespace YKT.RubberTraceSystem.Windows

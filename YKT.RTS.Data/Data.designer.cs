@@ -20,9 +20,9 @@ namespace YKT.RubberTraceSystem.Data
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
-	
-	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="YKT.RubberTraceSystem.Database")]
+    using System.Runtime.Serialization;
+
+    [global::System.Data.Linq.Mapping.DatabaseAttribute(Name="RTS")]
 	public partial class DataDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -273,7 +273,7 @@ namespace YKT.RubberTraceSystem.Data
 				}
 			}
 		}
-		
+		[IgnoreDataMember]
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_User", Storage="_Users", ThisKey="Id", OtherKey="CategoryId")]
 		public EntitySet<User> Users
 		{
@@ -478,7 +478,7 @@ namespace YKT.RubberTraceSystem.Data
 				}
 			}
 		}
-		
+		[IgnoreDataMember]
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="员工_检验修边", Storage="_检验修边s", ThisKey="Id", OtherKey="检验员")]
 		public EntitySet<检验修边> 检验修边s
 		{
@@ -491,7 +491,7 @@ namespace YKT.RubberTraceSystem.Data
 				this._检验修边s.Assign(value);
 			}
 		}
-		
+		[IgnoreDataMember]
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="员工_帘布流转", Storage="_帘布流转s", ThisKey="Id", OtherKey="作业员")]
 		public EntitySet<帘布流转> 帘布流转s
 		{
@@ -504,7 +504,7 @@ namespace YKT.RubberTraceSystem.Data
 				this._帘布流转s.Assign(value);
 			}
 		}
-		
+		[IgnoreDataMember]
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="员工_皮囊成型", Storage="_皮囊成型s", ThisKey="Id", OtherKey="作业员")]
 		public EntitySet<皮囊成型> 皮囊成型s
 		{
@@ -517,7 +517,7 @@ namespace YKT.RubberTraceSystem.Data
 				this._皮囊成型s.Assign(value);
 			}
 		}
-		
+		[IgnoreDataMember]
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="员工_皮囊硫化", Storage="_皮囊硫化s", ThisKey="Id", OtherKey="作业员")]
 		public EntitySet<皮囊硫化> 皮囊硫化s
 		{
@@ -530,7 +530,7 @@ namespace YKT.RubberTraceSystem.Data
 				this._皮囊硫化s.Assign(value);
 			}
 		}
-		
+		[IgnoreDataMember]
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="员工_橡胶薄片", Storage="_橡胶薄片s", ThisKey="Id", OtherKey="作业员")]
 		public EntitySet<橡胶薄片> 橡胶薄片s
 		{
@@ -543,7 +543,7 @@ namespace YKT.RubberTraceSystem.Data
 				this._橡胶薄片s.Assign(value);
 			}
 		}
-		
+		[IgnoreDataMember]
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="班别_员工", Storage="_班别1", ThisKey="班别", OtherKey="Id", IsForeignKey=true)]
 		public 班别 班别1
 		{
@@ -949,7 +949,7 @@ namespace YKT.RubberTraceSystem.Data
 				}
 			}
 		}
-		
+		[IgnoreDataMember]
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="班别_员工", Storage="_员工s", ThisKey="Id", OtherKey="班别")]
 		public EntitySet<员工> 员工s
 		{
@@ -1135,7 +1135,7 @@ namespace YKT.RubberTraceSystem.Data
 				}
 			}
 		}
-		
+		[IgnoreDataMember]
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="处理方法_检验修边", Storage="_检验修边s", ThisKey="Id", OtherKey="处理方法")]
 		public EntitySet<检验修边> 检验修边s
 		{
@@ -1348,7 +1348,7 @@ namespace YKT.RubberTraceSystem.Data
 				}
 			}
 		}
-		
+		[IgnoreDataMember]
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="机台_皮囊成型", Storage="_皮囊成型s", ThisKey="Id", OtherKey="生产机台")]
 		public EntitySet<皮囊成型> 皮囊成型s
 		{
@@ -1361,7 +1361,7 @@ namespace YKT.RubberTraceSystem.Data
 				this._皮囊成型s.Assign(value);
 			}
 		}
-		
+		[IgnoreDataMember]
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="机台_皮囊硫化", Storage="_皮囊硫化s", ThisKey="Id", OtherKey="生产机台")]
 		public EntitySet<皮囊硫化> 皮囊硫化s
 		{

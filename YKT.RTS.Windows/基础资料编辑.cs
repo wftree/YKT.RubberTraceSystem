@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 using System.Windows.Forms;
+using Utilizities;
 using YKT.RubberTraceSystem.Data;
 
 namespace YKT.RubberTraceSystem.Windows
@@ -24,7 +25,7 @@ namespace YKT.RubberTraceSystem.Windows
         {
             if (dataGridView1.SelectedRows.Count>0)
             {
-                pictureBox1.Image = Utilizity.CreateQRCode(TableType.UR, dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                pictureBox1.Image = CreateQRCode(TableType.UR, dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
                 tbName.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                 cbClassType.SelectedValue = new Guid(dataGridView1.SelectedRows[0].Cells[2].Value.ToString());
 
@@ -183,7 +184,7 @@ namespace YKT.RubberTraceSystem.Windows
         {
             if (dataGridView2.SelectedRows.Count > 0)
             {
-                pictureBox2.Image = Utilizity.CreateQRCode(TableType.CT, dataGridView2.SelectedRows[0].Cells[0].Value.ToString());
+                pictureBox2.Image = CreateQRCode(TableType.CT, dataGridView2.SelectedRows[0].Cells[0].Value.ToString());
 
                 tb_BB.Text = dataGridView2.SelectedRows[0].Cells[1].Value.ToString();
 
@@ -194,7 +195,7 @@ namespace YKT.RubberTraceSystem.Windows
         {
             if (dataGridView3.SelectedRows.Count > 0)
             {
-                pictureBox3.Image = Utilizity.CreateQRCode(TableType.MT, dataGridView3.SelectedRows[0].Cells[0].Value.ToString());
+                pictureBox3.Image = CreateQRCode(TableType.MT, dataGridView3.SelectedRows[0].Cells[0].Value.ToString());
 
                 tb_CLFF.Text = dataGridView3.SelectedRows[0].Cells[1].Value.ToString();
                 tb_CLFFFJ.Text = dataGridView3.SelectedRows[0].Cells[2].Value.ToString();
@@ -206,7 +207,7 @@ namespace YKT.RubberTraceSystem.Windows
         {
             if (dataGridView4.SelectedRows.Count > 0)
             {
-                pictureBox4.Image = Utilizity.CreateQRCode(TableType.MC, dataGridView4.SelectedRows[0].Cells[0].Value.ToString());
+                pictureBox4.Image = CreateQRCode(TableType.MC, dataGridView4.SelectedRows[0].Cells[0].Value.ToString());
 
                 tb_JTJTBH.Text = dataGridView4.SelectedRows[0].Cells[1].Value.ToString();
                 tb_JTJTMC.Text = dataGridView4.SelectedRows[0].Cells[2].Value.ToString();

@@ -7,13 +7,20 @@
              x:Class="YKT.RubberTraceSystem.Phone.Views.SettingPage">
     <ContentPage.Content>
         <StackLayout>
-
+            <d:Label Text="远程服务器地址"></d:Label>
+            <Entry x:Name="txtWebAPI"  
+               Placeholder="网络地址"/>
+            <Label x:Name="txtResult" Text="未识别员工"></Label>
             <Entry x:Name="txtBarcode"  
                Placeholder="员工编号"/>
             <Button Text="点击扫描"  
                 x:Name="btnScan"  
                 Clicked="btnScan_Clicked"/>
-            <Label x:Name="txtResult" Text="未识别员工"></Label>
+            
+
+            <Button Text="保存"  
+                x:Name="btnSave"  
+                Clicked="btnSave_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

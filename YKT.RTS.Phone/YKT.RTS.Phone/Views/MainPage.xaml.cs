@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using YKT.RTS.Phone.Models;
+using YKT.RubberTraceSystem.Phone.Services;
 using YKT.RubberTraceSystem.Phone.Views;
 
 namespace YKT.RTS.Phone.Views
@@ -19,7 +20,17 @@ namespace YKT.RTS.Phone.Views
         public MainPage()
         {
             InitializeComponent();
-
+            #region 检查参数
+            //远程服务器
+            var web = App.SettingDatabase.GetItemAsync("RTSWebAPIEndpoint");
+            if (web.Result != null)
+                Constants.RTSWebAPIEndpoint = web.Result.Value;
+            //员工登记
+            var user = App.SettingDatabase.GetItemAsync("USERGUID");
+            if (user.Result != null)
+                Constants.USERGUID = user.Result.Value;
+            var test = Constants.CheckUser(Constants.USERGUID);
+            #endregion
             MasterBehavior = MasterBehavior.Popover;
 
             MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
@@ -37,9 +48,9 @@ namespace YKT.RTS.Phone.Views
                     case (int)MenuItemType.Browse:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
-                    case (int)MenuItemType.About:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
-                        break;
+                    //case (int)MenuItemType.About:
+                    //    MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                    //    break;
                 }
             }
 

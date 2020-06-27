@@ -26,8 +26,8 @@ namespace YKT.RubberTraceSystem.Data.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=YKT.RubberTraceSystem.Database" +
-            ";Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=hawk-tuf;Initial Catalog=RTS;Persist Security Info=True;User ID=rts;P" +
+            "assword=ykt123456")]
         public string YKT_RubberTraceSystem_DatabaseConnectionString {
             get {
                 return ((string)(this["YKT_RubberTraceSystem_DatabaseConnectionString"]));
