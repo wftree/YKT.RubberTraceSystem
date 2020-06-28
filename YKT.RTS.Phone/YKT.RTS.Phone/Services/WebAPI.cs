@@ -6,6 +6,7 @@ using System.IO;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Android.Net;
 using YKT.RTS.Phone.Models;
 
 namespace YKT.RubberTraceSystem.Phone.Services
@@ -13,9 +14,13 @@ namespace YKT.RubberTraceSystem.Phone.Services
     public static class Constants
     {
         private static WebAPI restService = new WebAPI();
-        public static string RTSWebAPIEndpoint = "http://192.168.31.17:12345/Api/";
+        private static string rTSWebAPIEndpoint = "http://192.168.31.17:12345/Api/";
         public static string USERGUID = "";
+        public static 员工 User = null;
+        public static string MCGUID = "";
+        public static 机台 Machine = null;
         public static bool IsCheckedUser = false;
+        public static bool IsCheckedMc = false;
         public static string OpenWeatherMapAPIKey = "INSERT_API_KEY_HERE";
 
         public const string DatabaseFilename = "DbSQLite.db3";
@@ -27,29 +32,62 @@ namespace YKT.RubberTraceSystem.Phone.Services
             SQLite.SQLiteOpenFlags.Create |
             // enable multi-threaded database access
             SQLite.SQLiteOpenFlags.SharedCache;
+
+        public static async Task<机台> CheckMc(string result)
+        {
+            using (WebAPI webAPI = new WebAPI())
+            {
+                var response = await webAPI.GetWebAPIAsync(Constants.RTSWebAPIEndpoint + "Machine?id=" + result);
+                try
+                {
+                    var employee = JsonConvert.DeserializeObject<机台>(response);
+                    if (employee != null)
+                    {
+                        Constants.Machine = employee;
+                        Constants.IsCheckedMc = true;
+
+                    }
+                    else
+                    {
+                        IsCheckedMc = false;
+                    }
+                    return employee;
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+            }
+        }
         public static async Task<员工> CheckUser(string result)
         {
-            var response = await Constants.RestService.GetWebAPIAsync(Constants.RTSWebAPIEndpoint + "员工?id=" + result);
-            try
+            using (WebAPI webAPI = new WebAPI())
             {
-                var employee = JsonConvert.DeserializeObject<员工>(response);
-                if (employee != null)
+                var response = await webAPI.GetWebAPIAsync(Constants.RTSWebAPIEndpoint + "Labor?id=" + result);
+                try
+                {
+                    var employee = JsonConvert.DeserializeObject<员工>(response);
+                    if (employee != null)
+                    {
+                        Constants.User = employee;
+
+                        Constants.IsCheckedUser = true;
+
+                    }
+                    else
+                    {
+                        IsCheckedUser = false;
+                    }
+                    return employee;
+                }
+                catch (Exception ex)
                 {
 
-                    Constants.IsCheckedUser = true;
-
+                    throw ex;
                 }
-                else
-                {
-                    IsCheckedUser = false;
-                }
-                return employee;
             }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
+            
         }
         public static string DatabasePath
         {
@@ -61,8 +99,11 @@ namespace YKT.RubberTraceSystem.Phone.Services
         }
 
         public static WebAPI RestService { get => restService; set => restService = value; }
+        public static string RTSWebAPIEndpoint { 
+            get => rTSWebAPIEndpoint.EndsWith("/")? rTSWebAPIEndpoint: rTSWebAPIEndpoint.Trim()+"/"
+                ; set => rTSWebAPIEndpoint = value; }
     }
-    public class WebAPI
+    public class WebAPI:IDisposable
     {
         HttpClient _client;
 
@@ -71,17 +112,20 @@ namespace YKT.RubberTraceSystem.Phone.Services
             _client = new HttpClient();
         }
 
+        public void Dispose()
+        {
+            _client.Dispose();
+        }
+
         public async Task<string> GetWebAPIAsync(string uri)
         {
             string content ="";
             try
             {
+                //content = await _client.GetStringAsync(uri);
                 HttpResponseMessage response = await _client.GetAsync(uri);
-                if (response.IsSuccessStatusCode)
-                {
-                    content = await response.Content.ReadAsStringAsync();
-                    
-                }
+                response.EnsureSuccessStatusCode();
+                content = await response.Content.ReadAsStringAsync();
             }
             catch (Exception ex)
             {

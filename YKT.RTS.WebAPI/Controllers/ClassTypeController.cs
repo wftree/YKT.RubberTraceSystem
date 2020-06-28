@@ -12,7 +12,7 @@ using YKT.RubberTraceSystem.Data;
 
 namespace YKT.RubberTraceSystem.WebAPI.Controllers
 {
-    public class 班别Controller : ApiController
+    public class ClassTypeController : ApiController
     {
         private DataDataContext db = new DataDataContext();
         // GET: api/班别

@@ -6,6 +6,7 @@ namespace YKT.RTS.Phone.Models
 {
     public enum MenuItemType
     {
+        Work,
         Setting,
         Browse,
         About

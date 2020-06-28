@@ -20,9 +20,10 @@ namespace YKT.RTS.Phone.Views
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
-                new HomeMenuItem {Id = MenuItemType.Setting, Title = "Setting"},
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" }
+                new HomeMenuItem {Id = MenuItemType.Work, Title="生产现场" },
+                new HomeMenuItem {Id = MenuItemType.Browse, Title="胶片压延" },
+                new HomeMenuItem {Id = MenuItemType.Setting, Title = "设置"},
+                new HomeMenuItem {Id = MenuItemType.About, Title="关于" }
             };
 
             ListViewMenu.ItemsSource = menuItems;

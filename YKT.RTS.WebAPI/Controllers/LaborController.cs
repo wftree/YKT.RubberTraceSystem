@@ -13,7 +13,7 @@ using YKT.RubberTraceSystem.Data;
 
 namespace YKT.RubberTraceSystem.WebAPI.Controllers
 {
-    public class 员工Controller : ApiController
+    public class LaborController : ApiController
     {
         //private Entities db = new Entities();
         DataDataContext ddc = new DataDataContext();

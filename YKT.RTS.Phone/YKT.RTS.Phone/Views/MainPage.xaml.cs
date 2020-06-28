@@ -24,16 +24,37 @@ namespace YKT.RTS.Phone.Views
             //远程服务器
             var web = App.SettingDatabase.GetItemAsync("RTSWebAPIEndpoint");
             if (web.Result != null)
-                Constants.RTSWebAPIEndpoint = web.Result.Value;
+            Constants.RTSWebAPIEndpoint = web.Result.Value;
             //员工登记
             var user = App.SettingDatabase.GetItemAsync("USERGUID");
             if (user.Result != null)
+            {
                 Constants.USERGUID = user.Result.Value;
-            var test = Constants.CheckUser(Constants.USERGUID);
+                var test = Constants.CheckUser(Constants.USERGUID);
+                //if (test.Result != null)
+                //{
+                //    Constants.User = test.Result;
+                //}
+
+            }
+
+                //机台登记
+            var mc = App.SettingDatabase.GetItemAsync("MCGUID");
+            if (mc.Result != null)
+            {
+                Constants.MCGUID = mc.Result.Value;
+                var test1 = Constants.CheckMc(Constants.MCGUID);
+                //if (test1.Result != null)
+                //{
+                //    Constants.Machine = test1.Result;
+                //}
+            }
+            
+            
             #endregion
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+            //MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
         }
 
         public async Task NavigateFromMenu(int id)
@@ -48,9 +69,12 @@ namespace YKT.RTS.Phone.Views
                     case (int)MenuItemType.Browse:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
-                    //case (int)MenuItemType.About:
-                    //    MenuPages.Add(id, new NavigationPage(new AboutPage()));
-                    //    break;
+                    case (int)MenuItemType.About:
+                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                        break;
+                    case (int)MenuItemType.Work:
+                        MenuPages.Add(id, new NavigationPage(new WorkPage()));
+                        break;
                 }
             }
 

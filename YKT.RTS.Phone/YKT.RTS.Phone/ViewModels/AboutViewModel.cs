@@ -9,8 +9,8 @@ namespace YKT.RTS.Phone.ViewModels
     {
         public AboutViewModel()
         {
-            Title = "About";
-            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://xamarin.com"));
+            Title = "关于";
+            OpenWebCommand = new Command(async () => await Browser.OpenAsync("http://www.ytairspring.com/"));
         }
 
         public ICommand OpenWebCommand { get; }

@@ -1,26 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="YKT.RubberTraceSystem.Phone.Views.SettingPage">
-    <ContentPage.Content>
+  <!--Pages can be added as references or inline-->
+    <ContentPage Title="服务器设定" >
         <StackLayout>
             <d:Label Text="远程服务器地址"></d:Label>
             <Entry x:Name="txtWebAPI"  
                Placeholder="网络地址"/>
-            <Label x:Name="txtResult" Text="未识别员工"></Label>
-            <Entry x:Name="txtBarcode"  
-               Placeholder="员工编号"/>
-            <Button Text="点击扫描"  
-                x:Name="btnScan"  
-                Clicked="btnScan_Clicked"/>
-            
-
+            <Button Text="扫描地址"  
+                x:Name="btnScanAddress" Clicked="btnScanAddress_Clicked"/>
             <Button Text="保存"  
                 x:Name="btnSave"  
                 Clicked="btnSave_Clicked"/>
         </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+        
+    </ContentPage>
+    <ContentPage Title="员工设定" >
+        <StackLayout>
+            <d:Label Text="当前员工"></d:Label>
+            <Label x:Name="txtResult" Text="未识别员工"></Label>
+            <Entry x:Name="txtBarcode"  
+               Placeholder="员工编号"/>
+            <Button Text="扫描员工编号"  
+                x:Name="btnScan"  
+                Clicked="btnScan_Clicked"/>
+            <Button Text="保存"  
+                x:Name="btnSaveUser"  
+                Clicked="btnSaveUser_Clicked"/>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="操作机台设定" >
+        <StackLayout>
+            <d:Label Text="当前机台"></d:Label>
+            <Label x:Name="txtMachine" Text="未识别机器"></Label>
+            <Entry x:Name="txtMachineCode"  
+               Placeholder="机台编号"/>
+            <Button Text="扫描机台编号"  
+                x:Name="btnScanMC"  
+                Clicked="btnScanMC_Clicked"/>
+            <Button Text="保存"  
+                x:Name="btnSaveMC"  
+                Clicked="btnSaveMC_Clicked"/>
+        </StackLayout>
+    </ContentPage>
+</TabbedPage>
