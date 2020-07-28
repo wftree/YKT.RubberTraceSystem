@@ -39,6 +39,24 @@
     <StartupObject>YKT.RubberTraceSystem.Windows.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="QRCoder, Version=1.3.9.0, Culture=neutral, processorArchitecture=MSIL">
@@ -98,6 +116,20 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporting\ReportingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\ReportingForm.Designer.cs">
+      <DependentUpon>ReportingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\SingleTraceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\SingleTraceForm.Designer.cs">
+      <DependentUpon>SingleTraceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScanerHook.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="基础资料编辑.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +150,12 @@
     </Compile>
     <Compile Include="帘布裁切.Designer.cs">
       <DependentUpon>帘布裁切.cs</DependentUpon>
+    </Compile>
+    <Compile Include="成品码打印.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="成品码打印.Designer.cs">
+      <DependentUpon>成品码打印.cs</DependentUpon>
     </Compile>
     <Compile Include="成型码生成.cs">
       <SubType>Form</SubType>
@@ -146,6 +184,14 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Report1.rdlc" />
+    <EmbeddedResource Include="Reporting\Report2.rdlc" />
+    <EmbeddedResource Include="Reporting\ReportingForm.resx">
+      <DependentUpon>ReportingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\SingleTraceForm.resx">
+      <DependentUpon>SingleTraceForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="基础资料编辑.resx">
       <DependentUpon>基础资料编辑.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +211,9 @@
     <EmbeddedResource Include="帘布裁切.resx">
       <DependentUpon>帘布裁切.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="成品码打印.resx">
+      <DependentUpon>成品码打印.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="成型码生成.resx">
       <DependentUpon>成型码生成.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,6 +225,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\YKT.RubberTraceSystem.Data.User.datasource" />
+    <None Include="Properties\DataSources\YKT.RubberTraceSystem.Data.产品消耗.datasource" />
     <None Include="Properties\DataSources\YKT.RubberTraceSystem.Data.员工.datasource" />
     <None Include="Properties\DataSources\YKT.RubberTraceSystem.Data.处理方法.datasource" />
     <None Include="Properties\DataSources\YKT.RubberTraceSystem.Data.帘布入库.datasource" />
@@ -183,6 +233,7 @@
     <None Include="Properties\DataSources\YKT.RubberTraceSystem.Data.机台.datasource" />
     <None Include="Properties\DataSources\YKT.RubberTraceSystem.Data.橡胶薄片.datasource" />
     <None Include="Properties\DataSources\YKT.RubberTraceSystem.Data.班别.datasource" />
+    <None Include="Properties\DataSources\YKT.RubberTraceSystem.Data.皮囊成型.datasource" />
     <None Include="Properties\DataSources\YKT.RubberTraceSystem.Data.胶料入库.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -277,6 +328,19 @@
     <None Include="Resources\自动识读模式.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="WinPort.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

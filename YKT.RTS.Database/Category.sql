@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Category]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Name] NCHAR(20) NOT NULL
+    [Name] NVARCHAR(20) NOT NULL
 )

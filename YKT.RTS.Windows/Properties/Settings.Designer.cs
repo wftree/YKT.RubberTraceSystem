@@ -25,18 +25,6 @@ namespace YKT.RubberTraceSystem.Windows.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("300")]
-        public int QRL {
-            get {
-                return ((int)(this["QRL"]));
-            }
-            set {
-                this["QRL"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("60")]
         public int QRH {
             get {
@@ -49,13 +37,61 @@ namespace YKT.RubberTraceSystem.Windows.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
         public int SCALE {
             get {
                 return ((int)(this["SCALE"]));
             }
             set {
                 this["SCALE"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int QRL {
+            get {
+                return ((int)(this["QRL"]));
+            }
+            set {
+                this["QRL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int CQRH {
+            get {
+                return ((int)(this["CQRH"]));
+            }
+            set {
+                this["CQRH"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("330")]
+        public int CQRL {
+            get {
+                return ((int)(this["CQRL"]));
+            }
+            set {
+                this["CQRL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public int CSCALE {
+            get {
+                return ((int)(this["CSCALE"]));
+            }
+            set {
+                this["CSCALE"] = value;
             }
         }
     }

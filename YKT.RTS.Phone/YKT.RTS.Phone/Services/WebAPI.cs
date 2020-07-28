@@ -1,12 +1,15 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Android.Net;
+using Xamarin.Forms;
 using YKT.RTS.Phone.Models;
 
 namespace YKT.RubberTraceSystem.Phone.Services
@@ -88,6 +91,152 @@ namespace YKT.RubberTraceSystem.Phone.Services
                 }
             }
             
+        }
+        public static async Task<List<string>> GetMT(Picker picker)
+        {
+            using (WebAPI webAPI = new WebAPI())
+            {
+                var response = await webAPI.GetWebAPIAsync(Constants.RTSWebAPIEndpoint + "MT");
+                try
+                {
+                    picker.Items.Clear();
+                    picker.Items.Add("");
+                    var employee = JsonConvert.DeserializeObject<List<string>>(response);
+                    if (employee != null)
+                    {
+                        foreach (var item in employee)
+                        {
+                            picker.Items.Add(item);
+                        }
+                        
+                        return employee;
+
+                    }
+                    else
+                    {
+                        return new List<string>();
+                    }
+                    
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+            }
+        }
+
+        public static async Task<橡胶薄片> GetRC(Guid id, Guid lb)
+        {
+            using (WebAPI webAPI = new WebAPI())
+            {
+                var response = await webAPI.GetWebAPIAsync(Constants.RTSWebAPIEndpoint + "RC?id=" + id.ToString()+"&lb="+lb.ToString());
+                try
+                {
+                    var employee = JsonConvert.DeserializeObject<橡胶薄片>(response);
+                    return employee;
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+            }
+
+        }
+
+        public static async Task<帘布流转> GetFC(Guid id, Guid lb)
+        {
+            using (WebAPI webAPI = new WebAPI())
+            {
+                var response = await webAPI.GetWebAPIAsync(Constants.RTSWebAPIEndpoint + "FC?id=" + id.ToString() + "&lb=" + lb.ToString());
+                try
+                {
+                    var employee = JsonConvert.DeserializeObject<帘布流转>(response);
+                    return employee;
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+            }
+
+        }
+
+        public static async Task<皮囊成型> GetNP(Guid id, Guid lb,Guid machine)
+        {
+            using (WebAPI webAPI = new WebAPI())
+            {
+                var response = await webAPI.GetWebAPIAsync(Constants.RTSWebAPIEndpoint + "NP?id=" + id.ToString() + "&lb=" + lb.ToString()+"&machine="+machine.ToString());
+                try
+                {
+                    var employee = JsonConvert.DeserializeObject<皮囊成型>(response);
+                    return employee;
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+            }
+
+        }
+
+        public static async Task<皮囊硫化> GetCP(Guid id, Guid lb, Guid machine, float temp, float time)
+        {
+            using (WebAPI webAPI = new WebAPI())
+            {
+                var response = await webAPI.GetWebAPIAsync(Constants.RTSWebAPIEndpoint + "CP?id=" + id.ToString() + "&lb=" + lb.ToString() + "&machine=" + machine.ToString()+"&temp="+temp.ToString()+"&time="+time.ToString());
+                try
+                {
+                    var employee = JsonConvert.DeserializeObject<皮囊硫化>(response);
+                    return employee;
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+            }
+
+        }
+        public static async Task<检验修边> GetCC(Guid id, Guid lb, bool pass, string mt)
+        {
+            using (WebAPI webAPI = new WebAPI())
+            {
+                var response = await webAPI.GetWebAPIAsync(Constants.RTSWebAPIEndpoint + "CC?id=" + id.ToString() + "&lb=" + lb.ToString() + "&pass=" + pass.ToString() + "&mt=" + mt.ToString() );
+                try
+                {
+                    var employee = JsonConvert.DeserializeObject<检验修边>(response);
+                    return employee;
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+            }
+
+        }
+
+        public static async Task<List<string[]>> GetSummary(Guid id)
+        {
+            using (WebAPI webAPI = new WebAPI())
+            {
+                var response = await webAPI.GetWebAPIAsync(Constants.RTSWebAPIEndpoint + "summary?id=" + id.ToString());
+                try
+                {
+                    var employee = JsonConvert.DeserializeObject<List<string[]>>(response);
+                    return employee;
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+            }
+
         }
         public static string DatabasePath
         {

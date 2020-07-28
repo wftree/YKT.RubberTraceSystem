@@ -1,24 +1,24 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="RTS" Class="DataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=hawk-tuf;Initial Catalog=RTS;Integrated Security=True;Pooling=False" SettingsObjectName="YKT.RubberTraceSystem.Data.Properties.Settings" SettingsPropertyName="YKT_RubberTraceSystem_DatabaseConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="RTS" Class="DataDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=hawk-tuf;Initial Catalog=RTS;Integrated Security=True" SettingsObjectName="YKT.RubberTraceSystem.Data.Properties.Settings" SettingsPropertyName="RTSConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Category" Member="Categories">
     <Type Name="Category">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Association Name="Category_User" Member="Users" ThisKey="Id" OtherKey="CategoryId" Type="User" />
     </Type>
   </Table>
   <Table Name="dbo.员工" Member="员工s">
     <Type Name="员工">
       <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="姓名" Type="System.String" DbType="NChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="姓名" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="班别" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="登记时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="删除" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="员工_检验修边" Member="检验修边s" ThisKey="Id" OtherKey="检验员" Type="检验修边" />
       <Association Name="员工_帘布流转" Member="帘布流转s" ThisKey="Id" OtherKey="作业员" Type="帘布流转" />
-      <Association Name="员工_皮囊成型" Member="皮囊成型s" ThisKey="Id" OtherKey="作业员" Type="皮囊成型" />
       <Association Name="员工_皮囊硫化" Member="皮囊硫化s" ThisKey="Id" OtherKey="作业员" Type="皮囊硫化" />
       <Association Name="员工_橡胶薄片" Member="橡胶薄片s" ThisKey="Id" OtherKey="作业员" Type="橡胶薄片" />
+      <Association Name="员工_皮囊成型" Member="皮囊成型s" ThisKey="Id" OtherKey="作业员" Type="皮囊成型" />
       <Association Name="班别_员工" Member="班别1" ThisKey="班别" OtherKey="Id" Type="班别" IsForeignKey="true" />
     </Type>
   </Table>
@@ -26,15 +26,15 @@
     <Type Name="User">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="MD5" Type="System.String" DbType="NChar(32)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MD5" Type="System.String" DbType="NVarChar(32)" CanBeNull="true" />
       <Association Name="Category_User" Member="Category" ThisKey="CategoryId" OtherKey="Id" Type="Category" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.班别" Member="班别s">
     <Type Name="班别">
       <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="班别" Member="班别1" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="班别" Member="班别1" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="登记时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="删除" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="班别_员工" Member="员工s" ThisKey="Id" OtherKey="班别" Type="员工" />
@@ -43,8 +43,8 @@
   <Table Name="dbo.处理方法" Member="处理方法s">
     <Type Name="处理方法">
       <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="处理方法" Member="处理方法1" Type="System.String" DbType="NChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="附件" Type="System.String" DbType="NChar(200)" CanBeNull="true" />
+      <Column Name="处理方法" Member="处理方法1" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="附件" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="登记时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="删除" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="处理方法_检验修边" Member="检验修边s" ThisKey="Id" OtherKey="处理方法" Type="检验修边" />
@@ -53,48 +53,50 @@
   <Table Name="dbo.机台" Member="机台s">
     <Type Name="机台">
       <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="机台编号" Type="System.String" DbType="NChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="机台名称" Type="System.String" DbType="NChar(200)" CanBeNull="true" />
-      <Column Name="机台描述" Type="System.String" DbType="NChar(200)" CanBeNull="true" />
+      <Column Name="机台编号" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="机台名称" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="机台描述" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="登记时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="删除" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="机台_皮囊成型" Member="皮囊成型s" ThisKey="Id" OtherKey="生产机台" Type="皮囊成型" />
       <Association Name="机台_皮囊硫化" Member="皮囊硫化s" ThisKey="Id" OtherKey="生产机台" Type="皮囊硫化" />
+      <Association Name="机台_皮囊成型" Member="皮囊成型s" ThisKey="Id" OtherKey="生产机台" Type="皮囊成型" />
     </Type>
   </Table>
   <Table Name="dbo.检验修边" Member="检验修边s">
     <Type Name="检验修边">
       <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="结果" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="处理方法" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="处理方法" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="检验员" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="硫化皮囊" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="登记时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="删除" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="处理方法_检验修边" Member="处理方法1" ThisKey="处理方法" OtherKey="Id" Type="处理方法" IsForeignKey="true" />
-      <Association Name="员工_检验修边" Member="员工" ThisKey="检验员" OtherKey="Id" Type="员工" IsForeignKey="true" />
-      <Association Name="皮囊硫化_检验修边" Member="皮囊硫化" ThisKey="硫化皮囊" OtherKey="Id" Type="皮囊硫化" IsForeignKey="true" />
+      <Association Name="处理方法_检验修边" Member="处理方法1" AccessModifier="Internal" ThisKey="处理方法" OtherKey="Id" Type="处理方法" IsForeignKey="true" />
+      <Association Name="员工_检验修边" Member="员工" AccessModifier="Internal" ThisKey="检验员" OtherKey="Id" Type="员工" IsForeignKey="true" />
+      <Association Name="皮囊硫化_检验修边" Member="皮囊硫化" AccessModifier="Internal" ThisKey="硫化皮囊" OtherKey="Id" Type="皮囊硫化" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.胶料入库" Member="胶料入库s">
     <Type Name="胶料入库">
       <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="胶料牌号" Type="System.String" DbType="NChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="箱号" Type="System.String" DbType="NChar(200)" CanBeNull="true" />
-      <Column Name="生产线号" Type="System.String" DbType="NChar(200)" CanBeNull="true" />
-      <Column Name="供应商产品代号" Type="System.String" DbType="NChar(200)" CanBeNull="true" />
+      <Column Name="胶料牌号" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="箱号" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="生产线号" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="供应商产品代号" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="生产日期" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="批次号" Type="System.String" DbType="NChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="批次号" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="重量" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="登记时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="删除" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="消耗结束" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="出库时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Association Name="胶料入库_橡胶薄片" Member="橡胶薄片s" ThisKey="Id" OtherKey="胶料批号" Type="橡胶薄片" />
     </Type>
   </Table>
   <Table Name="dbo.帘布流转" Member="帘布流转s">
     <Type Name="帘布流转">
       <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="产品编号" Type="System.String" DbType="NChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="产品编号" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="宽度" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="厚度" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="角度" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
@@ -103,61 +105,50 @@
       <Column Name="使用期限" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="登记时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="删除" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="消耗结束" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="出库时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="生产时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="数量" Type="System.Single" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="消耗数量" Type="System.Single" DbType="Float NOT NULL" CanBeNull="false" />
       <Association Name="帘布流转_皮囊成型" Member="皮囊成型s" ThisKey="Id" OtherKey="帘布批号" Type="皮囊成型" />
-      <Association Name="员工_帘布流转" Member="员工" ThisKey="作业员" OtherKey="Id" Type="员工" IsForeignKey="true" />
-      <Association Name="帘布入库_帘布流转" Member="帘布入库" ThisKey="帘布批号" OtherKey="Id" Type="帘布入库" IsForeignKey="true" />
+      <Association Name="员工_帘布流转" Member="员工" AccessModifier="Internal" ThisKey="作业员" OtherKey="Id" Type="员工" IsForeignKey="true" />
+      <Association Name="帘布入库_帘布流转" Member="帘布入库" AccessModifier="Internal" ThisKey="帘布批号" OtherKey="Id" Type="帘布入库" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.帘布入库" Member="帘布入库s">
     <Type Name="帘布入库">
       <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="帘布代号" Type="System.String" DbType="NChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="胶料" Type="System.String" DbType="NChar(200)" CanBeNull="true" />
+      <Column Name="帘布代号" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="胶料" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="帘布长度" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="生产序号" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="生产日期" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="有效日期" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="重量" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="重量" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="登记时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="删除" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="消耗结束" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="出库时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Association Name="帘布入库_帘布流转" Member="帘布流转s" ThisKey="Id" OtherKey="帘布批号" Type="帘布流转" />
-    </Type>
-  </Table>
-  <Table Name="dbo.皮囊成型" Member="皮囊成型s">
-    <Type Name="皮囊成型">
-      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="产品型号" Type="System.String" DbType="NChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="生产机台" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="作业员" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="帘布批号" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="外胶片批号" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="内胶片批号" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="登记时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="删除" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="皮囊成型_皮囊硫化" Member="皮囊硫化s" ThisKey="Id" OtherKey="成型皮囊" Type="皮囊硫化" />
-      <Association Name="机台_皮囊成型" Member="机台" ThisKey="生产机台" OtherKey="Id" Type="机台" IsForeignKey="true" />
-      <Association Name="帘布流转_皮囊成型" Member="帘布流转" ThisKey="帘布批号" OtherKey="Id" Type="帘布流转" IsForeignKey="true" />
-      <Association Name="员工_皮囊成型" Member="员工" ThisKey="作业员" OtherKey="Id" Type="员工" IsForeignKey="true" />
-      <Association Name="橡胶薄片_皮囊成型" Member="橡胶薄片" ThisKey="内胶片批号" OtherKey="Id" Type="橡胶薄片" IsForeignKey="true" />
-      <Association Name="橡胶薄片_皮囊成型1" Member="橡胶薄片1" ThisKey="外胶片批号" OtherKey="Id" Type="橡胶薄片" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.皮囊硫化" Member="皮囊硫化s">
     <Type Name="皮囊硫化">
       <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="产品型号" Type="System.String" DbType="NChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="产品型号" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="生产机台" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="作业员" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="成型皮囊" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="硫化温度" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="硫化时间" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="模具" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="生产时间" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="登记时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="删除" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="皮囊硫化_检验修边" Member="检验修边s" ThisKey="Id" OtherKey="硫化皮囊" Type="检验修边" />
+      <Association Name="机台_皮囊硫化" Member="机台" AccessModifier="Internal" ThisKey="生产机台" OtherKey="Id" Type="机台" IsForeignKey="true" />
+      <Association Name="员工_皮囊硫化" Member="员工" AccessModifier="Internal" ThisKey="作业员" OtherKey="Id" Type="员工" IsForeignKey="true" />
       <Association Name="皮囊成型_皮囊硫化" Member="皮囊成型" ThisKey="成型皮囊" OtherKey="Id" Type="皮囊成型" IsForeignKey="true" />
-      <Association Name="机台_皮囊硫化" Member="机台" ThisKey="生产机台" OtherKey="Id" Type="机台" IsForeignKey="true" />
-      <Association Name="员工_皮囊硫化" Member="员工" ThisKey="作业员" OtherKey="Id" Type="员工" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.橡胶薄片" Member="橡胶薄片s">
@@ -169,13 +160,49 @@
       <Column Name="作业员" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="胶料批号" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="生产序号" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="生产时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="生产时间" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="登记时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="删除" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="消耗结束" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="出库时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="消耗重量" Type="System.Single" DbType="Float not null" CanBeNull="false" />
       <Association Name="橡胶薄片_皮囊成型" Member="皮囊成型s" ThisKey="Id" OtherKey="内胶片批号" Type="皮囊成型" />
       <Association Name="橡胶薄片_皮囊成型1" Member="皮囊成型s1" ThisKey="Id" OtherKey="外胶片批号" Type="皮囊成型" />
-      <Association Name="胶料入库_橡胶薄片" Member="胶料入库" ThisKey="胶料批号" OtherKey="Id" Type="胶料入库" IsForeignKey="true" />
-      <Association Name="员工_橡胶薄片" Member="员工" ThisKey="作业员" OtherKey="Id" Type="员工" IsForeignKey="true" />
+      <Association Name="胶料入库_橡胶薄片" Member="胶料入库" AccessModifier="Internal" ThisKey="胶料批号" OtherKey="Id" Type="胶料入库" IsForeignKey="true" />
+      <Association Name="员工_橡胶薄片" Member="员工" AccessModifier="Internal" ThisKey="作业员" OtherKey="Id" Type="员工" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.产品消耗" Member="产品消耗s">
+    <Type Name="产品消耗">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="产品名称" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="内层胶消耗量" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="外层胶消耗量" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="帘布消耗量" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="加入日期" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="产品消耗_皮囊成型" Member="皮囊成型s" ThisKey="Id" OtherKey="产品消耗" Type="皮囊成型" />
+    </Type>
+  </Table>
+  <Table Name="dbo.皮囊成型" Member="皮囊成型s">
+    <Type Name="皮囊成型">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="产品型号" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="生产机台" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="作业员" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="帘布批号" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="外胶片批号" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="内胶片批号" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="生产时间" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="登记时间" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="删除" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="产品消耗" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="皮囊成型_皮囊硫化" Member="皮囊硫化s" ThisKey="Id" OtherKey="成型皮囊" Type="皮囊硫化" />
+      <Association Name="产品消耗_皮囊成型" Member="产品消耗1" AccessModifier="Internal" ThisKey="产品消耗" OtherKey="Id" Type="产品消耗" IsForeignKey="true" />
+      <Association Name="机台_皮囊成型" Member="机台" AccessModifier="Internal" ThisKey="生产机台" OtherKey="Id" Type="机台" IsForeignKey="true" />
+      <Association Name="帘布流转_皮囊成型" Member="帘布流转" AccessModifier="Internal" ThisKey="帘布批号" OtherKey="Id" Type="帘布流转" IsForeignKey="true" />
+      <Association Name="橡胶薄片_皮囊成型" Member="橡胶薄片" AccessModifier="Internal" ThisKey="内胶片批号" OtherKey="Id" Type="橡胶薄片" IsForeignKey="true" />
+      <Association Name="橡胶薄片_皮囊成型1" Member="橡胶薄片1" AccessModifier="Internal" ThisKey="外胶片批号" OtherKey="Id" Type="橡胶薄片" IsForeignKey="true" />
+      <Association Name="员工_皮囊成型" Member="员工" AccessModifier="Internal" ThisKey="作业员" OtherKey="Id" Type="员工" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

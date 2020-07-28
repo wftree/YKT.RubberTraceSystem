@@ -12,14 +12,23 @@ namespace YKT.RubberTraceSystem.Phone.Services
         {
             var optionsDefault = new MobileBarcodeScanningOptions();
             var optionsCustom = new MobileBarcodeScanningOptions();
-
+            var mbs = MobileBarcodeScanningOptions.Default;
+            mbs.AssumeGS1 = true;
+            mbs.AutoRotate = true;
+            mbs.DisableAutofocus = false;
+            mbs.PureBarcode = false;
+            mbs.TryInverted = true;
+            mbs.TryHarder = true;
+            mbs.UseCode39ExtendedMode = true;
+            mbs.UseFrontCameraIfAvailable = false;
+            mbs.UseNativeScanning = true;
             var scanner = new MobileBarcodeScanner()
             {
-                TopText = "Scan the QR Code",
-                BottomText = "Please Wait",
+                TopText = "扫描二维码",
+                BottomText = "请稍后……",
             };
 
-            var scanResult = await scanner.Scan(optionsCustom);
+            var scanResult = await scanner.Scan(mbs);
             return scanResult.Text;
         }
     }

@@ -21,6 +21,8 @@ namespace YKT.RTS.Phone.Models
         public System.Guid 帘布批号 { get; set; }
         public System.Guid 外胶片批号 { get; set; }
         public System.Guid 内胶片批号 { get; set; }
+
+        public System.DateTime 生产时间 { get; set; }
         public System.DateTime 登记时间 { get; set; }
         public bool 删除 { get; set; }
         [IgnoreDataMember]

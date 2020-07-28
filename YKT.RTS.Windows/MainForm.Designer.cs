@@ -33,11 +33,13 @@
             this.胶料出片ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帘布剪裁ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.工件成型ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.打印工件码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.仓库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.胶料入库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帘布入库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.生产报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.产品追踪ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.基础资料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMain.SuspendLayout();
@@ -62,7 +64,8 @@
             this.生产过程ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.胶料出片ToolStripMenuItem,
             this.帘布剪裁ToolStripMenuItem,
-            this.工件成型ToolStripMenuItem});
+            this.工件成型ToolStripMenuItem,
+            this.打印工件码ToolStripMenuItem});
             this.生产过程ToolStripMenuItem.Name = "生产过程ToolStripMenuItem";
             this.生产过程ToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.生产过程ToolStripMenuItem.Text = "生产过程";
@@ -70,23 +73,30 @@
             // 胶料出片ToolStripMenuItem
             // 
             this.胶料出片ToolStripMenuItem.Name = "胶料出片ToolStripMenuItem";
-            this.胶料出片ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.胶料出片ToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.胶料出片ToolStripMenuItem.Text = "胶料出片";
             this.胶料出片ToolStripMenuItem.Click += new System.EventHandler(this.胶料出片ToolStripMenuItem_Click);
             // 
             // 帘布剪裁ToolStripMenuItem
             // 
             this.帘布剪裁ToolStripMenuItem.Name = "帘布剪裁ToolStripMenuItem";
-            this.帘布剪裁ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.帘布剪裁ToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.帘布剪裁ToolStripMenuItem.Text = "帘布剪裁";
             this.帘布剪裁ToolStripMenuItem.Click += new System.EventHandler(this.帘布剪裁ToolStripMenuItem_Click);
             // 
             // 工件成型ToolStripMenuItem
             // 
             this.工件成型ToolStripMenuItem.Name = "工件成型ToolStripMenuItem";
-            this.工件成型ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.工件成型ToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.工件成型ToolStripMenuItem.Text = "工件成型";
             this.工件成型ToolStripMenuItem.Click += new System.EventHandler(this.工件成型ToolStripMenuItem_Click);
+            // 
+            // 打印工件码ToolStripMenuItem
+            // 
+            this.打印工件码ToolStripMenuItem.Name = "打印工件码ToolStripMenuItem";
+            this.打印工件码ToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.打印工件码ToolStripMenuItem.Text = "打印工件码";
+            this.打印工件码ToolStripMenuItem.Click += new System.EventHandler(this.打印工件码ToolStripMenuItem_Click);
             // 
             // 仓库ToolStripMenuItem
             // 
@@ -100,21 +110,22 @@
             // 胶料入库ToolStripMenuItem
             // 
             this.胶料入库ToolStripMenuItem.Name = "胶料入库ToolStripMenuItem";
-            this.胶料入库ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.胶料入库ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.胶料入库ToolStripMenuItem.Text = "胶料入库";
             this.胶料入库ToolStripMenuItem.Click += new System.EventHandler(this.胶料入库ToolStripMenuItem_Click);
             // 
             // 帘布入库ToolStripMenuItem
             // 
             this.帘布入库ToolStripMenuItem.Name = "帘布入库ToolStripMenuItem";
-            this.帘布入库ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.帘布入库ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.帘布入库ToolStripMenuItem.Text = "帘布入库";
             this.帘布入库ToolStripMenuItem.Click += new System.EventHandler(this.帘布入库ToolStripMenuItem_Click);
             // 
             // 报表ToolStripMenuItem
             // 
             this.报表ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.生产报表ToolStripMenuItem});
+            this.生产报表ToolStripMenuItem,
+            this.产品追踪ToolStripMenuItem});
             this.报表ToolStripMenuItem.Name = "报表ToolStripMenuItem";
             this.报表ToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.报表ToolStripMenuItem.Text = "报表";
@@ -122,8 +133,16 @@
             // 生产报表ToolStripMenuItem
             // 
             this.生产报表ToolStripMenuItem.Name = "生产报表ToolStripMenuItem";
-            this.生产报表ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.生产报表ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.生产报表ToolStripMenuItem.Text = "生产报表";
+            this.生产报表ToolStripMenuItem.Click += new System.EventHandler(this.生产报表ToolStripMenuItem_Click);
+            // 
+            // 产品追踪ToolStripMenuItem
+            // 
+            this.产品追踪ToolStripMenuItem.Name = "产品追踪ToolStripMenuItem";
+            this.产品追踪ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.产品追踪ToolStripMenuItem.Text = "产品追踪";
+            this.产品追踪ToolStripMenuItem.Click += new System.EventHandler(this.产品追踪ToolStripMenuItem_Click);
             // 
             // 基础资料ToolStripMenuItem
             // 
@@ -173,5 +192,7 @@
         private System.Windows.Forms.ToolStripMenuItem 工件成型ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 胶料入库ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 帘布入库ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 打印工件码ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 产品追踪ToolStripMenuItem;
     }
 }

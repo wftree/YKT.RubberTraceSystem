@@ -10,7 +10,7 @@ namespace YKT.RTS.Phone.Models
     {
         public System.Guid Id { get; set; }
         public bool 结果 { get; set; }
-        public System.Guid 处理方法 { get; set; }
+        public System.Guid? 处理方法 { get; set; }
         public System.Guid 检验员 { get; set; }
         public System.Guid 硫化皮囊 { get; set; }
         public System.DateTime 登记时间 { get; set; }

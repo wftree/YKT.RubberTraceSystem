@@ -1,11 +1,103 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="YKT.RTS.Phone.Views.WorkPage"  >
+    <!--Pages can be added as references or inline-->
+    <ContentPage Title="胶片压延" >
+        <StackLayout>
+            <d:Label Text="胶片压延登记"></d:Label>
+            <Label x:Name="txtRCResult" Text="未识别胶片代码"></Label>
+            <Entry x:Name="txtRC"  
+               Placeholder="压延胶片代码" />
+            <!--Text="6CE935F8-04A1-4696-8982-08DBC9EBEE97"-->
+            <Button Text="扫描代码"  
+                x:Name="btnScanRC" Clicked="btnScanRC_Clicked"/>
+            <Button Text="确认加工"  
+                x:Name="btnSaveRC"  
+                Clicked="btnSaveRC_Clicked"/>
+        </StackLayout>
+
+    </ContentPage>
+    <ContentPage Title="帘布裁切" >
+        <StackLayout>
+            <d:Label Text="帘布裁切代码"></d:Label>
+            <Label x:Name="txtFCResult" Text="未识别帘布代码"></Label>
+            <Entry x:Name="txtFC"  
+               Placeholder="裁切帘布代码"/>
+            <Button Text="扫描代码"  
+                x:Name="btnScanFC"  
+                Clicked="btnScanFC_Clicked"/>
+            <Button Text="保存"  
+                x:Name="btnSaveFC"  
+                Clicked="btnSaveFC_Clicked"/>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="皮囊成型" >
+        <StackLayout>
+            <d:Label Text="产品代码"></d:Label>
+            <Label x:Name="txtNPResult" Text="未识别产品"></Label>
+            <Entry x:Name="txtNP"  
+               Placeholder="产品代码"/>
+            <Button Text="扫描代码"  
+                x:Name="btnScanNP"  
+                Clicked="btnScanNP_Clicked"/>
+            <Button Text="保存"  
+                x:Name="btnSaveNP"  
+                Clicked="btnSaveNP_Clicked"/>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="皮囊硫化" >
+        <StackLayout>
+            <d:Label Text="产品代码"></d:Label>
+            <Label x:Name="txtCPResult" Text="未识别产品"></Label>
+            <Entry x:Name="txtCP"  
+               Placeholder="产品代码"/>
+            <Button Text="扫描代码"  
+                x:Name="btnScanCP"  
+                Clicked="btnScanCP_Clicked"/>
+            <Entry x:Name="txtCPTemp"  
+               Placeholder="硫化温度" Keyboard="Numeric" IsTextPredictionEnabled="True"/>
+            <Entry x:Name="txtCPTime"  
+               Placeholder="硫化时间" Keyboard="Numeric" IsTextPredictionEnabled="True"/>
+            <Button Text="保存"  
+                x:Name="btnSaveCP"  
+                Clicked="btnSaveCP_Clicked"/>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="完成检查" Appearing="ContentPage_Appearing" >
+        <StackLayout>
+            <d:Label Text="产品代码"></d:Label>
+            <Label x:Name="txtCCResult" Text="未识别产品"></Label>
+            <Entry x:Name="txtCC"  
+               Placeholder="产品代码"/>
+            <Button Text="扫描代码"  
+                x:Name="btnScanCC"  
+                Clicked="btnScanCC_Clicked"/>
+            <Switch x:Name="swOk" IsToggled="true" Toggled="swOk_Toggled" />
+            <Picker x:Name="picker"
+        Title="选择处理方式"
+        TitleColor="Red" SelectedIndexChanged="picker_SelectedIndexChanged">
+                
+            </Picker>
+            <Button Text="保存"  
+                x:Name="btnSaveCC"  
+                Clicked="btnSaveCC_Clicked"/>
+        </StackLayout>
+    </ContentPage>
+    
+</TabbedPage>
+<!--<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="YKT.RTS.Phone.Views.WorkPage">
     <ContentPage.Content>
+        
+        
         
             <Grid>
                 <Grid.RowDefinitions>
@@ -52,4 +144,4 @@
             </Grid>
 
     </ContentPage.Content>
-</ContentPage>
+</ContentPage>-->

@@ -22,6 +22,8 @@ namespace YKT.RTS.Phone.Models
         public Nullable<double> 硫化温度 { get; set; }
         public Nullable<double> 硫化时间 { get; set; }
         public Nullable<System.Guid> 模具 { get; set; }
+
+        public System.DateTime 生产时间 { get; set; }
         public System.DateTime 登记时间 { get; set; }
         public bool 删除 { get; set; }
         [IgnoreDataMember]

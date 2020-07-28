@@ -179,6 +179,125 @@ namespace YKT.RubberTraceSystem.Windows
         private static extern int B_Check_EncryptionKey(string decodeKey, string encryptionKey,
             int dwTimeoutms);
 
+        public bool PrintQRCode(int x, int y, int scarl, string data,string data1)
+        {
+            // open port.
+            int nLen, ret, sw;
+            byte[] pbuf = new byte[128];
+            string strmsg;
+            IntPtr ver;
+            System.Text.Encoding encAscII = System.Text.Encoding.ASCII;
+            System.Text.Encoding encUnicode = System.Text.Encoding.Unicode;
+
+            // dll version.
+            ver = B_Get_DLL_Version(0);
+
+            // search port.
+            nLen = B_GetUSBBufferLen() + 1;
+            strmsg = "DLL ";
+            strmsg += Marshal.PtrToStringAnsi(ver);
+            strmsg += "\r\n";
+            if (nLen > 1)
+            {
+                byte[] buf1, buf2;
+                int len1 = 128, len2 = 128;
+                buf1 = new byte[len1];
+                buf2 = new byte[len2];
+                B_EnumUSB(pbuf);
+                B_GetUSBDeviceInfo(1, buf1, out len1, buf2, out len2);
+                sw = 1;
+                if (1 == sw)
+                {
+                    ret = B_CreatePrn(12, encAscII.GetString(buf2, 0, len2));// open usb.
+                }
+                else
+                {
+                    ret = B_CreateUSBPort(1);// must call B_GetUSBBufferLen() function fisrt.
+                }
+                if (0 != ret)
+                {
+                    strmsg += "Open USB fail!";
+                }
+                else
+                {
+                    strmsg += "Open USB:\r\nDevice name: ";
+                    strmsg += encAscII.GetString(buf1, 0, len1);
+                    strmsg += "\r\nDevice path: ";
+                    strmsg += encAscII.GetString(buf2, 0, len2);
+                    //sw = 2;
+                    if (2 == sw)
+                    {
+                        //Immediate Error Report.
+                        B_WriteData(1, encAscII.GetBytes("^ee\r\n"), 5);//^ee
+                        ret = B_ReadData(pbuf, 4, 1000);
+                    }
+                }
+            }
+            else
+            {
+                //System.IO.Directory.CreateDirectory(szSavePath);
+                //ret = B_CreatePrn(0, szSaveFile);// open file.
+                //strmsg += "Open ";
+                //strmsg += szSaveFile;
+                //if (0 != ret)
+                //{
+                //    strmsg += " file fail!";
+                //}
+                //else
+                //{
+                //    strmsg += " file succeed!";
+                //}
+                return false;
+            }
+            //MessageBox.Show(strmsg);
+            if (0 != ret)
+                return false;
+
+            // sample setting.
+            B_Set_DebugDialog(1);
+            B_Set_Originpoint(0, 0);
+            B_Select_Option(2);
+            B_Set_Darkness(8);
+            B_Del_Pcx("*");// delete all picture.
+            B_WriteData(0, encAscII.GetBytes(sznop2), sznop2.Length);
+            B_WriteData(1, encAscII.GetBytes(sznop1), sznop1.Length);
+
+            ////draw box.
+            //B_Draw_Box(20, 20, 4, 760, 560);
+            //B_Draw_Line('O', 400, 20, 4, 540);
+
+            ////print text, true type text.
+            B_Prn_Text(x, y+scarl*50, 0, 2, 1, 1, 'N', data);
+            B_Prn_Text(x + 15 + scarl * 30, y + scarl * 10, 0, 2, 1, 1, 'N', data1);
+            //B_Prn_Text_TrueType(30,100,30,"Arial",1,400,0,0,0,"AA","TrueType Font");//save in printer.
+            //B_Prn_Text_TrueType_W(30,160,20,20,"Times New Roman",1,400,0,0,0,"AB","TT_W: 多字元測試");
+            //B_Prn_Text_TrueType_Uni(30,220,30,"Times New Roman",1,400,0,0,0,"AC",Encoding.Unicode.GetBytes("TT_Uni: 多字元測試"),1);//UTF-16
+            //   encUnicode.GetBytes("\xFEFF", 0, 1, pbuf, 0);//UTF-16.//pbuf[0]=0xFF,pbuf[1]=0xFE;
+            //   encUnicode.GetBytes("TT_UniB: 多字元測試", 0, 14, pbuf, 2);//copy mutil byte.
+            //   encUnicode.GetBytes("\x0000", 0, 1, pbuf, 30);//null.//pbuf[30]=0x00,pbuf[31]=0x00;
+            //B_Prn_Text_TrueType_UniB(30,280,30,"Times New Roman",1,400,0,0,0,"AD",pbuf,0);//Byte Order Mark.
+
+            //barcode.
+            //B_Prn_Barcode(80, 20, 0, "3", 2, 3, 40, 'B', "1234<+1>");//have a counter
+            B_Bar2d_QR(x, y, 2, scarl, 'Q', 'A', 0, 0, 0, data);
+
+            ////picture.
+            //   B_Get_Graphic_ColorBMP(420, 280, "bb.bmp");// Color bmp file.
+            //   B_Get_Graphic_ColorBMPEx(420, 320, 200, 150, 2, "bb1", "bb.bmp");//180 angle.
+            //   IntPtr himage = LoadImage(IntPtr.Zero, "bb.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+            //   B_Get_Graphic_ColorBMP_HBitmap(630, 280, 250, 80, 1, "bb2", himage);//90 angle.
+            //   if (IntPtr.Zero != himage)
+            //       DeleteObject(himage);
+
+            // output.
+            B_Print_Out(1);// copy 2.
+
+            // close port.
+            B_ClosePrn();
+
+            return true;
+        }
+
         public bool PrintQRCode(int x, int y, int scarl, string data)
         {
             // open port.
@@ -267,7 +386,8 @@ namespace YKT.RubberTraceSystem.Windows
             //B_Draw_Line('O', 400, 20, 4, 540);
 
             ////print text, true type text.
-            //B_Prn_Text(30, 40, 0, 2, 1, 1, 'N', "PPLB Lib Example");
+            //B_Prn_Text(x + 15 + scarl * 30, y + scarl * 5, 0, 2, 1, 1, 'N', data);
+            //B_Prn_Text(x + 15 + scarl * 30, y + scarl * 10, 0, 2, 1, 1, 'N', data1);
             //B_Prn_Text_TrueType(30,100,30,"Arial",1,400,0,0,0,"AA","TrueType Font");//save in printer.
             //B_Prn_Text_TrueType_W(30,160,20,20,"Times New Roman",1,400,0,0,0,"AB","TT_W: 多字元測試");
             //B_Prn_Text_TrueType_Uni(30,220,30,"Times New Roman",1,400,0,0,0,"AC",Encoding.Unicode.GetBytes("TT_Uni: 多字元測試"),1);//UTF-16
@@ -278,7 +398,7 @@ namespace YKT.RubberTraceSystem.Windows
 
             //barcode.
             //B_Prn_Barcode(80, 20, 0, "3", 2, 3, 40, 'B', "1234<+1>");//have a counter
-            B_Bar2d_QR(x, y, 1, scarl, 'M', 'A', 0, 0, 0, data);
+            B_Bar2d_QR(x, y, 2, scarl, 'H', 'A', 0, 0, 0, data);
 
             ////picture.
             //   B_Get_Graphic_ColorBMP(420, 280, "bb.bmp");// Color bmp file.
@@ -299,7 +419,11 @@ namespace YKT.RubberTraceSystem.Windows
 
         public bool PrintQRCode(string data)
         {
-            return PrintQRCode(Settings.Default.QRL, Settings.Default.QRH, Settings.Default.SCALE, data);
+            return PrintQRCode(Settings.Default.CQRL, Settings.Default.CQRH, Settings.Default.CSCALE, data);
+        }
+        public bool PrintQRCode(string data,string data1)
+        {
+            return PrintQRCode(Settings.Default.QRL, Settings.Default.QRH, Settings.Default.SCALE, data,data1);
         }
     }
 }

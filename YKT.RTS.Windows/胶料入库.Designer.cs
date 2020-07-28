@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -96,8 +98,10 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.btnEdit, 0, 7);
-            this.tableLayoutPanel2.Controls.Add(this.btnCreate, 1, 7);
+            this.tableLayoutPanel2.Controls.Add(this.label8, 0, 7);
+            this.tableLayoutPanel2.Controls.Add(this.checkBox1, 1, 7);
+            this.tableLayoutPanel2.Controls.Add(this.btnEdit, 0, 8);
+            this.tableLayoutPanel2.Controls.Add(this.btnCreate, 1, 8);
             this.tableLayoutPanel2.Controls.Add(this.label7, 0, 6);
             this.tableLayoutPanel2.Controls.Add(this.tbSupplyNo, 1, 6);
             this.tableLayoutPanel2.Controls.Add(this.label6, 0, 5);
@@ -115,7 +119,8 @@
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 9;
+            this.tableLayoutPanel2.RowCount = 10;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
@@ -128,10 +133,34 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(294, 360);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label8.Location = new System.Drawing.Point(3, 245);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(94, 35);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "是否删除";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBox1.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox1.Location = new System.Drawing.Point(103, 248);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(188, 29);
+            this.checkBox1.TabIndex = 21;
+            this.checkBox1.Text = "删除";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // btnEdit
             // 
             this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnEdit.Location = new System.Drawing.Point(3, 248);
+            this.btnEdit.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnEdit.Location = new System.Drawing.Point(3, 283);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(94, 29);
             this.btnEdit.TabIndex = 16;
@@ -142,7 +171,8 @@
             // btnCreate
             // 
             this.btnCreate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCreate.Location = new System.Drawing.Point(103, 248);
+            this.btnCreate.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnCreate.Location = new System.Drawing.Point(103, 283);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(188, 29);
             this.btnCreate.TabIndex = 15;
@@ -164,9 +194,10 @@
             // tbSupplyNo
             // 
             this.tbSupplyNo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbSupplyNo.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tbSupplyNo.Location = new System.Drawing.Point(103, 213);
             this.tbSupplyNo.Name = "tbSupplyNo";
-            this.tbSupplyNo.Size = new System.Drawing.Size(188, 21);
+            this.tbSupplyNo.Size = new System.Drawing.Size(188, 26);
             this.tbSupplyNo.TabIndex = 13;
             this.tbSupplyNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -184,9 +215,10 @@
             // tbWeight
             // 
             this.tbWeight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbWeight.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tbWeight.Location = new System.Drawing.Point(103, 178);
             this.tbWeight.Name = "tbWeight";
-            this.tbWeight.Size = new System.Drawing.Size(188, 21);
+            this.tbWeight.Size = new System.Drawing.Size(188, 26);
             this.tbWeight.TabIndex = 11;
             this.tbWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -204,9 +236,10 @@
             // tbSNo
             // 
             this.tbSNo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbSNo.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tbSNo.Location = new System.Drawing.Point(103, 143);
             this.tbSNo.Name = "tbSNo";
-            this.tbSNo.Size = new System.Drawing.Size(188, 21);
+            this.tbSNo.Size = new System.Drawing.Size(188, 26);
             this.tbSNo.TabIndex = 9;
             this.tbSNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -235,9 +268,10 @@
             // tbAssLine
             // 
             this.tbAssLine.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbAssLine.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tbAssLine.Location = new System.Drawing.Point(103, 73);
             this.tbAssLine.Name = "tbAssLine";
-            this.tbAssLine.Size = new System.Drawing.Size(188, 21);
+            this.tbAssLine.Size = new System.Drawing.Size(188, 26);
             this.tbAssLine.TabIndex = 5;
             this.tbAssLine.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -255,9 +289,10 @@
             // tbBox
             // 
             this.tbBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbBox.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tbBox.Location = new System.Drawing.Point(103, 38);
             this.tbBox.Name = "tbBox";
-            this.tbBox.Size = new System.Drawing.Size(188, 21);
+            this.tbBox.Size = new System.Drawing.Size(188, 26);
             this.tbBox.TabIndex = 3;
             this.tbBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -275,17 +310,19 @@
             // tbTypeNo
             // 
             this.tbTypeNo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbTypeNo.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tbTypeNo.Location = new System.Drawing.Point(103, 3);
             this.tbTypeNo.Name = "tbTypeNo";
-            this.tbTypeNo.Size = new System.Drawing.Size(188, 21);
+            this.tbTypeNo.Size = new System.Drawing.Size(188, 26);
             this.tbTypeNo.TabIndex = 1;
             this.tbTypeNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // dtpPDate
             // 
+            this.dtpPDate.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dtpPDate.Location = new System.Drawing.Point(103, 108);
             this.dtpPDate.Name = "dtpPDate";
-            this.dtpPDate.Size = new System.Drawing.Size(188, 21);
+            this.dtpPDate.Size = new System.Drawing.Size(188, 26);
             this.dtpPDate.TabIndex = 14;
             // 
             // tableLayoutPanel3
@@ -352,6 +389,7 @@
             this.dgRubberInventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgRubberInventory.Size = new System.Drawing.Size(497, 710);
             this.dgRubberInventory.TabIndex = 2;
+            this.dgRubberInventory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgRubberInventory_CellContentClick);
             this.dgRubberInventory.SelectionChanged += new System.EventHandler(this.dgRubberInventory_SelectionChanged);
             // 
             // idDataGridViewTextBoxColumn
@@ -483,5 +521,7 @@
         private System.Windows.Forms.BindingSource 胶料入库BindingSource;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnCreate;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

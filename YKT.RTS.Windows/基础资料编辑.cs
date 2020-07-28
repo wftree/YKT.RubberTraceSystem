@@ -1,14 +1,7 @@
-﻿using QRCoder;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Transactions;
-using System.Windows.Forms;
 using Utilizities;
 using YKT.RubberTraceSystem.Data;
 
@@ -36,7 +29,7 @@ namespace YKT.RubberTraceSystem.Windows
         private void btnStaffPrintQR_Click(object sender, EventArgs e)
         {
             IQRPrinter printer = QRPrinterFactory.GetQRPrinter();
-            printer.PrintQRCode(Utilizity.CreateQRCodeStr(TableType.UR, dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+            printer.PrintQRCode(Utilizity.CreateQRCodeStr(TableType.UR, dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), dataGridView1.SelectedRows[0].Cells[1].Value.ToString());
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -231,7 +224,9 @@ namespace YKT.RubberTraceSystem.Windows
         private void btnMCPrintQR_Click(object sender, EventArgs e)
         {
             IQRPrinter printer = QRPrinterFactory.GetQRPrinter();
-            printer.PrintQRCode(Utilizity.CreateQRCodeStr(TableType.MC, dataGridView4.SelectedRows[0].Cells[0].Value.ToString()));
+            printer.PrintQRCode(Utilizity.CreateQRCodeStr(TableType.MC, dataGridView4.SelectedRows[0].Cells[0].Value.ToString()),
+                dataGridView4.SelectedRows[0].Cells[1].Value.ToString()
+                + dataGridView4.SelectedRows[0].Cells[2].Value.ToString());
         }
     }
 }

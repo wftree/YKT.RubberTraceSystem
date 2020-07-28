@@ -1,8 +1,8 @@
 ﻿CREATE TABLE [dbo].[处理方法]
 (
 	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT newid(), 
-    [处理方法] NCHAR(200) NOT NULL, 
-    [附件] NCHAR(200),
+    [处理方法] NVARCHAR(200) NOT NULL, 
+    [附件] NVARCHAR(200),
     [登记时间] DATETIME NOT NULL DEFAULT getdate(), 
     [删除] BIT NOT NULL DEFAULT 0
 )

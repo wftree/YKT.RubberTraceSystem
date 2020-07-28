@@ -123,5 +123,17 @@ namespace YKT.RubberTraceSystem.Windows
             str = tb.Text.Trim();
             return true;
         }
+
+        public void SetGridViewSelected(DataGridView dgv, string Id)
+        {
+            foreach (DataGridViewRow item in dgv.Rows)
+            {
+                if (item.Cells[0].Value.ToString() == Id)
+                {
+                    item.Selected = true;
+                    dgv.CurrentCell = item.Cells[0];
+                }
+            }
+        }
     }
 }

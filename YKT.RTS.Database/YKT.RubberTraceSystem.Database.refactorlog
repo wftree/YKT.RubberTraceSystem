@@ -105,4 +105,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="[FK_User_ToTCategory]" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="4ce7eb7d-4792-4c6f-b0b7-e012a553ccc9" ChangeDateTime="07/28/2020 16:05:32">
+    <Property Name="ElementName" Value="[dbo].[帘布流转].[消耗苏良]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[帘布流转]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="消耗数量" />
+  </Operation>
 </Operations>

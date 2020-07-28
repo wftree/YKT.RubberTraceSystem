@@ -4,8 +4,10 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
+using YKT.RubberTraceSystem.Windows.Reporting;
 
 namespace YKT.RubberTraceSystem.Windows
 {
@@ -53,43 +55,80 @@ namespace YKT.RubberTraceSystem.Windows
 
         private void 基础资料ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            createform(new 基础资料编辑());
+            ShowForm(typeof( 基础资料编辑));
         }
 
-        private void createform(BaseForm bf)
+        void ShowForm(Type formtype)
         {
-            bf.MdiParent = this;
-            bf.Show();
-        }
+            Type[] types = new Type[0];
+            if (formdict.ContainsKey(formtype.FullName))
+            {
+                if (formdict[formtype.FullName].IsDisposed)
+                {
+                    formdict[formtype.FullName] = null;
+                    ConstructorInfo ci = formtype.GetConstructor(types);
 
+                    BaseForm o = (BaseForm)ci.Invoke(null);
+                    formdict[formtype.FullName] = o;
+                    o.MdiParent = this;
+                    o.Show();
+                }
+                formdict[formtype.FullName].Activate();
+            }
+            else
+            {
+                ConstructorInfo ci = formtype.GetConstructor(types);
+                BaseForm o = (BaseForm)ci.Invoke(null);
+                o.MdiParent = this;
+                o.Show();
+                formdict.Add(formtype.FullName, o);
+            }
+
+        }
+        Dictionary<string, BaseForm> formdict = new Dictionary<string, BaseForm>();
         private void 胶料入库ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            createform(new 胶料入库());
+            ShowForm(typeof( 胶料入库));
         }
 
         private void 帘布入库ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            createform(new 帘布入库());
+            ShowForm(typeof( 帘布入库));
         }
 
         private void 胶料出片ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            createform(new 胶料出片());
+            ShowForm(typeof( 胶料出片));
         }
 
         private void 帘布剪裁ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            createform(new 帘布裁切());
+            ShowForm(typeof( 帘布裁切));
         }
 
         private void 工件成型ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            createform(new 成型码生成());
+            ShowForm(typeof( 成型码生成));
         }
 
         private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new AboutBox().ShowDialog();
+        }
+
+        private void 打印工件码ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm(typeof(成品码打印));
+        }
+
+        private void 产品追踪ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm(typeof(皮囊追溯));
+        }
+
+        private void 生产报表ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm(typeof(ReportingForm));
         }
     }
 }

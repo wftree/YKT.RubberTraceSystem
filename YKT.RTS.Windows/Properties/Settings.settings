@@ -2,14 +2,23 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="YKT.RubberTraceSystem.Windows.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="QRL" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">300</Value>
-    </Setting>
     <Setting Name="QRH" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">60</Value>
     </Setting>
     <Setting Name="SCALE" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">5</Value>
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="QRL" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="CQRH" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="CQRL" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">330</Value>
+    </Setting>
+    <Setting Name="CSCALE" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3</Value>
     </Setting>
   </Settings>
 </SettingsFile>

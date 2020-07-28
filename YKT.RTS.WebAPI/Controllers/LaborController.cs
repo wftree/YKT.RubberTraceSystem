@@ -34,7 +34,7 @@ namespace YKT.RubberTraceSystem.WebAPI.Controllers
         public IHttpActionResult Get员工(Guid id)
         {
 
-            员工 员工 = ddc.员工s.Single<员工>(x => x.Id == id& x.删除 ==false);
+            员工 员工 = ddc.员工s.Single<员工>(x => x.Id == id && x.删除 ==false);
             //员工 员工 = db.员工.Find(id);
             //员工 员工 = new 员工();
             //员工.Id = new Guid();

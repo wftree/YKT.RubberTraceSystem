@@ -44,10 +44,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbTypeNo = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label8 = new System.Windows.Forms.Label();
             this.dtpVDate = new System.Windows.Forms.DateTimePicker();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.dtpPDate = new System.Windows.Forms.DateTimePicker();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.dgFabircInventory = new System.Windows.Forms.DataGridView();
@@ -163,6 +165,7 @@
             this.btnStaffPrintQR.TabIndex = 3;
             this.btnStaffPrintQR.Text = "打印二维码";
             this.btnStaffPrintQR.UseVisualStyleBackColor = true;
+            this.btnStaffPrintQR.Click += new System.EventHandler(this.btnStaffPrintQR_Click);
             // 
             // label4
             // 
@@ -222,9 +225,10 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.label8, 0, 7);
             this.tableLayoutPanel2.Controls.Add(this.dtpVDate, 1, 4);
-            this.tableLayoutPanel2.Controls.Add(this.btnEdit, 0, 7);
-            this.tableLayoutPanel2.Controls.Add(this.btnCreate, 1, 7);
+            this.tableLayoutPanel2.Controls.Add(this.btnEdit, 0, 8);
+            this.tableLayoutPanel2.Controls.Add(this.btnCreate, 1, 8);
             this.tableLayoutPanel2.Controls.Add(this.label7, 0, 6);
             this.tableLayoutPanel2.Controls.Add(this.tbSerialNo, 1, 6);
             this.tableLayoutPanel2.Controls.Add(this.label6, 0, 5);
@@ -238,10 +242,13 @@
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tbTypeNo, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.dtpPDate, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.checkBox1, 1, 7);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 8;
+            this.tableLayoutPanel2.RowCount = 10;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
@@ -250,8 +257,19 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(294, 294);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(294, 340);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label8.Location = new System.Drawing.Point(3, 245);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(94, 35);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "是否删除";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dtpVDate
             // 
@@ -265,9 +283,9 @@
             // btnEdit
             // 
             this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnEdit.Location = new System.Drawing.Point(3, 248);
+            this.btnEdit.Location = new System.Drawing.Point(3, 283);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(94, 54);
+            this.btnEdit.Size = new System.Drawing.Size(94, 29);
             this.btnEdit.TabIndex = 15;
             this.btnEdit.Text = "修改";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -276,9 +294,9 @@
             // btnCreate
             // 
             this.btnCreate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCreate.Location = new System.Drawing.Point(103, 248);
+            this.btnCreate.Location = new System.Drawing.Point(103, 283);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(188, 54);
+            this.btnCreate.Size = new System.Drawing.Size(188, 29);
             this.btnCreate.TabIndex = 14;
             this.btnCreate.Text = "入库";
             this.btnCreate.UseVisualStyleBackColor = true;
@@ -293,21 +311,33 @@
             this.dtpPDate.Size = new System.Drawing.Size(188, 26);
             this.dtpPDate.TabIndex = 16;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBox1.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox1.Location = new System.Drawing.Point(103, 248);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(188, 29);
+            this.checkBox1.TabIndex = 19;
+            this.checkBox1.Text = "删除";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.dgFabircInventory, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 300F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 350F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(915, 696);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
@@ -349,8 +379,9 @@
             this.dgFabircInventory.Location = new System.Drawing.Point(303, 3);
             this.dgFabircInventory.Name = "dgFabircInventory";
             this.dgFabircInventory.ReadOnly = true;
-            this.tableLayoutPanel1.SetRowSpan(this.dgFabircInventory, 3);
+            this.tableLayoutPanel1.SetRowSpan(this.dgFabircInventory, 2);
             this.dgFabircInventory.RowTemplate.Height = 23;
+            this.dgFabircInventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgFabircInventory.Size = new System.Drawing.Size(609, 690);
             this.dgFabircInventory.TabIndex = 2;
             this.dgFabircInventory.SelectionChanged += new System.EventHandler(this.dgFabircInventory_SelectionChanged);
@@ -484,5 +515,7 @@
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.DateTimePicker dtpPDate;
         private System.Windows.Forms.DateTimePicker dtpVDate;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
