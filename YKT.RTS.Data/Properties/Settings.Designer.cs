@@ -26,8 +26,9 @@ namespace YKT.RubberTraceSystem.Data.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=hawk-tuf;Initial Catalog=RTS;Persist Security Info=True;User ID=rts;P" +
-            "assword=ykt123456")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=172.16.10.109;User ID=yktrwm;Password=rwm123...;Connect Timeout=60;En" +
+            "crypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnet" +
+            "Failover=False")]
         public string YKT_RubberTraceSystem_DatabaseConnectionString {
             get {
                 return ((string)(this["YKT_RubberTraceSystem_DatabaseConnectionString"]));
@@ -37,10 +38,23 @@ namespace YKT.RubberTraceSystem.Data.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=hawk-tuf;Initial Catalog=RTS;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=172.16.10.109;User ID=yktrwm;Password=rwm123...;Connect Timeout=60;En" +
+            "crypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnet" +
+            "Failover=False")]
         public string RTSConnectionString {
             get {
                 return ((string)(this["RTSConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=172.16.10.109;Initial Catalog=RTS;Persist Security Info=True;User ID=" +
+            "yktrwm;Password=rwm123...")]
+        public string RTSConnectionString1 {
+            get {
+                return ((string)(this["RTSConnectionString1"]));
             }
         }
     }

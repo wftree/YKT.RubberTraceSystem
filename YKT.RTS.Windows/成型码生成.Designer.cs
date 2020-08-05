@@ -55,6 +55,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tbNum = new System.Windows.Forms.TextBox();
             this.cbTypeNo = new System.Windows.Forms.ComboBox();
+            this.产品消耗BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnCreate = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.dgOutRubber = new System.Windows.Forms.DataGridView();
@@ -95,13 +96,13 @@
             this.删除DataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.内橡胶薄片BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label8 = new System.Windows.Forms.Label();
-            this.产品消耗BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.产品消耗BindingSource)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgOutRubber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.外橡胶薄片BindingSource)).BeginInit();
@@ -111,7 +112,6 @@
             this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgInnerRubber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.内橡胶薄片BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.产品消耗BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -461,6 +461,11 @@
             this.cbTypeNo.Size = new System.Drawing.Size(184, 27);
             this.cbTypeNo.TabIndex = 17;
             this.cbTypeNo.ValueMember = "Id";
+            this.cbTypeNo.SelectionChangeCommitted += new System.EventHandler(this.cbTypeNo_SelectionChangeCommitted);
+            // 
+            // 产品消耗BindingSource
+            // 
+            this.产品消耗BindingSource.DataSource = typeof(YKT.RubberTraceSystem.Data.产品消耗);
             // 
             // btnCreate
             // 
@@ -842,10 +847,6 @@
             this.label8.Text = "内胶料码";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // 产品消耗BindingSource
-            // 
-            this.产品消耗BindingSource.DataSource = typeof(YKT.RubberTraceSystem.Data.产品消耗);
-            // 
             // 成型码生成
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -863,6 +864,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.产品消耗BindingSource)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgOutRubber)).EndInit();
@@ -875,7 +877,6 @@
             this.tableLayoutPanel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgInnerRubber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.内橡胶薄片BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.产品消耗BindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

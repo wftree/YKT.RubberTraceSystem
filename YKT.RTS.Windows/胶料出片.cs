@@ -196,6 +196,7 @@ namespace YKT.RubberTraceSystem.Windows
                 this.tbThick.Text = dgRubberChips.SelectedRows[0].Cells[2].Value.ToString();
                 this.tbWidth.Text = dgRubberChips.SelectedRows[0].Cells[1].Value.ToString();
                 this.tbNum.Text = dgRubberChips.SelectedRows[0].Cells[3].Value.ToString();
+                this.tbConsume.Text = dgRubberChips.SelectedRows[0].Cells[6].Value.ToString();
             }
             else
             {

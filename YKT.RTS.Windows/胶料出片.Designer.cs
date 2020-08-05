@@ -51,6 +51,7 @@
             this.数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.胶料批号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.消耗重量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.橡胶薄片BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnCreate = new System.Windows.Forms.Button();
@@ -65,6 +66,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.tbConsume = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.tbNum = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tbThick = new System.Windows.Forms.TextBox();
@@ -74,8 +77,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tbCounter = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tbConsume = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgOutRubber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.胶料入库BindingSource)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
@@ -246,6 +247,7 @@
             this.数量,
             this.胶料批号,
             this.dataGridViewTextBoxColumn9,
+            this.消耗重量,
             this.dataGridViewCheckBoxColumn1});
             this.dgRubberChips.DataSource = this.橡胶薄片BindingSource;
             this.dgRubberChips.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -299,6 +301,13 @@
             this.dataGridViewTextBoxColumn9.HeaderText = "登记时间";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // 消耗重量
+            // 
+            this.消耗重量.DataPropertyName = "消耗重量";
+            this.消耗重量.HeaderText = "消耗重量";
+            this.消耗重量.Name = "消耗重量";
+            this.消耗重量.ReadOnly = true;
             // 
             // dataGridViewCheckBoxColumn1
             // 
@@ -491,6 +500,27 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(494, 154);
             this.tableLayoutPanel5.TabIndex = 4;
             // 
+            // tbConsume
+            // 
+            this.tbConsume.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbConsume.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tbConsume.ImeMode = System.Windows.Forms.ImeMode.Alpha;
+            this.tbConsume.Location = new System.Drawing.Point(353, 83);
+            this.tbConsume.Name = "tbConsume";
+            this.tbConsume.Size = new System.Drawing.Size(144, 26);
+            this.tbConsume.TabIndex = 14;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label11.Location = new System.Drawing.Point(253, 80);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(94, 32);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "每卷消耗重量";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tbNum
             // 
             this.tbNum.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -509,7 +539,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 32);
             this.label4.TabIndex = 11;
-            this.label4.Text = "每卷数量";
+            this.label4.Text = "每卷米数";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tbThick
@@ -590,27 +620,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(909, 713);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // tbConsume
-            // 
-            this.tbConsume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbConsume.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tbConsume.ImeMode = System.Windows.Forms.ImeMode.Alpha;
-            this.tbConsume.Location = new System.Drawing.Point(353, 83);
-            this.tbConsume.Name = "tbConsume";
-            this.tbConsume.Size = new System.Drawing.Size(144, 26);
-            this.tbConsume.TabIndex = 14;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.Location = new System.Drawing.Point(253, 80);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(94, 32);
-            this.label11.TabIndex = 13;
-            this.label11.Text = "每卷消耗重量";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // 胶料出片
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -682,15 +691,16 @@
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.DataGridView dgRubberChips;
         private System.Windows.Forms.BindingSource 橡胶薄片BindingSource;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tbConsume;
+        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn 宽度;
         private System.Windows.Forms.DataGridViewTextBoxColumn 厚度;
         private System.Windows.Forms.DataGridViewTextBoxColumn 数量;
         private System.Windows.Forms.DataGridViewTextBoxColumn 胶料批号;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 消耗重量;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox tbConsume;
-        private System.Windows.Forms.Label label11;
     }
 }

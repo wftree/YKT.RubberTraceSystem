@@ -72,6 +72,7 @@
     <Build Include="User.sql" />
     <Build Include="Category.sql" />
     <Build Include="产品消耗.sql" />
+    <Build Include="HashTable.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="YKT.RubberTraceSystem.Database.refactorlog" />

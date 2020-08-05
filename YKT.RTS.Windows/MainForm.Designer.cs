@@ -42,6 +42,7 @@
             this.产品追踪ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.基础资料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.消耗结束ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,7 +66,8 @@
             this.胶料出片ToolStripMenuItem,
             this.帘布剪裁ToolStripMenuItem,
             this.工件成型ToolStripMenuItem,
-            this.打印工件码ToolStripMenuItem});
+            this.打印工件码ToolStripMenuItem,
+            this.消耗结束ToolStripMenuItem});
             this.生产过程ToolStripMenuItem.Name = "生产过程ToolStripMenuItem";
             this.生产过程ToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.生产过程ToolStripMenuItem.Text = "生产过程";
@@ -73,28 +75,28 @@
             // 胶料出片ToolStripMenuItem
             // 
             this.胶料出片ToolStripMenuItem.Name = "胶料出片ToolStripMenuItem";
-            this.胶料出片ToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.胶料出片ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.胶料出片ToolStripMenuItem.Text = "胶料出片";
             this.胶料出片ToolStripMenuItem.Click += new System.EventHandler(this.胶料出片ToolStripMenuItem_Click);
             // 
             // 帘布剪裁ToolStripMenuItem
             // 
             this.帘布剪裁ToolStripMenuItem.Name = "帘布剪裁ToolStripMenuItem";
-            this.帘布剪裁ToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.帘布剪裁ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.帘布剪裁ToolStripMenuItem.Text = "帘布剪裁";
             this.帘布剪裁ToolStripMenuItem.Click += new System.EventHandler(this.帘布剪裁ToolStripMenuItem_Click);
             // 
             // 工件成型ToolStripMenuItem
             // 
             this.工件成型ToolStripMenuItem.Name = "工件成型ToolStripMenuItem";
-            this.工件成型ToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.工件成型ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.工件成型ToolStripMenuItem.Text = "工件成型";
             this.工件成型ToolStripMenuItem.Click += new System.EventHandler(this.工件成型ToolStripMenuItem_Click);
             // 
             // 打印工件码ToolStripMenuItem
             // 
             this.打印工件码ToolStripMenuItem.Name = "打印工件码ToolStripMenuItem";
-            this.打印工件码ToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.打印工件码ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.打印工件码ToolStripMenuItem.Text = "打印工件码";
             this.打印工件码ToolStripMenuItem.Click += new System.EventHandler(this.打印工件码ToolStripMenuItem_Click);
             // 
@@ -133,14 +135,14 @@
             // 生产报表ToolStripMenuItem
             // 
             this.生产报表ToolStripMenuItem.Name = "生产报表ToolStripMenuItem";
-            this.生产报表ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.生产报表ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.生产报表ToolStripMenuItem.Text = "生产报表";
             this.生产报表ToolStripMenuItem.Click += new System.EventHandler(this.生产报表ToolStripMenuItem_Click);
             // 
             // 产品追踪ToolStripMenuItem
             // 
             this.产品追踪ToolStripMenuItem.Name = "产品追踪ToolStripMenuItem";
-            this.产品追踪ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.产品追踪ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.产品追踪ToolStripMenuItem.Text = "产品追踪";
             this.产品追踪ToolStripMenuItem.Click += new System.EventHandler(this.产品追踪ToolStripMenuItem_Click);
             // 
@@ -157,6 +159,13 @@
             this.关于ToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.关于ToolStripMenuItem.Text = "关于";
             this.关于ToolStripMenuItem.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
+            // 
+            // 消耗结束ToolStripMenuItem
+            // 
+            this.消耗结束ToolStripMenuItem.Name = "消耗结束ToolStripMenuItem";
+            this.消耗结束ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.消耗结束ToolStripMenuItem.Text = "消耗结束";
+            this.消耗结束ToolStripMenuItem.Click += new System.EventHandler(this.消耗结束ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -194,5 +203,6 @@
         private System.Windows.Forms.ToolStripMenuItem 帘布入库ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 打印工件码ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 产品追踪ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 消耗结束ToolStripMenuItem;
     }
 }

@@ -17,7 +17,7 @@ namespace YKT.RubberTraceSystem.Phone.Services
     public static class Constants
     {
         private static WebAPI restService = new WebAPI();
-        private static string rTSWebAPIEndpoint = "http://192.168.31.17:12345/Api/";
+        private static string rTSWebAPIEndpoint = @"http://172.16.10.109:8080/Api/";
         public static string USERGUID = "";
         public static 员工 User = null;
         public static string MCGUID = "";
@@ -183,11 +183,30 @@ namespace YKT.RubberTraceSystem.Phone.Services
 
         }
 
-        public static async Task<皮囊硫化> GetCP(Guid id, Guid lb, Guid machine, float temp, float time)
+        public static async Task<皮囊成型> GetNP(string id, Guid lb, Guid machine)
         {
             using (WebAPI webAPI = new WebAPI())
             {
-                var response = await webAPI.GetWebAPIAsync(Constants.RTSWebAPIEndpoint + "CP?id=" + id.ToString() + "&lb=" + lb.ToString() + "&machine=" + machine.ToString()+"&temp="+temp.ToString()+"&time="+time.ToString());
+                var response = await webAPI.GetWebAPIAsync(Constants.RTSWebAPIEndpoint + "NP?id=" + id + "&lb=" + lb.ToString() + "&machine=" + machine.ToString());
+                try
+                {
+                    var employee = JsonConvert.DeserializeObject<皮囊成型>(response);
+                    return employee;
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+            }
+
+        }
+
+        public static async Task<皮囊硫化> GetCP(string id, Guid lb, Guid machine, float temp, float time)
+        {
+            using (WebAPI webAPI = new WebAPI())
+            {
+                var response = await webAPI.GetWebAPIAsync(Constants.RTSWebAPIEndpoint + "CP?id=" + id + "&lb=" + lb.ToString() + "&machine=" + machine.ToString()+"&temp="+temp.ToString()+"&time="+time.ToString());
                 try
                 {
                     var employee = JsonConvert.DeserializeObject<皮囊硫化>(response);
@@ -201,11 +220,11 @@ namespace YKT.RubberTraceSystem.Phone.Services
             }
 
         }
-        public static async Task<检验修边> GetCC(Guid id, Guid lb, bool pass, string mt)
+        public static async Task<检验修边> GetCC(string id, Guid lb, bool pass, string mt)
         {
             using (WebAPI webAPI = new WebAPI())
             {
-                var response = await webAPI.GetWebAPIAsync(Constants.RTSWebAPIEndpoint + "CC?id=" + id.ToString() + "&lb=" + lb.ToString() + "&pass=" + pass.ToString() + "&mt=" + mt.ToString() );
+                var response = await webAPI.GetWebAPIAsync(Constants.RTSWebAPIEndpoint + "CC?id=" + id + "&lb=" + lb.ToString() + "&pass=" + pass.ToString() + "&mt=" + mt.ToString() );
                 try
                 {
                     var employee = JsonConvert.DeserializeObject<检验修边>(response);

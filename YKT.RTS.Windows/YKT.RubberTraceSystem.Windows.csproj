@@ -7,12 +7,31 @@
     <ProjectGuid>{D6F4B3F1-ACA0-4421-B770-82A2CF485CE7}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>YKT.RubberTraceSystem.Windows</RootNamespace>
-    <AssemblyName>YKT.RubberTraceSystem.Windows</AssemblyName>
+    <AssemblyName>溢康通二维码追踪系统</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>\\172.16.10.98\YKTQRSystem\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,6 +56,21 @@
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>YKT.RubberTraceSystem.Windows.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>501A0AEC2A3556B6E62FCC7B378E175EA6D0978F</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>YKT.RubberTraceSystem.Windows_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Icon1.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
@@ -163,6 +197,12 @@
     <Compile Include="成型码生成.Designer.cs">
       <DependentUpon>成型码生成.cs</DependentUpon>
     </Compile>
+    <Compile Include="消耗结束.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="消耗结束.Designer.cs">
+      <DependentUpon>消耗结束.cs</DependentUpon>
+    </Compile>
     <Compile Include="胶料入库.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +257,9 @@
     <EmbeddedResource Include="成型码生成.resx">
       <DependentUpon>成型码生成.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="消耗结束.resx">
+      <DependentUpon>消耗结束.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="胶料入库.resx">
       <DependentUpon>胶料入库.cs</DependentUpon>
     </EmbeddedResource>
@@ -250,6 +293,7 @@
     <None Include="Winpplb.lib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="YKT.RubberTraceSystem.Windows_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -328,6 +372,7 @@
     <None Include="Resources\自动识读模式.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Icon1.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -347,6 +392,18 @@
     <Content Include="Winpplb.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

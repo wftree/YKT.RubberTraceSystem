@@ -279,7 +279,7 @@ namespace YKT.RubberTraceSystem.Windows
 
             //barcode.
             //B_Prn_Barcode(80, 20, 0, "3", 2, 3, 40, 'B', "1234<+1>");//have a counter
-            B_Bar2d_QR(x, y, 2, scarl, 'Q', 'A', 0, 0, 0, data);
+            B_Bar2d_QR(x, y, 2, scarl, 'H', 'A', 0, 0, 0, data);
 
             ////picture.
             //   B_Get_Graphic_ColorBMP(420, 280, "bb.bmp");// Color bmp file.
@@ -417,6 +417,95 @@ namespace YKT.RubberTraceSystem.Windows
             return true;
         }
 
+        public bool PrintQRCode(int x, int y, int scarl,int offset, string[] data)
+        {
+            // open port.
+            int nLen, ret, sw;
+            byte[] pbuf = new byte[128];
+            string strmsg;
+            IntPtr ver;
+            System.Text.Encoding encAscII = System.Text.Encoding.ASCII;
+            System.Text.Encoding encUnicode = System.Text.Encoding.Unicode;
+
+            // dll version.
+            ver = B_Get_DLL_Version(0);
+
+            // search port.
+            nLen = B_GetUSBBufferLen() + 1;
+            strmsg = "DLL ";
+            strmsg += Marshal.PtrToStringAnsi(ver);
+            strmsg += "\r\n";
+            if (nLen > 1)
+            {
+                byte[] buf1, buf2;
+                int len1 = 128, len2 = 128;
+                buf1 = new byte[len1];
+                buf2 = new byte[len2];
+                B_EnumUSB(pbuf);
+                B_GetUSBDeviceInfo(1, buf1, out len1, buf2, out len2);
+                sw = 1;
+                if (1 == sw)
+                {
+                    ret = B_CreatePrn(12, encAscII.GetString(buf2, 0, len2));// open usb.
+                }
+                else
+                {
+                    ret = B_CreateUSBPort(1);// must call B_GetUSBBufferLen() function fisrt.
+                }
+                if (0 != ret)
+                {
+                    strmsg += "Open USB fail!";
+                }
+                else
+                {
+                    strmsg += "Open USB:\r\nDevice name: ";
+                    strmsg += encAscII.GetString(buf1, 0, len1);
+                    strmsg += "\r\nDevice path: ";
+                    strmsg += encAscII.GetString(buf2, 0, len2);
+                    //sw = 2;
+                    if (2 == sw)
+                    {
+                        //Immediate Error Report.
+                        B_WriteData(1, encAscII.GetBytes("^ee\r\n"), 5);//^ee
+                        ret = B_ReadData(pbuf, 4, 1000);
+                    }
+                }
+            }
+            else
+            {
+                return false;
+            }
+            //MessageBox.Show(strmsg);
+            if (0 != ret)
+                return false;
+
+            // sample setting.
+            B_Set_DebugDialog(1);
+            B_Set_Originpoint(0, 0);
+            B_Select_Option(2);
+            B_Set_Darkness(8);
+            B_Del_Pcx("*");// delete all picture.
+            B_WriteData(0, encAscII.GetBytes(sznop2), sznop2.Length);
+            B_WriteData(1, encAscII.GetBytes(sznop1), sznop1.Length);
+
+            //barcode.
+            //B_Prn_Barcode(80, 20, 0, "3", 2, 3, 40, 'B', "1234<+1>");//have a counter
+            for (int i = 0; i < data.Length; i++)
+            {
+                B_Bar2d_QR(x+(i*offset), y, 2, scarl, 'H', 'A', 0, 0, 0, data[0]);
+
+            }
+            
+
+            // output.
+            B_Print_Out(1);// copy 2.
+
+            // close port.
+            B_ClosePrn();
+
+            return true;
+        }
+
         public bool PrintQRCode(string data)
         {
             return PrintQRCode(Settings.Default.CQRL, Settings.Default.CQRH, Settings.Default.CSCALE, data);
@@ -424,6 +513,11 @@ namespace YKT.RubberTraceSystem.Windows
         public bool PrintQRCode(string data,string data1)
         {
             return PrintQRCode(Settings.Default.QRL, Settings.Default.QRH, Settings.Default.SCALE, data,data1);
+        }
+
+        public bool PrintQRCode(string[] data)
+        {
+            return PrintQRCode(Settings.Default.CQRL, Settings.Default.CQRH, Settings.Default.CSCALE,Settings.Default.COFFSET, data);
         }
     }
 }

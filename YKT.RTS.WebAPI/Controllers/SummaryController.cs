@@ -17,7 +17,7 @@ namespace YKT.RubberTraceSystem.WebAPI.Controllers
         public List<string[]> GetAll(Guid id)
         {
             var rc = from m in db.橡胶薄片s where m.删除 == false && m.作业员== id && m.生产时间.Value.Date == DateTime.Now.Date select m;
-            var fc = from m in db.帘布流转s where m.删除 == false && m.作业员 == id && m.生产时间.Date == DateTime.Now.Date select m; 
+            var fc = from m in db.帘布流转s where m.删除 == false && m.作业员 == id && m.生产时间.Value.Date == DateTime.Now.Date select m; 
             var np = from m in db.皮囊成型s where m.删除 == false && m.作业员 == id && m.生产时间.Value.Date == DateTime.Now.Date select m; 
             var cp = from m in db.皮囊硫化s where m.删除 == false && m.作业员 == id && m.生产时间.Value.Date == DateTime.Now.Date select m; 
 

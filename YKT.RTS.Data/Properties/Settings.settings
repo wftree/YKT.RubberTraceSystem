@@ -5,18 +5,26 @@
     <Setting Name="YKT_RubberTraceSystem_DatabaseConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=hawk-tuf;Initial Catalog=RTS;Persist Security Info=True;User ID=rts;Password=ykt123456&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=172.16.10.109;User ID=yktrwm;Password=rwm123...;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=hawk-tuf;Initial Catalog=RTS;Persist Security Info=True;User ID=rts;Password=ykt123456</Value>
+      <Value Profile="(Default)">Data Source=172.16.10.109;User ID=yktrwm;Password=rwm123...;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False</Value>
     </Setting>
     <Setting Name="RTSConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=hawk-tuf;Initial Catalog=RTS;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=172.16.10.109;User ID=yktrwm;Password=rwm123...;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=hawk-tuf;Initial Catalog=RTS;Integrated Security=True</Value>
+      <Value Profile="(Default)">Data Source=172.16.10.109;User ID=yktrwm;Password=rwm123...;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False</Value>
+    </Setting>
+    <Setting Name="RTSConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=172.16.10.109;Initial Catalog=RTS;Persist Security Info=True;User ID=yktrwm;Password=rwm123...&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=172.16.10.109;Initial Catalog=RTS;Persist Security Info=True;User ID=yktrwm;Password=rwm123...</Value>
     </Setting>
   </Settings>
 </SettingsFile>

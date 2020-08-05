@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using Utilizities;
+using YKT.RubberTraceSystem.Data;
 
 namespace YKT.RubberTraceSystem.Windows
 {
@@ -31,14 +33,28 @@ namespace YKT.RubberTraceSystem.Windows
         {
             if (dgProductCodes.SelectedRows.Count > 0)
             {
-                IQRPrinter printer = QRPrinterFactory.GetQRPrinter();
+                List<string> all = new List<string>();
                 //打印二维码
                 foreach (DataGridViewRow item in dgProductCodes.SelectedRows)
                 {
+                    HashTable ht = ddc.HashTables.First(x => x.Id == new Guid(item.Cells[0].Value.ToString()));
+                    all.Add(ht.Hash);
+                }
+                IQRPrinter printer = QRPrinterFactory.GetQRPrinter();
 
-                    if (!printer.PrintQRCode(Utilizity.CreateQRCodeStr(TableType.NP, item.Cells[0].Value.ToString())))
+                List<List<string>> ArrayList = all.Select((x, i) => new { Index = i, Value = x }).GroupBy(x => x.Index / 3).Select(x => x.Select(v => v.Value).ToList()).ToList();
+
+                foreach (var items in ArrayList)
+                {
+                    string[] datas = new string[items.Count];
+                    for (int i = 0; i < items.Count; i++)
                     {
-                        MessageBox.Show("打印错误，请重新打印", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        datas[i] = Utilizity.CreateQRCodeStr(TableType.NP, items[0].ToString());
+                    }
+
+                    if (!printer.PrintQRCode(datas))
+                    {
+                        MessageBox.Show("打印错误，请重新生成成品代码", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }

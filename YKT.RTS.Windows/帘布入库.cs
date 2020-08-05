@@ -32,7 +32,7 @@ namespace YKT.RubberTraceSystem.Windows
                 return;
             }
             string length = "";
-            double dlength;
+            float dlength;
             if (!CheckInput(tbLength, "请输入长度", ref length))
             {
                 
@@ -40,7 +40,7 @@ namespace YKT.RubberTraceSystem.Windows
             }
             try
             {
-                dlength = Convert.ToDouble(length);
+                dlength = Convert.ToSingle(length);
             }
             catch (Exception)
             {
@@ -48,14 +48,14 @@ namespace YKT.RubberTraceSystem.Windows
                 return;
             }
             string sno = "";
-            double dsno;
+            float dsno;
             if (!CheckInput(tbSerialNo, "请输入批次号", ref sno))
             {
                 return;
             }
             try
             {
-                dsno = Convert.ToDouble(sno);
+                dsno = Convert.ToSingle(sno);
             }
             catch (Exception)
             {
@@ -141,7 +141,7 @@ namespace YKT.RubberTraceSystem.Windows
                 return;
             }
             string length = "";
-            double dlength;
+            float dlength;
             if (!CheckInput(tbLength, "请输入长度", ref length))
             {
 
@@ -149,7 +149,7 @@ namespace YKT.RubberTraceSystem.Windows
             }
             try
             {
-                dlength = Convert.ToDouble(length);
+                dlength = Convert.ToSingle(length);
             }
             catch (Exception)
             {
@@ -157,14 +157,14 @@ namespace YKT.RubberTraceSystem.Windows
                 return;
             }
             string sno = "";
-            double dsno;
+            float dsno;
             if (!CheckInput(tbSerialNo, "请输入批次号", ref sno))
             {
                 return;
             }
             try
             {
-                dsno = Convert.ToDouble(sno);
+                dsno = Convert.ToSingle(sno);
             }
             catch (Exception)
             {

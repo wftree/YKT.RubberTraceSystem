@@ -61,7 +61,7 @@ namespace YKT.RubberTraceSystem.Windows.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("40")]
         public int CQRH {
             get {
                 return ((int)(this["CQRH"]));
@@ -73,7 +73,7 @@ namespace YKT.RubberTraceSystem.Windows.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("330")]
+        [global::System.Configuration.DefaultSettingValueAttribute("360")]
         public int CQRL {
             get {
                 return ((int)(this["CQRL"]));
@@ -85,13 +85,25 @@ namespace YKT.RubberTraceSystem.Windows.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
         public int CSCALE {
             get {
                 return ((int)(this["CSCALE"]));
             }
             set {
                 this["CSCALE"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("200")]
+        public int COFFSET {
+            get {
+                return ((int)(this["COFFSET"]));
+            }
+            set {
+                this["COFFSET"] = value;
             }
         }
     }

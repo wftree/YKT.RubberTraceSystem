@@ -54,22 +54,11 @@ namespace YKT.RubberTraceSystem.Windows
                 return;
             }
             
-            List<Guid> all = new List<Guid>();
+            List<string> all = new List<string>();
             using (TransactionScope scope = new TransactionScope())
             {
                 产品消耗 consume = null;
-                bool isCreate=false;
                 if(cbTypeNo.SelectedValue == null)
-                {
-                    isCreate = true;
-                }
-                if(cbTypeNo.SelectedValue != null)
-                {
-                    consume = ddc.产品消耗s.First(x => x.Id == new Guid(cbTypeNo.SelectedValue.ToString()));
-                    if (consume.内层胶消耗量 != innerrubberconsume || consume.外层胶消耗量 != outrubberconsume || consume.帘布消耗量 != fabricconsume)
-                        isCreate = true;
-                }
-                if(isCreate)
                 {
                     consume = null;
                     consume = new 产品消耗();
@@ -80,6 +69,14 @@ namespace YKT.RubberTraceSystem.Windows
                     consume.帘布消耗量 = fabricconsume;
                     consume.加入日期 = DateTime.Now;
                     ddc.产品消耗s.InsertOnSubmit(consume);
+                }
+                
+                if (cbTypeNo.SelectedValue != null)
+                {
+                    consume = ddc.产品消耗s.First(x => x.Id == new Guid(cbTypeNo.SelectedValue.ToString()));
+                    consume.内层胶消耗量 = innerrubberconsume;
+                    consume.外层胶消耗量 = outrubberconsume;
+                    consume.帘布消耗量 = fabricconsume;
                 }
                 for (int i = 0; i < num; i++)
                 {
@@ -92,7 +89,14 @@ namespace YKT.RubberTraceSystem.Windows
                     temp.产品消耗 = consume.Id;
                     temp.登记时间 = DateTime.Now;
                     ddc.皮囊成型s.InsertOnSubmit(temp);
-                    all.Add(temp.Id);
+                    
+
+                    HashTable hash = new HashTable();
+                    hash.Id = temp.Id;
+                    hash.Table = "NP";
+                    hash.Hash = Utilizity.GetCRC32Str(temp.Id.ToString());
+                    ddc.HashTables.InsertOnSubmit(hash);
+                    all.Add(hash.Hash);
                 }
                 ddc.SubmitChanges();
                 scope.Complete();
@@ -105,16 +109,25 @@ namespace YKT.RubberTraceSystem.Windows
             if (DialogResult.Yes == MessageBox.Show("你需要立即打印吗？", "询问", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
             {
                 IQRPrinter printer = QRPrinterFactory.GetQRPrinter();
-                foreach (var item in all)
-                {
 
-                    if (!printer.PrintQRCode(Utilizity.CreateQRCodeStr(TableType.NP, item.ToString())))
+                List<List<string>> ArrayList = all.Select((x, i) => new { Index = i, Value = x }).GroupBy(x => x.Index / 3).Select(x => x.Select(v => v.Value).ToList()).ToList();
+                
+                foreach (var items in ArrayList)
+                {
+                    string[] datas = new string[items.Count];
+                    for (int i = 0; i < items.Count; i++)
+                    {
+                        datas[i] = Utilizity.CreateQRCodeStr(TableType.NP, items[0].ToString());
+                    }
+
+                    if (!printer.PrintQRCode(datas))
                     {
                         MessageBox.Show("打印错误，请重新生成成品代码", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
             }
+            LoadData();
         }
         
         private void 成型码生成_Load(object sender, EventArgs e)
@@ -239,6 +252,15 @@ namespace YKT.RubberTraceSystem.Windows
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbTypeNo_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            产品消耗 consume = null;
+            consume = ddc.产品消耗s.First(x => x.Id == new Guid(cbTypeNo.SelectedValue.ToString()));
+            tbInnerRubberConsume.Text = consume.内层胶消耗量.ToString();
+            tbOutRubberConsume.Text = consume.外层胶消耗量.ToString();
+            tbFabricConsume.Text = consume.帘布消耗量.ToString();
         }
     }
 }

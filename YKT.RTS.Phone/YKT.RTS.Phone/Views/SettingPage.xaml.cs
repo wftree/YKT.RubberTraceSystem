@@ -40,7 +40,7 @@ namespace YKT.RubberTraceSystem.Phone.Views
             catch (Exception ex)
             {
 
-                throw ex;
+                //throw ex;
             }
         }
 

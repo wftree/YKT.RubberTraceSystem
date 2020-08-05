@@ -10,10 +10,18 @@ namespace YKT.RubberTraceSystem.WebAPI.Controllers
     {
         private DataDataContext db = new DataDataContext();
         [ResponseType(typeof(皮囊成型))]
-        public IHttpActionResult GetNP(Guid id, Guid lb,Guid machine)
+        public IHttpActionResult GetNP(string id, Guid lb,Guid machine)
         {
-
-            皮囊成型 皮囊成型 = db.皮囊成型s.Single<皮囊成型>(x => x.Id == id && x.删除 == false);
+            Guid guid;
+            if(id.Length>10)
+            {
+                guid = new Guid(id);
+            }
+            else
+            {
+                guid = db.HashTables.First(x => x.Hash == id).Id;
+            }
+            皮囊成型 皮囊成型 = db.皮囊成型s.Single<皮囊成型>(x => x.Id == guid && x.删除 == false);
 
 
             if (皮囊成型 == null)

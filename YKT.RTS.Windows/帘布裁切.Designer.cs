@@ -44,6 +44,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.tbConsume = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.tbNum = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -61,6 +63,8 @@
             this.宽度 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.厚度 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.角度 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.消耗数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.帘布流转BindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -78,8 +82,6 @@
             this.删除DataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.帘布入库BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.tbConsume = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -312,6 +314,27 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(494, 154);
             this.tableLayoutPanel5.TabIndex = 4;
             // 
+            // tbConsume
+            // 
+            this.tbConsume.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbConsume.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tbConsume.ImeMode = System.Windows.Forms.ImeMode.Alpha;
+            this.tbConsume.Location = new System.Drawing.Point(353, 123);
+            this.tbConsume.Name = "tbConsume";
+            this.tbConsume.Size = new System.Drawing.Size(144, 26);
+            this.tbConsume.TabIndex = 18;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label13.Location = new System.Drawing.Point(253, 120);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(94, 40);
+            this.label13.TabIndex = 17;
+            this.label13.Text = "消耗重量";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tbNum
             // 
             this.tbNum.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -330,7 +353,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(94, 40);
             this.label12.TabIndex = 15;
-            this.label12.Text = "生成数量";
+            this.label12.Text = "生成米数";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
@@ -447,6 +470,8 @@
             this.宽度,
             this.厚度,
             this.角度,
+            this.数量,
+            this.消耗数量,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewCheckBoxColumn1});
             this.dgFabricCut.DataSource = this.帘布流转BindingSource;
@@ -495,6 +520,20 @@
             this.角度.HeaderText = "角度";
             this.角度.Name = "角度";
             this.角度.ReadOnly = true;
+            // 
+            // 数量
+            // 
+            this.数量.DataPropertyName = "数量";
+            this.数量.HeaderText = "每卷米数";
+            this.数量.Name = "数量";
+            this.数量.ReadOnly = true;
+            // 
+            // 消耗数量
+            // 
+            this.消耗数量.DataPropertyName = "消耗数量";
+            this.消耗数量.HeaderText = "消耗重量";
+            this.消耗数量.Name = "消耗数量";
+            this.消耗数量.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn9
             // 
@@ -639,27 +678,6 @@
             this.label3.Text = "帘布入库码";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label13.Location = new System.Drawing.Point(253, 120);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(94, 40);
-            this.label13.TabIndex = 17;
-            this.label13.Text = "消耗数量";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tbConsume
-            // 
-            this.tbConsume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbConsume.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tbConsume.ImeMode = System.Windows.Forms.ImeMode.Alpha;
-            this.tbConsume.Location = new System.Drawing.Point(353, 123);
-            this.tbConsume.Name = "tbConsume";
-            this.tbConsume.Size = new System.Drawing.Size(144, 26);
-            this.tbConsume.TabIndex = 18;
-            // 
             // 帘布裁切
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -731,17 +749,19 @@
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.DataGridView dgFabricCut;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 产品编号;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 宽度;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 厚度;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 角度;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.BindingSource 帘布流转BindingSource;
         private System.Windows.Forms.TextBox tbNum;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox tbConsume;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 产品编号;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 宽度;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 厚度;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 角度;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 数量;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 消耗数量;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
     }
 }

@@ -114,7 +114,7 @@ namespace YKT.RTS.Phone.Views
                         await DisplayAlert("警告", "错误代码类型", "确定");
                         return;
                     }
-                    txtNP.Text = Utilizity.DecodeQRCode(result).Value.ToString();
+                    txtNP.Text = Utilizity.DecodeQRHashCode(result);
                 }
             }
             catch (Exception ex)
@@ -141,7 +141,7 @@ namespace YKT.RTS.Phone.Views
                 await DisplayAlert("警告", "无扫描数据", "确定");
                 return;
             }
-            var temp = await Constants.GetNP(Utilizity.DecodeQRCode(txtNP.Text).Value, Constants.User.Id,Constants.Machine.Id);
+            var temp = await Constants.GetNP(Utilizity.DecodeQRHashCode(txtNP.Text), Constants.User.Id,Constants.Machine.Id);
             if (temp != null)
             {
                 txtNPResult.Text = "已登记：" + temp.生产时间.ToString();
@@ -161,7 +161,7 @@ namespace YKT.RTS.Phone.Views
                         await DisplayAlert("警告", "错误代码类型", "确定");
                         return;
                     }
-                    txtCP.Text = Utilizity.DecodeQRCode(result).Value.ToString();
+                    txtCP.Text = Utilizity.DecodeQRHashCode(result);
                 }
             }
             catch (Exception ex)
@@ -190,7 +190,7 @@ namespace YKT.RTS.Phone.Views
             }
             try
             {
-                var temp = await Constants.GetCP(Utilizity.DecodeQRCode(txtCP.Text).Value, Constants.User.Id, Constants.Machine.Id, Convert.ToSingle(txtCPTemp.Text), Convert.ToSingle(txtCPTime.Text));
+                var temp = await Constants.GetCP(Utilizity.DecodeQRHashCode(txtCP.Text), Constants.User.Id, Constants.Machine.Id, Convert.ToSingle(txtCPTemp.Text), Convert.ToSingle(txtCPTime.Text));
                 if (temp != null)
                 {
                     txtCPResult.Text = "已登记：" + temp.生产时间.ToString();
@@ -231,11 +231,11 @@ namespace YKT.RTS.Phone.Views
                 检验修边 temp;
                 if (picker.SelectedItem!=null)
                 {
-                    temp = await Constants.GetCC(Utilizity.DecodeQRCode(txtCC.Text).Value, Constants.User.Id, swOk.IsToggled, picker.SelectedItem.ToString());
+                    temp = await Constants.GetCC(Utilizity.DecodeQRHashCode(txtCC.Text), Constants.User.Id, swOk.IsToggled, picker.SelectedItem.ToString());
                 }
                 else
                 {
-                    temp = await Constants.GetCC(Utilizity.DecodeQRCode(txtCC.Text).Value, Constants.User.Id, swOk.IsToggled, "");
+                    temp = await Constants.GetCC(Utilizity.DecodeQRHashCode(txtCC.Text), Constants.User.Id, swOk.IsToggled, "");
                 }
                 if (temp != null)
                 {
@@ -262,7 +262,7 @@ namespace YKT.RTS.Phone.Views
                         await DisplayAlert("警告", "错误代码类型", "确定");
                         return;
                     }
-                    txtCC.Text = Utilizity.DecodeQRCode(result).Value.ToString();
+                    txtCC.Text = Utilizity.DecodeQRHashCode(result);
                 }
             }
             catch (Exception ex)

@@ -10,15 +10,23 @@ namespace YKT.RubberTraceSystem.WebAPI.Controllers
     {
         private DataDataContext db = new DataDataContext();
         [ResponseType(typeof(检验修边))]
-        public IHttpActionResult GetCC(Guid id, Guid lb, bool pass, string mt)
+        public IHttpActionResult GetCC(string id, Guid lb, bool pass, string mt)
         {
-
+            Guid guid;
+            if (id.Length > 10)
+            {
+                guid = new Guid(id);
+            }
+            else
+            {
+                guid = db.HashTables.First(x => x.Hash == id).Id;
+            }
             皮囊硫化 皮囊硫化 = null;
 
             处理方法 处理方法 = null;
             try
             {
-                皮囊硫化 = db.皮囊硫化s.Single<皮囊硫化>(x => x.成型皮囊 == id && x.删除 == false);
+                皮囊硫化 = db.皮囊硫化s.Single<皮囊硫化>(x => x.成型皮囊 == guid && x.删除 == false);
                 处理方法 = db.处理方法s.FirstOrDefault(x => x.处理方法1.Contains(mt.Trim()) && x.删除 == false);
             }
             catch (Exception)

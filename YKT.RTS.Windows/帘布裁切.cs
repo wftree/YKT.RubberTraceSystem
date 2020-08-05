@@ -195,6 +195,8 @@ namespace YKT.RubberTraceSystem.Windows
                 this.tbThick.Text = dgFabricCut.SelectedRows[0].Cells[3].Value.ToString();
                 this.tbWidth.Text = dgFabricCut.SelectedRows[0].Cells[2].Value.ToString();
                 this.tbAng.Text = dgFabricCut.SelectedRows[0].Cells[4].Value.ToString();
+                this.tbNum.Text = dgFabricCut.SelectedRows[0].Cells[5].Value.ToString();
+                this.tbConsume.Text = dgFabricCut.SelectedRows[0].Cells[6].Value.ToString();
             }
             else
             {
