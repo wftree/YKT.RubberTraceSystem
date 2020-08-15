@@ -344,6 +344,8 @@
             // 
             // tbTypeNo
             // 
+            this.tbTypeNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.tbTypeNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.tbTypeNo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbTypeNo.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tbTypeNo.ImeMode = System.Windows.Forms.ImeMode.Alpha;

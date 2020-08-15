@@ -267,8 +267,8 @@ namespace YKT.RubberTraceSystem.Windows
             //B_Draw_Line('O', 400, 20, 4, 540);
 
             ////print text, true type text.
-            B_Prn_Text(x, y+scarl*50, 0, 2, 1, 1, 'N', data);
-            B_Prn_Text(x + 15 + scarl * 30, y + scarl * 10, 0, 2, 1, 1, 'N', data1);
+            B_Prn_Text(x, y+scarl*50, 0, 3, 1, 2, 'N', data);
+            B_Prn_Text(x + 40 + scarl * 30, y + scarl * 10, 0, 3, 2, 2, 'N', data1);
             //B_Prn_Text_TrueType(30,100,30,"Arial",1,400,0,0,0,"AA","TrueType Font");//save in printer.
             //B_Prn_Text_TrueType_W(30,160,20,20,"Times New Roman",1,400,0,0,0,"AB","TT_W: 多字元測試");
             //B_Prn_Text_TrueType_Uni(30,220,30,"Times New Roman",1,400,0,0,0,"AC",Encoding.Unicode.GetBytes("TT_Uni: 多字元測試"),1);//UTF-16

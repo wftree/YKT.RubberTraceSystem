@@ -135,5 +135,10 @@ namespace YKT.RubberTraceSystem.Windows
         {
             ShowForm(typeof(消耗结束));
         }
+
+        private void 消耗结束ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ShowForm(typeof(消耗结束));
+        }
     }
 }

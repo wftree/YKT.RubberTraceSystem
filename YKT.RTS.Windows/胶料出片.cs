@@ -134,6 +134,7 @@ namespace YKT.RubberTraceSystem.Windows
         {
             var users = from m in ddc.胶料入库s where m.删除 == false && m.消耗结束 == false select m;
             胶料入库BindingSource.DataSource = users;
+            tbTypeNo.AutoCompleteCustomSource.AddRange(users.Select(x => x.Id.ToString()).ToArray());
         }
 
         private void 胶料出片_FormClosing(object sender, FormClosingEventArgs e)
@@ -150,7 +151,7 @@ namespace YKT.RubberTraceSystem.Windows
         {
             //listener.Stop();
         }
-
+        string breakloop;
         private void tbTypeNo_TextChanged(object sender, EventArgs e)
         {
             if (tbTypeNo.Text.Length > 38)
@@ -165,6 +166,22 @@ namespace YKT.RubberTraceSystem.Windows
                 }
                 tbTypeNo.Text = Utilizity.DecodeQRCode(temp).ToString();
                 SetGridViewSelected(dgOutRubber, tbTypeNo.Text);
+            }
+            if (tbTypeNo.Text.Length ==36 && tbTypeNo.Text != breakloop)
+            {
+                string temp = tbTypeNo.Text;
+                for (int i = 0; i < dgOutRubber.Rows.Count; i++)
+                {
+                    string o = dgOutRubber.Rows[i].Cells[0].ToString();
+                    if (o.ToUpper() == temp)
+                    {
+                        
+                        breakloop = tbTypeNo.Text;
+                        dgOutRubber.Rows[i].Selected = true;
+                        return;
+                    }
+                }
+             
             }
         }
 

@@ -34,6 +34,7 @@
             this.帘布剪裁ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.工件成型ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.打印工件码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.消耗结束ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.仓库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.胶料入库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帘布入库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,7 +43,7 @@
             this.产品追踪ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.基础资料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.消耗结束ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.消耗结束ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.msMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,11 +101,19 @@
             this.打印工件码ToolStripMenuItem.Text = "打印工件码";
             this.打印工件码ToolStripMenuItem.Click += new System.EventHandler(this.打印工件码ToolStripMenuItem_Click);
             // 
+            // 消耗结束ToolStripMenuItem
+            // 
+            this.消耗结束ToolStripMenuItem.Name = "消耗结束ToolStripMenuItem";
+            this.消耗结束ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.消耗结束ToolStripMenuItem.Text = "消耗结束";
+            this.消耗结束ToolStripMenuItem.Click += new System.EventHandler(this.消耗结束ToolStripMenuItem_Click);
+            // 
             // 仓库ToolStripMenuItem
             // 
             this.仓库ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.胶料入库ToolStripMenuItem,
-            this.帘布入库ToolStripMenuItem});
+            this.帘布入库ToolStripMenuItem,
+            this.消耗结束ToolStripMenuItem1});
             this.仓库ToolStripMenuItem.Name = "仓库ToolStripMenuItem";
             this.仓库ToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.仓库ToolStripMenuItem.Text = "仓库";
@@ -112,14 +121,14 @@
             // 胶料入库ToolStripMenuItem
             // 
             this.胶料入库ToolStripMenuItem.Name = "胶料入库ToolStripMenuItem";
-            this.胶料入库ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.胶料入库ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.胶料入库ToolStripMenuItem.Text = "胶料入库";
             this.胶料入库ToolStripMenuItem.Click += new System.EventHandler(this.胶料入库ToolStripMenuItem_Click);
             // 
             // 帘布入库ToolStripMenuItem
             // 
             this.帘布入库ToolStripMenuItem.Name = "帘布入库ToolStripMenuItem";
-            this.帘布入库ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.帘布入库ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.帘布入库ToolStripMenuItem.Text = "帘布入库";
             this.帘布入库ToolStripMenuItem.Click += new System.EventHandler(this.帘布入库ToolStripMenuItem_Click);
             // 
@@ -160,12 +169,12 @@
             this.关于ToolStripMenuItem.Text = "关于";
             this.关于ToolStripMenuItem.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
             // 
-            // 消耗结束ToolStripMenuItem
+            // 消耗结束ToolStripMenuItem1
             // 
-            this.消耗结束ToolStripMenuItem.Name = "消耗结束ToolStripMenuItem";
-            this.消耗结束ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.消耗结束ToolStripMenuItem.Text = "消耗结束";
-            this.消耗结束ToolStripMenuItem.Click += new System.EventHandler(this.消耗结束ToolStripMenuItem_Click);
+            this.消耗结束ToolStripMenuItem1.Name = "消耗结束ToolStripMenuItem1";
+            this.消耗结束ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.消耗结束ToolStripMenuItem1.Text = "消耗结束";
+            this.消耗结束ToolStripMenuItem1.Click += new System.EventHandler(this.消耗结束ToolStripMenuItem1_Click);
             // 
             // MainForm
             // 
@@ -204,5 +213,6 @@
         private System.Windows.Forms.ToolStripMenuItem 打印工件码ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 产品追踪ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 消耗结束ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 消耗结束ToolStripMenuItem1;
     }
 }

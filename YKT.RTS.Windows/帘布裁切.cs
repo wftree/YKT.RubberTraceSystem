@@ -147,7 +147,7 @@ namespace YKT.RubberTraceSystem.Windows
             foreach (DataGridViewRow item in dgFabricCut.SelectedRows)
             {
 
-                if (!printer.PrintQRCode(Utilizity.CreateQRCodeStr(TableType.FC, item.Cells[0].Value.ToString()),item.Cells[1].Value.ToString()+Convert.ToDateTime(item.Cells[5].Value).ToShortDateString()))
+                if (!printer.PrintQRCode(Utilizity.CreateQRCodeStr(TableType.FC, item.Cells[0].Value.ToString()),item.Cells[1].Value.ToString()+Convert.ToDateTime(item.Cells[7].Value).ToShortDateString()))
                 {
                     MessageBox.Show("打印错误，请重新生成成品代码", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
